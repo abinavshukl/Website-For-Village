@@ -1,0 +1,138 @@
+{
+  "administration": [
+    {
+      "title": "पंचायत सचिव",
+      "titleEn": "Panchayat Secretary (Sachiv)",
+      "name": "श्री / श्रीमती [नाम अपडेट करें]",
+      "nameEn": "[Update Name]",
+      "office": "विकास खण्ड बेंहदर",
+      "officeEn": "Block Behendar",
+      "phone": "XXXXXXXXXX",
+      "note": "ग्राम पंचायत 29-बड़ागांव के सचिव",
+      "noteEn": "Secretary, GP 29-Badagaon",
+      "whatsapp": true
+    },
+    {
+      "title": "लेखपाल",
+      "titleEn": "Lekhpal (Revenue Inspector)",
+      "name": "श्री [नाम अपडेट करें]",
+      "nameEn": "[Update Name]",
+      "office": "बड़ागांव, हरदोई",
+      "officeEn": "Badagaon, Hardoi",
+      "phone": "XXXXXXXXXX",
+      "note": "राजस्व निरीक्षक, हल्का बड़ागांव",
+      "noteEn": "Revenue Inspector, Halka Badagaon",
+      "whatsapp": true
+    },
+    {
+      "title": "ग्राम रोजगार सेवक",
+      "titleEn": "Gram Rozgar Sewak (MNREGA)",
+      "name": "श्री [नाम अपडेट करें]",
+      "nameEn": "[Update Name]",
+      "office": "ग्राम पंचायत 29-बड़ागांव",
+      "officeEn": "GP 29-Badagaon",
+      "phone": "XXXXXXXXXX",
+      "note": "MNREGA जॉब कार्ड एवं कार्य आवेदन",
+      "noteEn": "MNREGA Job Card & Work Demand",
+      "whatsapp": true
+    }
+  ],
+  "police": [
+    {
+      "title": "पुलिस आपातकालीन",
+      "titleEn": "Police Emergency",
+      "name": "उत्तर प्रदेश पुलिस",
+      "nameEn": "Uttar Pradesh Police",
+      "phone": "112",
+      "note": "24×7 आपातकालीन सेवा",
+      "noteEn": "24×7 Emergency Service",
+      "whatsapp": false,
+      "emergency": true
+    },
+    {
+      "title": "मुख्यमंत्री हेल्पलाइन",
+      "titleEn": "CM Helpline",
+      "name": "उत्तर प्रदेश सरकार",
+      "nameEn": "Govt. of Uttar Pradesh",
+      "phone": "1076",
+      "note": "शिकायत एवं सेवा अनुरोध",
+      "noteEn": "Grievance & Service Request",
+      "whatsapp": false,
+      "emergency": true
+    },
+    {
+      "title": "भ्रष्टाचार विरोधी हेल्पलाइन",
+      "titleEn": "Anti-Corruption Helpline",
+      "name": "विजिलेंस / ACB",
+      "nameEn": "Vigilance / ACB",
+      "phone": "1064",
+      "altPhone": "1031",
+      "note": "भ्रष्टाचार की शिकायत दर्ज करें",
+      "noteEn": "Report Corruption",
+      "whatsapp": false,
+      "emergency": false
+    },
+    {
+      "title": "साइबर फ्रॉड हेल्पलाइन",
+      "titleEn": "Cyber Fraud Helpline",
+      "name": "MHA साइबर क्राइम",
+      "nameEn": "MHA Cyber Crime",
+      "phone": "1930",
+      "note": "ऑनलाइन धोखाधड़ी की तत्काल सूचना दें",
+      "noteEn": "Report Online Fraud Immediately",
+      "whatsapp": false,
+      "emergency": true
+    },
+    {
+      "title": "महिला हेल्पलाइन",
+      "titleEn": "Women Helpline",
+      "name": "UP महिला सुरक्षा",
+      "nameEn": "UP Women Safety",
+      "phone": "1090",
+      "note": "महिलाओं की सुरक्षा हेतु 24×7",
+      "noteEn": "24×7 Women Safety Helpline",
+      "whatsapp": false,
+      "emergency": true
+    }
+  ],
+  "utilities": [
+    {
+      "title": "सब-स्टेशन लाइनमैन",
+      "titleEn": "Substation Lineman",
+      "name": "श्री [नाम अपडेट करें]",
+      "nameEn": "[Update Name]",
+      "office": "नजदीकी विद्युत उपकेंद्र",
+      "officeEn": "Nearest Electrical Substation",
+      "phone": "XXXXXXXXXX",
+      "note": "बिजली खराबी / ट्रांसफार्मर फेल",
+      "noteEn": "Power Failure / Transformer Fault",
+      "whatsapp": true
+    },
+    {
+      "title": "नलकूप ऑपरेटर",
+      "titleEn": "Tubewell Operator",
+      "name": "श्री [नाम अपडेट करें]",
+      "nameEn": "[Update Name]",
+      "office": "राजकीय नलकूप, बड़ागांव",
+      "officeEn": "Govt. Tubewell, Badagaon",
+      "phone": "XXXXXXXXXX",
+      "note": "सिंचाई / पेयजल आपूर्ति",
+      "noteEn": "Irrigation / Drinking Water Supply",
+      "whatsapp": true
+    }
+  ],
+  "health": [
+    {
+      "title": "ANM / ASHA सेविका",
+      "titleEn": "ANM / ASHA Worker",
+      "name": "श्रीमती [नाम अपडेट करें]",
+      "nameEn": "[Update Name]",
+      "office": "उप स्वास्थ्य केंद्र, बड़ागांव",
+      "officeEn": "Sub Health Centre, Badagaon",
+      "phone": "XXXXXXXXXX",
+      "note": "टीकाकरण, मातृ स्वास्थ्य, आयुष्मान सहायता",
+      "noteEn": "Vaccination, Maternal Health, Ayushman Support",
+      "whatsapp": true
+    }
+  ]
+}

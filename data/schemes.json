@@ -1,0 +1,140 @@
+[
+  {
+    "id": "pm-kisan",
+    "name": "PM किसान सम्मान निधि",
+    "nameEn": "PM Kisan Samman Nidhi",
+    "category": "agriculture",
+    "categoryLabel": "कृषि",
+    "portal": "https://pmkisan.gov.in",
+    "badge": "#16a34a",
+    "icon": "🌾",
+    "description": "छोटे और सीमांत किसानों को प्रति वर्ष ₹6,000 की तीन समान किस्तों में सीधी आय सहायता।",
+    "descriptionEn": "Direct income support of ₹6,000/year in 3 instalments to small and marginal farmers.",
+    "eligibility": [
+      "भूमि धारक किसान परिवार (2 हेक्टेयर तक)",
+      "आधार कार्ड अनिवार्य",
+      "बैंक खाता — DBT सक्रिय होना चाहिए"
+    ],
+    "steps": [
+      { "step": "pmkisan.gov.in पर जाएँ", "en": "Visit pmkisan.gov.in" },
+      { "step": "Farmer Corner → e-KYC करें", "en": "Go to Farmer Corner → Complete e-KYC" },
+      { "step": "Beneficiary Status चेक करें", "en": "Check Beneficiary Status" },
+      { "step": "लाभार्थी सूची में नाम देखें", "en": "Search your name in Beneficiary List" }
+    ]
+  },
+  {
+    "id": "pm-awas",
+    "name": "PM आवास योजना ग्रामीण",
+    "nameEn": "PM Awas Yojana Gramin",
+    "category": "housing",
+    "categoryLabel": "आवास",
+    "portal": "https://pmayg.nic.in",
+    "badge": "#d97706",
+    "icon": "🏠",
+    "description": "कच्चे मकान में रहने वाले बेघर एवं ग्रामीण गरीब परिवारों को पक्का घर बनाने हेतु ₹1.20 लाख की सहायता।",
+    "descriptionEn": "Financial assistance of ₹1.20 lakh to construct a pucca house for rural homeless/poor families.",
+    "eligibility": [
+      "SECC 2011 सूची में नाम",
+      "कच्चे / जर्जर मकान में निवास",
+      "पूर्व में PMAY लाभ न मिला हो"
+    ],
+    "steps": [
+      { "step": "pmayg.nic.in → Awaassoft पर जाएँ", "en": "Visit pmayg.nic.in → Awaassoft" },
+      { "step": "Report → H Section → SECC सूची देखें", "en": "Check SECC list in Report → H Section" },
+      { "step": "ग्राम पंचायत में आवेदन करें", "en": "Apply at Gram Panchayat office" },
+      { "step": "स्वीकृत घरों की सूची देखें", "en": "Check sanctioned houses list" }
+    ]
+  },
+  {
+    "id": "up-pension",
+    "name": "UP पेंशन पोर्टल",
+    "nameEn": "UP Pension Portal (SSPY)",
+    "category": "pension",
+    "categoryLabel": "पेंशन",
+    "portal": "https://sspy-up.gov.in",
+    "badge": "#7c3aed",
+    "icon": "👴",
+    "description": "वृद्धावस्था, विधवा एवं दिव्यांग पेंशन — प्रति माह ₹500 से ₹1,000 तक सीधे खाते में।",
+    "descriptionEn": "Old Age, Widow & Disability pensions — ₹500 to ₹1,000/month directly to bank account.",
+    "eligibility": [
+      "वृद्धावस्था: 60 वर्ष से अधिक आयु, BPL श्रेणी",
+      "विधवा पेंशन: पति की मृत्यु उपरांत, 18–60 वर्ष",
+      "दिव्यांग: 40% से अधिक विकलांगता प्रमाण पत्र"
+    ],
+    "steps": [
+      { "step": "sspy-up.gov.in पर जाएँ", "en": "Visit sspy-up.gov.in" },
+      { "step": "संबंधित योजना चुनें (वृद्धावस्था/विधवा/दिव्यांग)", "en": "Select relevant scheme" },
+      { "step": "ऑनलाइन आवेदन करें / स्थिति जाँचें", "en": "Apply Online / Check Status" },
+      { "step": "ग्राम पंचायत से सत्यापन कराएँ", "en": "Get verification from Gram Panchayat" }
+    ]
+  },
+  {
+    "id": "ayushman",
+    "name": "आयुष्मान भारत PM-JAY",
+    "nameEn": "Ayushman Bharat PM-JAY",
+    "category": "health",
+    "categoryLabel": "स्वास्थ्य",
+    "portal": "https://beneficiary.nha.gov.in",
+    "badge": "#0891b2",
+    "icon": "🏥",
+    "description": "गोल्डन कार्ड धारकों को किसी भी सूचीबद्ध अस्पताल में ₹5 लाख तक का निःशुल्क इलाज।",
+    "descriptionEn": "Free treatment up to ₹5 lakh at any empanelled hospital for Golden Card holders.",
+    "eligibility": [
+      "SECC 2011 / PMJAY लाभार्थी सूची में नाम",
+      "राशन कार्ड (अंत्योदय / प्राथमिकता)",
+      "आधार कार्ड अनिवार्य"
+    ],
+    "steps": [
+      { "step": "beneficiary.nha.gov.in पर पात्रता जाँचें", "en": "Check eligibility at beneficiary.nha.gov.in" },
+      { "step": "नजदीकी CSC / PMJAY केंद्र पर जाएँ", "en": "Visit nearest CSC / PMJAY centre" },
+      { "step": "गोल्डन कार्ड बनवाएँ (निःशुल्क)", "en": "Get your Golden Card made (free)" },
+      { "step": "सूचीबद्ध अस्पताल में कार्ड दिखाएँ", "en": "Show card at empanelled hospital" }
+    ]
+  },
+  {
+    "id": "ration",
+    "name": "UP राशन कार्ड / FCS पोर्टल",
+    "nameEn": "UP Ration Card / FCS Portal",
+    "category": "food",
+    "categoryLabel": "खाद्य",
+    "portal": "https://fcs.up.gov.in",
+    "badge": "#dc2626",
+    "icon": "🌾",
+    "description": "NFSA के तहत पात्र परिवारों को प्रति यूनिट 5 किलो गेहूँ/चावल ₹2–3/किलो की दर पर।",
+    "descriptionEn": "5 kg wheat/rice per unit at ₹2–3/kg for eligible NFSA families.",
+    "eligibility": [
+      "अंत्योदय (AAY) या प्राथमिकता (PHH) श्रेणी",
+      "निवास प्रमाण पत्र अनिवार्य",
+      "परिवार पंजीकरण (FRC) अनिवार्य"
+    ],
+    "steps": [
+      { "step": "fcs.up.gov.in पर राशन कार्ड विवरण देखें", "en": "Check Ration Card details at fcs.up.gov.in" },
+      { "step": "यूनिट पात्रता एवं डीलर सत्यापन करें", "en": "Verify unit entitlement and dealer" },
+      { "step": "शिकायत के लिए टोल-फ्री: 1967 / 14445", "en": "For grievance call toll-free: 1967 / 14445" },
+      { "step": "ऑनलाइन राशन कार्ड में संशोधन करें", "en": "Apply for corrections online" }
+    ]
+  },
+  {
+    "id": "jansunwai",
+    "name": "UP जनसुनवाई पोर्टल",
+    "nameEn": "UP Jansunwai Portal",
+    "category": "grievance",
+    "categoryLabel": "शिकायत",
+    "portal": "https://jansunwai.up.nic.in",
+    "badge": "#065f46",
+    "icon": "📋",
+    "description": "मुख्यमंत्री कार्यालय को सीधे शिकायत दर्ज करें — 30 दिन में समाधान की गारंटी।",
+    "descriptionEn": "File complaints directly to CM's office — resolution guaranteed within 30 days.",
+    "eligibility": [
+      "कोई भी UP का नागरिक",
+      "मोबाइल नंबर से OTP सत्यापन",
+      "संबंधित विभाग की जानकारी दें"
+    ],
+    "steps": [
+      { "step": "jansunwai.up.nic.in पर जाएँ", "en": "Visit jansunwai.up.nic.in" },
+      { "step": "शिकायत पंजीकरण → OTP से लॉगिन", "en": "Register Complaint → Login via OTP" },
+      { "step": "विभाग, समस्या एवं स्थान भरें", "en": "Fill Department, Issue & Location" },
+      { "step": "संदर्भ संख्या नोट करें और स्थिति ट्रैक करें", "en": "Note Reference Number & Track Status" }
+    ]
+  }
+]

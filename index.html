@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="hi" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ग्राम पंचायत 29-बड़ागांव, विकास खण्ड 19-बेंहदर, जिला 113-हरदोई — नागरिक पोर्टल। मतदाता बूथ खोजें, शिकायत दर्ज करें, और सरकारी योजनाओं की जानकारी प्राप्त करें।" />
+  <meta name="keywords" content="बड़ागांव, Badagaon, ग्राम पंचायत, हरदोई, बेंहदर, UP, voter booth, shikayat, gram panchayat portal" />
+  <meta property="og:title" content="ग्राम पंचायत 29-बड़ागांव — नागरिक पोर्टल" />
+  <meta property="og:description" content="बड़ागांव के नागरिकों के लिए आधिकारिक ग्राम पंचायत पोर्टल — बूथ खोजें, शिकायत दर्ज करें।" />
+  <meta property="og:type" content="website" />
+  <title>ग्राम पंचायत 29-बड़ागांव — नागरिक पोर्टल | Badagaon Gram Panchayat</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+
+  <!-- ════ LEGAL DISCLAIMER MODAL (First-Touch) ════ -->
+  <div id="disclaimerOverlay" class="disclaimer-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="disclaimerTitle">
+    <div class="disclaimer-modal">
+      <div class="disclaimer-modal__header">
+        <div class="disclaimer-modal__icon" aria-hidden="true">⚖️</div>
+        <div>
+          <div class="disclaimer-modal__title">महत्वपूर्ण सूचना / Important Notice</div>
+          <div class="disclaimer-modal__subtitle">कृपया आगे बढ़ने से पहले पढ़ें / Please read before proceeding</div>
+        </div>
+      </div>
+      <div class="disclaimer-modal__body">
+        <div class="disclaimer-modal__text">
+          <strong>यह एक स्वतंत्र जन-जागरूकता पहल है।</strong> यह वेबसाइट ग्राम पंचायत 29-बड़ागांव के नागरिकों को सरकारी सेवाओं, अधिकारों और शिकायत प्रक्रियाओं के बारे में जागरूक करने के उद्देश्य से बनाई गई है।
+          <br/><br/>
+          🔴 <strong>यह कोई आधिकारिक सरकारी पोर्टल नहीं है।</strong> यहाँ उपलब्ध सभी प्रारूप, टेम्पलेट और जानकारी केवल सूचनात्मक एवं शैक्षिक उद्देश्य के लिए हैं। ये प्रशासन से नागरिकों को जोड़ने में सहायता के उपकरण हैं।
+          <br/><br/>
+          <em style="font-size:0.85em;color:#92400e;">This is an independent public awareness initiative, not an official government portal. All templates and resources are purely informational tools to connect citizens with the administration.</em>
+        </div>
+      </div>
+      <div class="disclaimer-modal__footer">
+        <label class="disclaimer-modal__check">
+          <input type="checkbox" id="disclaimerDontShow" />
+          दोबारा न दिखाएँ / Don't show again
+        </label>
+        <button id="disclaimerAccept" class="btn btn--primary">
+          ✅ समझ गया, आगे बढ़ें
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Sentinel for sticky header shadow ── -->
+  <div id="headerSentinel" aria-hidden="true" style="height:1px;position:absolute;top:0;width:100%;pointer-events:none;"></div>
+
+  <!-- ════ SITE HEADER ════ -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="site-logo" aria-label="ग्राम पंचायत 29-बड़ागांव — होम पेज">
+          <div class="site-logo__emblem" aria-hidden="true">🏛️</div>
+          <div class="site-logo__text">
+            <span class="site-logo__name">ग्राम पंचायत 29-बड़ागांव</span>
+            <span class="site-logo__sub">जिला हरदोई, उत्तर प्रदेश</span>
+          </div>
+        </a>
+        <button
+          id="menuToggle"
+          class="menu-toggle"
+          aria-label="मेन्यू खोलें / Close menu"
+          aria-expanded="false"
+          aria-controls="navMenu"
+        >
+          <span class="menu-toggle__bar"></span>
+          <span class="menu-toggle__bar"></span>
+          <span class="menu-toggle__bar"></span>
+        </button>
+        <nav id="navMenu" class="site-nav" aria-label="मुख्य नेविगेशन">
+          <ul class="nav__list" role="list">
+            <li><a href="index.html"     class="nav__link">🏠 होम</a></li>
+            <li><a href="rights.html"    class="nav__link">⚖️ अधिकार</a></li>
+            <li><a href="schemes.html"   class="nav__link">📋 योजनाएँ</a></li>
+            <li><a href="directory.html" class="nav__link">📞 संपर्क</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <div id="navOverlay" class="nav-overlay" aria-hidden="true"></div>
+
+  <main id="main-content">
+
+    <!-- ════ HERO ════ -->
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="container">
+        <div class="hero__inner">
+          <div class="hero__content">
+            <div class="hero__badge" role="status">
+              <span class="hero__badge-dot" aria-hidden="true"></span>
+              जिला 113-हरदोई &nbsp;|&nbsp; ब्लॉक 19-बेंहदर &nbsp;|&nbsp; उ०प्र०
+            </div>
+            <h1 id="heroTitle" class="hero__title">
+              ग्राम पंचायत<br/>29-बड़ागांव
+              <span class="en">Gram Panchayat 29-Badagaon</span>
+            </h1>
+            <p class="hero__subtitle">
+              सरकारी योजनाएँ, मतदाता बूथ, शिकायत निवारण — एक ही जगह।<br/>
+              <small>Government schemes, voter booth finder & grievance — all in one place.</small>
+            </p>
+            <div class="hero__cta">
+              <a href="#boothFinderSection" class="btn btn--secondary btn--lg">🗳️ अपना बूथ खोजें</a>
+              <a href="#grievanceSection"   class="btn btn--outline  btn--lg" style="border-color:rgba(255,255,255,0.6);color:#fff;">📝 शिकायत दर्ज करें</a>
+            </div>
+          </div>
+          <div class="hero__emblem" aria-hidden="true">
+            <div class="hero__emblem-icon">🏛️</div>
+            <div class="hero__emblem-text">
+              ग्राम पंचायत<br/>29-बड़ागांव<br/>
+              <span style="color:#86efac;font-size:0.9em;">हरदोई, UP</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════ STATS STRIP ════ -->
+    <section class="stats-strip" aria-label="ग्राम पंचायत जनसांख्यिकी">
+      <div class="container">
+        <div class="stats-grid" role="list">
+          <div class="stat-item" role="listitem">
+            <span class="stat-item__value">4,443</span>
+            <span class="stat-item__label">कुल मतदाता</span>
+            <span class="stat-item__sub">Total Voters</span>
+          </div>
+          <div class="stat-item" role="listitem">
+            <span class="stat-item__value">2,360</span>
+            <span class="stat-item__label">पुरुष मतदाता</span>
+            <span class="stat-item__sub">Male Voters</span>
+          </div>
+          <div class="stat-item" role="listitem">
+            <span class="stat-item__value">2,083</span>
+            <span class="stat-item__label">महिला मतदाता</span>
+            <span class="stat-item__sub">Female Voters</span>
+          </div>
+          <div class="stat-item" role="listitem">
+            <span class="stat-item__value">704</span>
+            <span class="stat-item__label">कुल परिवार</span>
+            <span class="stat-item__sub">Households</span>
+          </div>
+          <div class="stat-item" role="listitem">
+            <span class="stat-item__value">15</span>
+            <span class="stat-item__label">कुल वार्ड</span>
+            <span class="stat-item__sub">Total Wards</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════ BOOTH FINDER ════ -->
+    <section id="boothFinderSection" class="section" aria-labelledby="boothFinderTitle">
+      <div class="container">
+        <div class="section__header">
+          <div class="section__kicker">मतदान / Polling</div>
+          <h2 class="section__title" id="boothFinderTitle">
+            <span class="hi">🗳️ अपना मतदान बूथ खोजें</span>
+            <span class="en">Find Your Polling Booth</span>
+          </h2>
+          <p class="section__subtitle">
+            अपना वार्ड नंबर चुनें और जानें आपका मतदान केंद्र, कक्ष, तथा सम्बद्ध वार्ड।
+            <br/><small>Select your ward number to find your booth, room, and polling station.</small>
+          </p>
+        </div>
+
+        <div class="booth-finder" role="search" aria-label="बूथ खोजें">
+          <div class="booth-finder__icon" aria-hidden="true">🏫</div>
+          <div class="booth-finder__title">मतदान केंद्र — 41-संविलियन विद्यालय बड़ागांव</div>
+          <div class="booth-finder__subtitle">Polling Station: 41-Samvilian Vidyalaya Badagaon</div>
+
+          <div class="ward-select-group">
+            <div class="select-wrapper">
+              <label for="wardSelect" class="select-label">वार्ड संख्या चुनें / Select Ward Number</label>
+              <select id="wardSelect" class="form-select" aria-label="वार्ड चुनें">
+                <option value="">— वार्ड चुनें / Select Ward —</option>
+                <option value="1">वार्ड 1 / Ward 1</option>
+                <option value="2">वार्ड 2 / Ward 2</option>
+                <option value="3">वार्ड 3 / Ward 3</option>
+                <option value="4">वार्ड 4 / Ward 4</option>
+                <option value="5">वार्ड 5 / Ward 5</option>
+                <option value="6">वार्ड 6 / Ward 6</option>
+                <option value="7">वार्ड 7 / Ward 7</option>
+                <option value="8">वार्ड 8 / Ward 8</option>
+                <option value="9">वार्ड 9 / Ward 9</option>
+                <option value="10">वार्ड 10 / Ward 10</option>
+                <option value="11">वार्ड 11 / Ward 11</option>
+                <option value="12">वार्ड 12 / Ward 12</option>
+                <option value="13">वार्ड 13 / Ward 13</option>
+                <option value="14">वार्ड 14 / Ward 14</option>
+                <option value="15">वार्ड 15 / Ward 15</option>
+              </select>
+            </div>
+            <button id="findBoothBtn" class="btn btn--primary" aria-label="बूथ खोजें">
+              🔍 खोजें
+            </button>
+          </div>
+
+          <div id="boothResult" aria-live="polite" aria-atomic="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════ SERVICE PILLARS ════ -->
+    <section class="section section--alt" aria-labelledby="pillarsTitle">
+      <div class="container">
+        <div class="section__header">
+          <div class="section__kicker">सेवाएँ / Services</div>
+          <h2 class="section__title" id="pillarsTitle">
+            <span class="hi">हमारी प्रतिबद्धताएँ</span>
+            <span class="en">Our Commitments to You</span>
+          </h2>
+          <p class="section__subtitle">ग्राम पंचायत की चार मुख्य प्राथमिकताएँ और जन-सेवाएँ।</p>
+        </div>
+        <div class="pillars-grid">
+          <article class="pillar-card">
+            <span class="pillar-card__icon">⚡</span>
+            <div class="pillar-card__title">24 घंटे बिजली गारंटी</div>
+            <div class="pillar-card__en">24-hr Electricity Guarantee</div>
+            <p class="pillar-card__desc">ट्रांसफार्मर खराब होने पर 24 घंटे के भीतर बदलवाने की पहल। खराबी की सूचना लाइनमैन को WhatsApp से दें।</p>
+          </article>
+          <article class="pillar-card">
+            <span class="pillar-card__icon">💧</span>
+            <div class="pillar-card__title">हर घर जल निगरानी</div>
+            <div class="pillar-card__en">Har Ghar Jal Monitoring</div>
+            <p class="pillar-card__desc">जल जीवन मिशन के तहत नल-जल कनेक्शन की गुणवत्ता और नियमितता की जाँच। हैंडपंप मरम्मत में प्राथमिकता।</p>
+          </article>
+          <article class="pillar-card">
+            <span class="pillar-card__icon">📚</span>
+            <div class="pillar-card__title">युवा डिजिटल पुस्तकालय</div>
+            <div class="pillar-card__en">Digital Study Library & Gym</div>
+            <p class="pillar-card__desc">युवाओं के लिए डिजिटल अध्ययन केंद्र और व्यायामशाला। प्रतियोगी परीक्षाओं की तैयारी में सहयोग।</p>
+          </article>
+          <article class="pillar-card">
+            <span class="pillar-card__icon">🏥</span>
+            <div class="pillar-card__title">वरिष्ठ नागरिक सेवाएँ</div>
+            <div class="pillar-card__en">Seniors — Pension & Ayushman</div>
+            <p class="pillar-card__desc">बुजुर्गों और विधवाओं के लिए पेंशन शिविर, आयुष्मान गोल्डन कार्ड शिविर। घर के पास लाभ पहुँचाने की पहल।</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════ QUICK LINKS to other pages ════ -->
+    <section class="section" aria-labelledby="quickLinksTitle">
+      <div class="container">
+        <div class="section__header">
+          <div class="section__kicker">पोर्टल / Portal</div>
+          <h2 class="section__title" id="quickLinksTitle">
+            <span class="hi">क्या जानना चाहते हैं?</span>
+            <span class="en">What would you like to explore?</span>
+          </h2>
+        </div>
+        <div class="pillars-grid">
+          <a href="rights.html" class="pillar-card" style="text-decoration:none;color:inherit;border-color:#d1fae5;">
+            <span class="pillar-card__icon">⚖️</span>
+            <div class="pillar-card__title">आपके अधिकार</div>
+            <div class="pillar-card__en">Your Rights</div>
+            <p class="pillar-card__desc">पंचायती राज, ग्राम सभा, RTI, MNREGA — आपके कानूनी अधिकार जानें।</p>
+          </a>
+          <a href="schemes.html" class="pillar-card" style="text-decoration:none;color:inherit;border-color:#d1fae5;">
+            <span class="pillar-card__icon">📋</span>
+            <div class="pillar-card__title">सरकारी योजनाएँ</div>
+            <div class="pillar-card__en">Government Schemes</div>
+            <p class="pillar-card__desc">PM किसान, आवास, पेंशन, आयुष्मान, राशन — पात्रता और आवेदन प्रक्रिया।</p>
+          </a>
+          <a href="directory.html" class="pillar-card" style="text-decoration:none;color:inherit;border-color:#d1fae5;">
+            <span class="pillar-card__icon">📞</span>
+            <div class="pillar-card__title">संपर्क सूची</div>
+            <div class="pillar-card__en">Contacts & Helplines</div>
+            <p class="pillar-card__desc">पंचायत सचिव, लेखपाल, ANM, पुलिस, CM हेल्पलाइन — सभी नंबर एक जगह।</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════ GRIEVANCE FORM ════ -->
+    <section id="grievanceSection" class="section grievance-section" aria-labelledby="grievanceTitle">
+      <div class="container">
+        <div class="section__header">
+          <div class="section__kicker">शिकायत / Grievance</div>
+          <h2 class="section__title" id="grievanceTitle">
+            <span class="hi">📝 शिकायत दर्ज करें</span>
+            <span class="en">File a Complaint</span>
+          </h2>
+          <p class="section__subtitle">WhatsApp के ज़रिये सीधे ग्राम पंचायत तक अपनी बात पहुँचाएँ।</p>
+        </div>
+
+        <div class="grievance-wrapper">
+          <!-- Info panel -->
+          <div class="grievance-info">
+            <h3 class="grievance-info__title">शिकायत कैसे काम करती है?</h3>
+            <p style="color:var(--color-neutral-light);font-size:0.9rem;">नीचे फॉर्म भरें और "WhatsApp पर भेजें" दबाएँ। आपकी शिकायत सीधे पंचायत कार्यालय तक पहुँचेगी।</p>
+            <div class="grievance-info__steps">
+              <div class="step-item">
+                <div class="step-item__num">1</div>
+                <p class="step-item__text"><strong>फॉर्म भरें</strong> — नाम, वार्ड, और समस्या का विवरण दें।</p>
+              </div>
+              <div class="step-item">
+                <div class="step-item__num">2</div>
+                <p class="step-item__text"><strong>WhatsApp पर भेजें</strong> — एक क्लिक में शिकायत तैयार होगी।</p>
+              </div>
+              <div class="step-item">
+                <div class="step-item__num">3</div>
+                <p class="step-item__text"><strong>प्रारूप कॉपी करें</strong> — लिखित आवेदन के लिए मसौदा कॉपी करें।</p>
+              </div>
+              <div class="step-item">
+                <div class="step-item__num">4</div>
+                <p class="step-item__text"><strong>जनसुनवाई पोर्टल</strong> — बड़ी समस्याओं के लिए <a href="https://jansunwai.up.nic.in" target="_blank" rel="noopener">jansunwai.up.nic.in</a> पर दर्ज करें।</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Complaint form -->
+          <div class="grievance-form">
+            <ul id="formErrorBox" class="form-error-box" role="alert" aria-live="assertive"></ul>
+
+            <form id="complaintForm" novalidate aria-label="शिकायत फॉर्म">
+              <div class="form-grid">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="complainantName" class="form-label">
+                      नाम <span class="form-required" aria-hidden="true">*</span>
+                      <span class="text-en">Full Name</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="complainantName"
+                      name="name"
+                      class="form-input"
+                      placeholder="आपका पूरा नाम"
+                      autocomplete="name"
+                      required
+                      aria-required="true"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="complainantPhone" class="form-label">
+                      मोबाइल नंबर <span class="form-required" aria-hidden="true">*</span>
+                      <span class="text-en">Mobile Number</span>
+                    </label>
+                    <input
+                      type="tel"
+                      id="complainantPhone"
+                      name="phone"
+                      class="form-input"
+                      placeholder="10 अंकों का नंबर"
+                      pattern="[6-9][0-9]{9}"
+                      maxlength="10"
+                      autocomplete="tel"
+                      required
+                      aria-required="true"
+                    />
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="complainantWard" class="form-label">
+                      वार्ड <span class="form-required" aria-hidden="true">*</span>
+                      <span class="text-en">Ward Number</span>
+                    </label>
+                    <select id="complainantWard" name="ward" class="form-select" required aria-required="true">
+                      <option value="">— वार्ड चुनें —</option>
+                      <option value="1">वार्ड 1</option><option value="2">वार्ड 2</option>
+                      <option value="3">वार्ड 3</option><option value="4">वार्ड 4</option>
+                      <option value="5">वार्ड 5</option><option value="6">वार्ड 6</option>
+                      <option value="7">वार्ड 7</option><option value="8">वार्ड 8</option>
+                      <option value="9">वार्ड 9</option><option value="10">वार्ड 10</option>
+                      <option value="11">वार्ड 11</option><option value="12">वार्ड 12</option>
+                      <option value="13">वार्ड 13</option><option value="14">वार्ड 14</option>
+                      <option value="15">वार्ड 15</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="complainantMohalla" class="form-label">
+                      मोहल्ला / मकान नं०
+                      <span class="text-en">Mohalla / House No.</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="complainantMohalla"
+                      name="mohalla"
+                      class="form-input"
+                      placeholder="मोहल्ला या मकान नंबर"
+                    />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="issueCategory" class="form-label">
+                    समस्या श्रेणी <span class="form-required" aria-hidden="true">*</span>
+                    <span class="text-en">Issue Category</span>
+                  </label>
+                  <select id="issueCategory" name="category" class="form-select" required aria-required="true">
+                    <option value="">— श्रेणी चुनें / Select Category —</option>
+                    <!-- Populated by grievance.js from CONFIG -->
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="issueDescription" class="form-label">
+                    समस्या का विवरण <span class="form-required" aria-hidden="true">*</span>
+                    <span class="text-en">Description of Issue</span>
+                  </label>
+                  <textarea
+                    id="issueDescription"
+                    name="description"
+                    class="form-textarea"
+                    placeholder="समस्या विस्तार से लिखें (कम से कम 20 अक्षर)…"
+                    required
+                    aria-required="true"
+                    minlength="20"
+                  ></textarea>
+                </div>
+
+                <div class="form-actions">
+                  <button type="submit" id="grievanceSubmitBtn" class="btn btn--primary btn--lg">
+                    💬 WhatsApp पर भेजें
+                  </button>
+                  <button type="button" id="copyDraftBtn" class="btn btn--ghost">
+                    📋 प्रारूप कॉपी करें
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════ SITE FOOTER ════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-brand__name">🏛️ ग्राम पंचायत 29-बड़ागांव</div>
+          <p class="footer-brand__desc">
+            विकास खण्ड 19-बेंहदर, जिला 113-हरदोई, उत्तर प्रदेश<br/>
+            Block 19-Behendar, District 113-Hardoi, Uttar Pradesh
+          </p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-links__title">पोर्टल / Portal</div>
+          <ul class="footer-links__list" role="list">
+            <li><a href="index.html">🏠 होम</a></li>
+            <li><a href="rights.html">⚖️ नागरिक अधिकार</a></li>
+            <li><a href="schemes.html">📋 सरकारी योजनाएँ</a></li>
+            <li><a href="directory.html">📞 संपर्क सूची</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <div class="footer-links__title">आपातकालीन / Emergency</div>
+          <ul class="footer-links__list" role="list">
+            <li><a href="tel:112">🚔 पुलिस — 112</a></li>
+            <li><a href="tel:1076">📞 CM हेल्पलाइन — 1076</a></li>
+            <li><a href="tel:1090">👩 महिला हेल्पलाइन — 1090</a></li>
+            <li><a href="tel:1930">💻 साइबर फ्रॉड — 1930</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="footer-divider" />
+      <div class="footer-bottom">
+        <span>© <span id="footerYear">2025</span> ग्राम पंचायत 29-बड़ागांव। सर्वाधिकार सुरक्षित।</span>
+        <span>GitHub Pages पर होस्ट किया गया | Hosted on GitHub Pages</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── Scripts ── -->
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/booth-finder.js"></script>
+  <script src="js/grievance.js"></script>
+  <script>
+    /* ── Disclaimer Modal Logic ── */
+    (function () {
+      var overlay = document.getElementById('disclaimerOverlay');
+      var acceptBtn = document.getElementById('disclaimerAccept');
+      var dontShowChk = document.getElementById('disclaimerDontShow');
+      // Hide if user previously chose "don't show again"
+      if (localStorage.getItem('gp_disclaimer_accepted') === '1') {
+        overlay.classList.add('hidden');
+        return;
+      }
+      // Show modal; trap focus inside
+      acceptBtn.focus();
+      acceptBtn.addEventListener('click', function () {
+        if (dontShowChk.checked) {
+          localStorage.setItem('gp_disclaimer_accepted', '1');
+        }
+        overlay.classList.add('hidden');
+        document.body.style.overflow = '';
+      });
+      document.body.style.overflow = 'hidden';
+      // Close on overlay click (outside modal box)
+      overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) {
+          overlay.classList.add('hidden');
+          document.body.style.overflow = '';
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

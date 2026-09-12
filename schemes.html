@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="hi" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ग्राम पंचायत 29-बड़ागांव — सरकारी योजनाएँ: PM किसान, PM आवास, UP पेंशन, आयुष्मान भारत, राशन कार्ड, जनसुनवाई।" />
+  <title>सरकारी योजनाएँ — ग्राम पंचायत 29-बड़ागांव | Government Schemes</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+
+  <div id="headerSentinel" aria-hidden="true" style="height:1px;position:absolute;top:0;width:100%;pointer-events:none;"></div>
+
+  <!-- ════ SITE HEADER ════ -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="site-logo" aria-label="ग्राम पंचायत 29-बड़ागांव — होम पेज">
+          <div class="site-logo__emblem" aria-hidden="true">🏛️</div>
+          <div class="site-logo__text">
+            <span class="site-logo__name">ग्राम पंचायत 29-बड़ागांव</span>
+            <span class="site-logo__sub">जिला हरदोई, उत्तर प्रदेश</span>
+          </div>
+        </a>
+        <button id="menuToggle" class="menu-toggle" aria-label="मेन्यू खोलें" aria-expanded="false" aria-controls="navMenu">
+          <span class="menu-toggle__bar"></span>
+          <span class="menu-toggle__bar"></span>
+          <span class="menu-toggle__bar"></span>
+        </button>
+        <nav id="navMenu" class="site-nav" aria-label="मुख्य नेविगेशन">
+          <ul class="nav__list" role="list">
+            <li><a href="index.html"     class="nav__link">🏠 होम</a></li>
+            <li><a href="rights.html"    class="nav__link">⚖️ अधिकार</a></li>
+            <li><a href="schemes.html"   class="nav__link nav__link--active" aria-current="page">📋 योजनाएँ</a></li>
+            <li><a href="directory.html" class="nav__link">📞 संपर्क</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <div id="navOverlay" class="nav-overlay" aria-hidden="true"></div>
+
+  <main id="main-content">
+
+    <!-- ════ PAGE HEADER ════ -->
+    <section class="page-header" aria-labelledby="schemesPageTitle">
+      <div class="container">
+        <p class="page-header__kicker">सरकारी योजनाएँ / Government Schemes</p>
+        <h1 id="schemesPageTitle" class="page-header__title">📋 सरकारी योजनाएँ</h1>
+        <p class="page-header__sub">Government Schemes for Badagaon Residents — Eligibility, Steps & Portals</p>
+      </div>
+    </section>
+
+    <!-- ════ FILTER + SCHEMES ════ -->
+    <section class="section" aria-labelledby="schemesGridTitle">
+      <div class="container">
+        <div class="section__header" style="margin-bottom:28px;">
+          <h2 class="sr-only" id="schemesGridTitle">योजना सूची</h2>
+          <!-- Filter buttons -->
+          <div class="schemes-filter" role="group" aria-label="योजना श्रेणी फ़िल्टर" id="schemesFilter">
+            <button class="filter-btn active" data-filter="all"         aria-pressed="true">सभी / All</button>
+            <button class="filter-btn"        data-filter="agriculture" aria-pressed="false">🌾 कृषि / Agriculture</button>
+            <button class="filter-btn"        data-filter="housing"     aria-pressed="false">🏠 आवास / Housing</button>
+            <button class="filter-btn"        data-filter="pension"     aria-pressed="false">👴 पेंशन / Pension</button>
+            <button class="filter-btn"        data-filter="health"      aria-pressed="false">🏥 स्वास्थ्य / Health</button>
+            <button class="filter-btn"        data-filter="food"        aria-pressed="false">🍚 खाद्य / Food</button>
+            <button class="filter-btn"        data-filter="grievance"   aria-pressed="false">📋 शिकायत / Grievance</button>
+          </div>
+        </div>
+
+        <!-- Loading state -->
+        <div id="schemesLoading" aria-live="polite" style="text-align:center;padding:48px;color:var(--color-neutral-light);">
+          <div style="font-size:2rem;margin-bottom:12px;">⏳</div>
+          <p>योजनाएँ लोड हो रही हैं… / Loading schemes…</p>
+        </div>
+
+        <!-- Schemes grid — populated by script -->
+        <div id="schemesContainer" class="schemes-grid" aria-live="polite" aria-label="सरकारी योजना सूची"></div>
+
+        <!-- Empty state -->
+        <div id="schemesEmpty" style="display:none;text-align:center;padding:48px;color:var(--color-neutral-light);">
+          <div style="font-size:2rem;margin-bottom:12px;">🔍</div>
+          <p>इस श्रेणी में कोई योजना नहीं मिली। / No schemes found in this category.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════ HELPLINE CALLOUT ════ -->
+    <section class="section section--alt" aria-labelledby="helpCalloutTitle">
+      <div class="container" style="text-align:center;">
+        <div class="section__header">
+          <div class="section__kicker">सहायता / Help</div>
+          <h2 class="section__title" id="helpCalloutTitle">
+            <span class="hi">योजना आवेदन में सहायता चाहिए?</span>
+            <span class="en">Need help applying for a scheme?</span>
+          </h2>
+          <p class="section__subtitle">
+            ग्राम पंचायत सचिव या ANM/ASHA सेविका से सहायता लें। CM हेल्पलाइन पर कॉल करें।
+          </p>
+        </div>
+        <div class="flex-center gap-4" style="flex-wrap:wrap;">
+          <a href="directory.html" class="btn btn--primary btn--lg">
+            📞 संपर्क सूची देखें
+          </a>
+          <a href="tel:1076" class="btn btn--secondary btn--lg">
+            📞 CM हेल्पलाइन — 1076
+          </a>
+          <a href="https://jansunwai.up.nic.in" target="_blank" rel="noopener" class="btn btn--outline btn--lg">
+            🌐 जनसुनवाई पोर्टल
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════ SITE FOOTER ════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-brand__name">🏛️ ग्राम पंचायत 29-बड़ागांव</div>
+          <p class="footer-brand__desc">
+            विकास खण्ड 19-बेंहदर, जिला 113-हरदोई, उत्तर प्रदेश<br/>
+            Block 19-Behendar, District 113-Hardoi, Uttar Pradesh
+          </p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-links__title">पोर्टल / Portal</div>
+          <ul class="footer-links__list" role="list">
+            <li><a href="index.html">🏠 होम</a></li>
+            <li><a href="rights.html">⚖️ नागरिक अधिकार</a></li>
+            <li><a href="schemes.html">📋 सरकारी योजनाएँ</a></li>
+            <li><a href="directory.html">📞 संपर्क सूची</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <div class="footer-links__title">आपातकालीन / Emergency</div>
+          <ul class="footer-links__list" role="list">
+            <li><a href="tel:112">🚔 पुलिस — 112</a></li>
+            <li><a href="tel:1076">📞 CM हेल्पलाइन — 1076</a></li>
+            <li><a href="tel:1090">👩 महिला हेल्पलाइन — 1090</a></li>
+            <li><a href="tel:1930">💻 साइबर फ्रॉड — 1930</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="footer-divider" />
+      <div class="footer-bottom">
+        <span>© <span id="footerYear">2025</span> ग्राम पंचायत 29-बड़ागांव। सर्वाधिकार सुरक्षित।</span>
+        <span>GitHub Pages पर होस्ट किया गया</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    /* ── Schemes page: load JSON and render cards ────────────────────── */
+    (function () {
+      'use strict';
+
+      const CATEGORY_LABELS = {
+        agriculture: { hi: 'कृषि',    en: 'Agriculture', color: '#16a34a' },
+        housing:     { hi: 'आवास',    en: 'Housing',     color: '#d97706' },
+        pension:     { hi: 'पेंशन',   en: 'Pension',     color: '#7c3aed' },
+        health:      { hi: 'स्वास्थ्य', en: 'Health',   color: '#0891b2' },
+        food:        { hi: 'खाद्य',   en: 'Food',        color: '#dc2626' },
+        grievance:   { hi: 'शिकायत', en: 'Grievance',   color: '#065f46' }
+      };
+
+      function renderSchemeCard(scheme) {
+        const cat = CATEGORY_LABELS[scheme.category] || { hi: scheme.category, en: '', color: '#065f46' };
+        const eligibilityItems = (scheme.eligibility || [])
+          .map(item => `<li>${item}</li>`)
+          .join('');
+        const stepItems = (scheme.steps || [])
+          .map(s => `<li>${s.step}<span class="text-en">${s.en}</span></li>`)
+          .join('');
+
+        return `
+          <article
+            class="scheme-card"
+            data-category="${scheme.category}"
+            id="scheme-${scheme.id}"
+            aria-labelledby="scheme-title-${scheme.id}"
+          >
+            <div class="scheme-card__header">
+              <div class="scheme-card__icon">${scheme.icon}</div>
+              <div class="scheme-card__meta">
+                <span class="scheme-card__category" style="background:${cat.color};">
+                  ${cat.hi} / ${cat.en}
+                </span>
+                <div class="scheme-card__name" id="scheme-title-${scheme.id}">${scheme.name}</div>
+                <div class="scheme-card__name-en">${scheme.nameEn}</div>
+              </div>
+            </div>
+            <div class="scheme-card__body">
+              <p class="scheme-card__desc">${scheme.description}</p>
+              ${eligibilityItems ? `
+                <div class="scheme-card__eligibility">
+                  <h4>पात्रता / Eligibility</h4>
+                  <ul class="eligibility-list">${eligibilityItems}</ul>
+                </div>
+              ` : ''}
+              ${stepItems ? `
+                <div class="scheme-card__steps">
+                  <h4>आवेदन कैसे करें / How to Apply</h4>
+                  <ol class="steps-list">${stepItems}</ol>
+                </div>
+              ` : ''}
+            </div>
+            <div class="scheme-card__footer">
+              <a
+                href="${scheme.portal}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn--primary btn--sm"
+                aria-label="${scheme.nameEn} पोर्टल खोलें"
+              >
+                🌐 पोर्टल खोलें / Open Portal ↗
+              </a>
+            </div>
+          </article>
+        `;
+      }
+
+      function initFilter(schemes) {
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const container  = document.getElementById('schemesContainer');
+        const emptyState = document.getElementById('schemesEmpty');
+
+        filterBtns.forEach(btn => {
+          btn.addEventListener('click', function () {
+            const filter = this.getAttribute('data-filter');
+
+            filterBtns.forEach(b => {
+              b.classList.remove('active');
+              b.setAttribute('aria-pressed', 'false');
+            });
+            this.classList.add('active');
+            this.setAttribute('aria-pressed', 'true');
+
+            let visibleCount = 0;
+            container.querySelectorAll('.scheme-card').forEach(card => {
+              const cat = card.getAttribute('data-category');
+              if (filter === 'all' || cat === filter) {
+                card.classList.remove('hidden');
+                visibleCount++;
+              } else {
+                card.classList.add('hidden');
+              }
+            });
+
+            emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+          });
+        });
+      }
+
+      async function loadSchemes() {
+        const container = document.getElementById('schemesContainer');
+        const loading   = document.getElementById('schemesLoading');
+        const emptyState = document.getElementById('schemesEmpty');
+
+        try {
+          const response = await fetch('data/schemes.json');
+          if (!response.ok) throw new Error('Network error');
+          const schemes = await response.json();
+
+          loading.style.display = 'none';
+          container.innerHTML = schemes.map(renderSchemeCard).join('');
+          initFilter(schemes);
+        } catch (err) {
+          loading.innerHTML = `
+            <div class="error-card" style="max-width:480px;margin:0 auto;">
+              <span class="error-icon">⚠️</span>
+              <p>योजनाएँ लोड नहीं हो सकीं। पृष्ठ रिफ्रेश करें।<br/>
+              <small>Schemes could not be loaded. Please refresh the page.</small></p>
+            </div>`;
+        }
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', loadSchemes);
+      } else {
+        loadSchemes();
+      }
+    })();
+  </script>
+</body>
+</html>
