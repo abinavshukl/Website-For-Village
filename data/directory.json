@@ -1,6 +1,19 @@
 {
   "administration": [
     {
+      "title": "जिलाधिकारी (DM)",
+      "titleEn": "District Magistrate",
+      "name": "जिलाधिकारी महोदय",
+      "nameEn": "District Magistrate",
+      "office": "कलेक्ट्रेट, हरदोई",
+      "officeEn": "Collectorate, Hardoi",
+      "phone": "05852234200",
+      "email": "dmhar@nic.in",
+      "note": "जिले के सर्वोच्च प्रशासनिक अधिकारी",
+      "noteEn": "Highest Administrative Officer",
+      "whatsapp": false
+    },
+    {
       "title": "पंचायत सचिव",
       "titleEn": "Panchayat Secretary (Sachiv)",
       "name": "श्री / श्रीमती [नाम अपडेट करें]",
@@ -38,6 +51,20 @@
     }
   ],
   "police": [
+    {
+      "title": "पुलिस अधीक्षक (SP)",
+      "titleEn": "Superintendent of Police",
+      "name": "पुलिस अधीक्षक महोदय",
+      "nameEn": "Superintendent of Police",
+      "office": "हरदोई",
+      "officeEn": "Hardoi",
+      "phone": "9454400275",
+      "altPhone": "05852234204",
+      "email": "sphar-up@nic.in",
+      "note": "जिले के सर्वोच्च पुलिस अधिकारी",
+      "noteEn": "Highest Police Officer",
+      "whatsapp": true
+    },
     {
       "title": "पुलिस आपातकालीन",
       "titleEn": "Police Emergency",

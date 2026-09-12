@@ -1315,31 +1315,40 @@ select, input, textarea {
 
 /* ── Responsive — Mobile (≤640px) ───────────────────────────────── */
 @media (max-width: 640px) {
-  :root { --nav-height: 60px; }
+  :root { --nav-height: 106px; }
   .section { padding: 48px 0; }
 
-  .menu-toggle { display: flex; }
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px 0;
+  }
 
   .site-nav {
-    position: fixed;
-    top: var(--nav-height);
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--color-surface);
-    z-index: 100;
-    flex-direction: column;
-    padding: 24px 20px;
-    overflow-y: auto;
-    transform: translateX(-100%);
-    transition: transform var(--transition-base);
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
-  .site-nav.nav--open { transform: translateX(0); }
-  .nav__list { flex-direction: column; width: 100%; gap: 4px; }
+  .site-nav::-webkit-scrollbar { display: none; }
+
+  .nav__list {
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    gap: 6px;
+  }
+  
   .nav__link {
-    font-size: 1.1rem;
-    padding: 14px 16px;
-    border-radius: var(--radius-md);
+    font-size: 0.88rem;
+    padding: 8px 12px;
+    white-space: nowrap;
+    text-align: center;
+    flex: 1;
   }
 
   .hero { padding: 56px 0 52px; }

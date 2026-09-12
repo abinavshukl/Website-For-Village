@@ -6,46 +6,7 @@
 (function () {
   "use strict";
 
-  // ── Mobile hamburger menu ─────────────────────────────────────────────
-  function initMobileNav() {
-    const toggle = document.getElementById("menuToggle");
-    const nav = document.getElementById("navMenu");
-    const overlay = document.getElementById("navOverlay");
 
-    if (!toggle || !nav) return;
-
-    function openMenu() {
-      nav.classList.add("nav--open");
-      toggle.classList.add("toggle--active");
-      toggle.setAttribute("aria-expanded", "true");
-      if (overlay) overlay.classList.add("overlay--visible");
-      document.body.style.overflow = "hidden";
-    }
-
-    function closeMenu() {
-      nav.classList.remove("nav--open");
-      toggle.classList.remove("toggle--active");
-      toggle.setAttribute("aria-expanded", "false");
-      if (overlay) overlay.classList.remove("overlay--visible");
-      document.body.style.overflow = "";
-    }
-
-    toggle.addEventListener("click", () => {
-      nav.classList.contains("nav--open") ? closeMenu() : openMenu();
-    });
-
-    if (overlay) overlay.addEventListener("click", closeMenu);
-
-    // Close on nav link click (SPA-style)
-    nav.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", closeMenu);
-    });
-
-    // Close on Escape
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeMenu();
-    });
-  }
 
   // ── Active nav link ───────────────────────────────────────────────────
   function setActiveNavLink() {
@@ -161,7 +122,6 @@
 
   // ── Init all ─────────────────────────────────────────────────────────
   function init() {
-    initMobileNav();
     setActiveNavLink();
     updateFooterYear();
     initSmoothScroll();

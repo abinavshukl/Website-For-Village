@@ -33,12 +33,8 @@
           <em style="font-size:0.85em;color:#92400e;">This is an independent public awareness initiative, not an official government portal. All templates and resources are purely informational tools to connect citizens with the administration.</em>
         </div>
       </div>
-      <div class="disclaimer-modal__footer">
-        <label class="disclaimer-modal__check">
-          <input type="checkbox" id="disclaimerDontShow" />
-          दोबारा न दिखाएँ / Don't show again
-        </label>
-        <button id="disclaimerAccept" class="btn btn--primary">
+      <div class="disclaimer-modal__footer" style="justify-content: center;">
+        <button id="disclaimerAccept" class="btn btn--primary btn--full">
           ✅ समझ गया, आगे बढ़ें
         </button>
       </div>
@@ -59,17 +55,7 @@
             <span class="site-logo__sub">जिला हरदोई, उत्तर प्रदेश</span>
           </div>
         </a>
-        <button
-          id="menuToggle"
-          class="menu-toggle"
-          aria-label="मेन्यू खोलें / Close menu"
-          aria-expanded="false"
-          aria-controls="navMenu"
-        >
-          <span class="menu-toggle__bar"></span>
-          <span class="menu-toggle__bar"></span>
-          <span class="menu-toggle__bar"></span>
-        </button>
+
         <nav id="navMenu" class="site-nav" aria-label="मुख्य नेविगेशन">
           <ul class="nav__list" role="list">
             <li><a href="index.html"     class="nav__link">🏠 होम</a></li>
@@ -81,7 +67,7 @@
       </div>
     </div>
   </header>
-  <div id="navOverlay" class="nav-overlay" aria-hidden="true"></div>
+
 
   <main id="main-content">
 
@@ -481,18 +467,9 @@
     (function () {
       var overlay = document.getElementById('disclaimerOverlay');
       var acceptBtn = document.getElementById('disclaimerAccept');
-      var dontShowChk = document.getElementById('disclaimerDontShow');
-      // Hide if user previously chose "don't show again"
-      if (localStorage.getItem('gp_disclaimer_accepted') === '1') {
-        overlay.classList.add('hidden');
-        return;
-      }
       // Show modal; trap focus inside
       acceptBtn.focus();
       acceptBtn.addEventListener('click', function () {
-        if (dontShowChk.checked) {
-          localStorage.setItem('gp_disclaimer_accepted', '1');
-        }
         overlay.classList.add('hidden');
         document.body.style.overflow = '';
       });
