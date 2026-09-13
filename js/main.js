@@ -265,21 +265,22 @@
     tickerItems = [...CIVIC_FALLBACK];
     startTickerRotation();
 
-    // Try to load live news in background
+    // Try to load live news in background — replace civic facts if successful
     const liveNews = await fetchNewsFromSources();
     if (liveNews && liveNews.length > 0) {
-      // Merge live news + civic facts for variety
-      tickerItems = [...liveNews, ...CIVIC_FALLBACK];
-      console.log(`Ticker loaded ${liveNews.length} live news + ${CIVIC_FALLBACK.length} civic facts.`);
+      tickerItems = [...liveNews]; // ✅ Live news only — civic facts hidden
+      tickerIndex = 0;             // Restart rotation from first headline
+      console.log(`✅ Showing ${liveNews.length} live news headlines.`);
     } else {
-      console.warn('Live news unavailable. Using civic facts only.');
+      console.warn('⚠️ API unavailable. Showing civic facts as fallback.');
+      // tickerItems already set to CIVIC_FALLBACK above — no change needed
     }
 
-    // Auto-refresh every 30 minutes to keep content fresh
+    // Auto-refresh every 30 minutes
     setInterval(async () => {
       const freshNews = await fetchNewsFromSources();
       if (freshNews && freshNews.length > 0) {
-        tickerItems = [...freshNews, ...CIVIC_FALLBACK];
+        tickerItems = [...freshNews];
         tickerIndex = 0;
       }
     }, 30 * 60 * 1000);
