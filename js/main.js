@@ -251,7 +251,7 @@
   function startTickerRotation() {
     if (tickerTimer) clearInterval(tickerTimer);
     showNextTick(); // Show immediately
-    tickerTimer = setInterval(showNextTick, 5000); // Rotate every 5 seconds
+    tickerTimer = setInterval(showNextTick, 8000); // Rotate every 8 seconds — enough time to read
   }
 
 
@@ -269,7 +269,7 @@
     const liveNews = await fetchNewsFromSources();
     if (liveNews && liveNews.length > 0) {
       tickerItems = [...liveNews]; // ✅ Live news only — civic facts hidden
-      tickerIndex = 0;             // Restart rotation from first headline
+      startTickerRotation();       // Restart cleanly from headline #1 (clears old timer)
       console.log(`✅ Showing ${liveNews.length} live news headlines.`);
     } else {
       console.warn('⚠️ API unavailable. Showing civic facts as fallback.');
@@ -281,7 +281,7 @@
       const freshNews = await fetchNewsFromSources();
       if (freshNews && freshNews.length > 0) {
         tickerItems = [...freshNews];
-        tickerIndex = 0;
+        startTickerRotation(); // Restart cleanly on refresh too
       }
     }, 30 * 60 * 1000);
   }
