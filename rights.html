@@ -392,10 +392,16 @@
               अधिनियम 2005 के तहत सरकारी विभागों से 30 दिनों के भीतर सूचना प्राप्त करने का अधिकार। आवेदन शुल्क मात्र ₹10 (BPL के लिए निःशुल्क)।
             </p>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-              <div>
-                <span class="rti-target-badge"><i data-lucide="target" class="inline-icon"></i> ग्राम पंचायत स्तर</span>
-                <div id="rtiTemplate1" class="rti-template" role="document" aria-label="RTI प्रारूप 1">सेवा में,
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-top: 24px;">
+              
+              <!-- Card 1 -->
+              <div style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 24px; display: flex; flex-direction: column; box-shadow: 0 4px 20px rgba(0,0,0,0.03);">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px; border-bottom: 1px solid var(--color-border); padding-bottom: 16px;">
+                  <div style="background: rgba(30, 64, 175, 0.08); color: var(--color-primary); padding: 10px; border-radius: 10px; display: flex;"><i data-lucide="building" class="inline-icon"></i></div>
+                  <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--color-text-dark); margin: 0;">ग्राम पंचायत स्तर</h4>
+                </div>
+                
+                <div id="rtiTemplate1" style="flex-grow: 1; font-family: inherit; font-size: 0.95rem; line-height: 1.7; background: #f8fafc; padding: 20px; border-radius: var(--radius-md); border: 1px solid #e2e8f0; color: var(--color-neutral-dark); margin-bottom: 24px; white-space: pre-wrap;" role="document" aria-label="RTI प्रारूप 1">सेवा में,
 जन सूचना अधिकारी (PIO),
 श्री ग्राम पंचायत सचिव,
 हरदोई (एक निजी पहल)
@@ -408,12 +414,20 @@
 
 संलग्न: ₹10 का पोस्टल ऑर्डर
 आवेदक: [नाम], मोबाइल: [नंबर]</div>
-                <button class="btn btn--outline mt-4" style="width:100%; justify-content:center;" onclick="copyTemplate('rtiTemplate1')"><i data-lucide="copy" class="inline-icon"></i> कॉपी करें</button>
+                
+                <button class="btn btn--outline mt-auto" style="width:100%; justify-content:center; border-width: 2px;" onclick="copyTemplate('rtiTemplate1')">
+                  <i data-lucide="copy" class="inline-icon"></i> कॉपी करें
+                </button>
               </div>
 
-              <div>
-                <span class="rti-target-badge"><i data-lucide="target" class="inline-icon"></i> ब्लॉक स्तर (BDO)</span>
-                <div id="rtiTemplate2" class="rti-template" role="document" aria-label="RTI प्रारूप 2">सेवा में,
+              <!-- Card 2 -->
+              <div style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 24px; display: flex; flex-direction: column; box-shadow: 0 4px 20px rgba(0,0,0,0.03);">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px; border-bottom: 1px solid var(--color-border); padding-bottom: 16px;">
+                  <div style="background: rgba(30, 64, 175, 0.08); color: var(--color-primary); padding: 10px; border-radius: 10px; display: flex;"><i data-lucide="landmark" class="inline-icon"></i></div>
+                  <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--color-text-dark); margin: 0;">ब्लॉक स्तर (BDO)</h4>
+                </div>
+                
+                <div id="rtiTemplate2" style="flex-grow: 1; font-family: inherit; font-size: 0.95rem; line-height: 1.7; background: #f8fafc; padding: 20px; border-radius: var(--radius-md); border: 1px solid #e2e8f0; color: var(--color-neutral-dark); margin-bottom: 24px; white-space: pre-wrap;" role="document" aria-label="RTI प्रारूप 2">सेवा में,
 जन सूचना अधिकारी (PIO),
 श्री खण्ड विकास अधिकारी (BDO),
 विकास खण्ड 19-बेंहदर, हरदोई
@@ -426,8 +440,12 @@
 
 संलग्न: ₹10 का पोस्टल ऑर्डर
 आवेदक: [नाम], मोबाइल: [नंबर]</div>
-                <button class="btn btn--outline mt-4" style="width:100%; justify-content:center;" onclick="copyTemplate('rtiTemplate2')"><i data-lucide="copy" class="inline-icon"></i> कॉपी करें</button>
+                
+                <button class="btn btn--outline mt-auto" style="width:100%; justify-content:center; border-width: 2px;" onclick="copyTemplate('rtiTemplate2')">
+                  <i data-lucide="copy" class="inline-icon"></i> कॉपी करें
+                </button>
               </div>
+
             </div>
           </article>
           
