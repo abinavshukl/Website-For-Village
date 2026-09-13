@@ -46,14 +46,21 @@ const CONFIG = {
 
   // ── Issue Categories (for grievance form) ───────────────────────────
   ISSUE_CATEGORIES: [
-    { value: "bijli",     label: "बिजली समस्या (Electricity)" },
-    { value: "sadak",     label: "सड़क / नाली (Road / Drain)" },
-    { value: "pani",      label: "पेयजल / हैंडपंप (Drinking Water)" },
-    { value: "pension",   label: "पेंशन / सरकारी योजना (Pension / Scheme)" },
-    { value: "ration",    label: "राशन / PDS (Ration / PDS)" },
-    { value: "bhrashtachar", label: "भ्रष्टाचार (Corruption)" },
-    { value: "swachh",    label: "स्वच्छता / कचरा (Sanitation / Waste)" },
-    { value: "other",     label: "अन्य (Other)" }
+    { value: "bijli",       label: "बिजली समस्या (Electricity)", authority: "श्रीमान अधिशाषी अभियंता (विद्युत/MVVNL)", whatsapp: "", email: "customercare.mvvnl@gmail.com", phone: "1912" },
+    { value: "sadak",       label: "सड़क / नाली (Road / Drain)", authority: "श्रीमान खंड विकास अधिकारी (BDO)", whatsapp: "", email: "cdohar@nic.in", phone: "1076" },
+    { value: "pani",        label: "पेयजल / हैंडपंप (Drinking Water)", authority: "श्रीमान अधिशाषी अभियंता (जल निगम)", whatsapp: "", email: "", phone: "1076" },
+    { value: "pension",     label: "पेंशन / सरकारी योजना (Pension)", authority: "श्रीमान जिला समाज कल्याण अधिकारी", whatsapp: "", email: "dswohar@nic.in", phone: "1076" },
+    { value: "ration",      label: "राशन / कोटेदार (Ration / PDS)", authority: "श्रीमान जिला पूर्ति अधिकारी (DSO)", whatsapp: "", email: "dsohar@nic.in", phone: "1076" },
+    { value: "police",      label: "कानून व्यवस्था / पुलिस (Law & Order)", authority: "श्रीमान थाना प्रभारी / पुलिस अधीक्षक (SP)", whatsapp: "", email: "sphar-up@nic.in", phone: "112" },
+    { value: "health",      label: "स्वास्थ्य / अस्पताल (Health / Medical)", authority: "श्रीमान मुख्य चिकित्सा अधिकारी (CMO)", whatsapp: "", email: "cmohardoi@gmail.com", phone: "108" },
+    { value: "education",   label: "शिक्षा / विद्यालय (Education / School)", authority: "श्रीमान खंड शिक्षा अधिकारी (BEO / BSA)", whatsapp: "", email: "bsahardoi@gmail.com", phone: "1076" },
+    { value: "revenue",     label: "राजस्व / जमीन पैमाइश (Revenue / Land)", authority: "श्रीमान उप जिलाधिकारी महोदय (SDM)", whatsapp: "", email: "sdmsadar-har@nic.in", phone: "1076" },
+    { value: "agriculture", label: "कृषि / खाद-बीज (Agriculture)", authority: "श्रीमान उप कृषि निदेशक (DDA)", whatsapp: "", email: "ddagrihar@nic.in", phone: "1076" },
+    { value: "animal",      label: "पशुपालन / आवारा पशु (Animal Husbandry)", authority: "श्रीमान मुख्य पशु चिकित्सा अधिकारी (CVO)", whatsapp: "", email: "cvohar@nic.in", phone: "1076" },
+    { value: "anganwadi",   label: "आंगनवाड़ी / बाल विकास (Anganwadi)", authority: "श्रीमान बाल विकास परियोजना अधिकारी (CDPO)", whatsapp: "", email: "cdpohar@nic.in", phone: "1076" },
+    { value: "bhrashtachar",label: "भ्रष्टाचार (Corruption)", authority: "श्रीमान जिलाधिकारी महोदय (DM)", whatsapp: "", email: "dmhar@nic.in", phone: "1064" },
+    { value: "swachh",      label: "स्वच्छता / कचरा (Sanitation / Waste)", authority: "श्रीमान जिला पंचायत राज अधिकारी (DPRO)", whatsapp: "", email: "dprohar@nic.in", phone: "1076" },
+    { value: "other",       label: "अन्य (Other)", authority: "श्रीमान पंचायत सचिव / ग्राम प्रधान जी", whatsapp: "910000000000", email: "", phone: "" } // Example of local whatsapp fallback
   ]
 };
 

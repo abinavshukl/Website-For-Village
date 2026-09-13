@@ -17,19 +17,26 @@
     <div class="container">
       <div class="header-inner">
         <a href="index.html" class="site-logo" aria-label="ग्राम पंचायत 29-बड़ागांव — होम पेज">
-          <div class="site-logo__emblem" aria-hidden="true">🏛️</div>
+          <div class="site-logo__emblem" aria-hidden="true"><i data-lucide="landmark" class="inline-icon"></i></div>
           <div class="site-logo__text">
             <span class="site-logo__name">ग्राम पंचायत 29-बड़ागांव</span>
             <span class="site-logo__sub">जिला हरदोई, उत्तर प्रदेश</span>
           </div>
         </a>
 
+        <!-- Hamburger Button -->
+        <button class="menu-toggle" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="navMenu">
+          <span class="menu-toggle__bar"></span>
+          <span class="menu-toggle__bar"></span>
+          <span class="menu-toggle__bar"></span>
+        </button>
+
         <nav id="navMenu" class="site-nav" aria-label="मुख्य नेविगेशन">
           <ul class="nav__list" role="list">
-            <li><a href="index.html"     class="nav__link">🏠 होम</a></li>
-            <li><a href="rights.html"    class="nav__link">⚖️ अधिकार</a></li>
-            <li><a href="schemes.html"   class="nav__link">📋 योजनाएँ</a></li>
-            <li><a href="directory.html" class="nav__link nav__link--active" aria-current="page">📞 संपर्क</a></li>
+            <li><a href="index.html"     class="nav__link"><i data-lucide="home" class="inline-icon"></i> होम</a></li>
+            <li><a href="rights.html"    class="nav__link"><i data-lucide="scale" class="inline-icon"></i> अधिकार</a></li>
+            <li><a href="schemes.html"   class="nav__link"><i data-lucide="clipboard-list" class="inline-icon"></i> योजनाएँ</a></li>
+            <li><a href="directory.html" class="nav__link nav__link--active" aria-current="page"><i data-lucide="phone" class="inline-icon"></i> संपर्क</a></li>
           </ul>
         </nav>
       </div>
@@ -43,7 +50,7 @@
     <section class="page-header" aria-labelledby="dirPageTitle">
       <div class="container">
         <p class="page-header__kicker">संपर्क / Contact Directory</p>
-        <h1 id="dirPageTitle" class="page-header__title">📞 संपर्क सूची</h1>
+        <h1 id="dirPageTitle" class="page-header__title"><i data-lucide="phone" class="inline-icon"></i> संपर्क सूची</h1>
         <p class="page-header__sub">Contact Directory — Gram Panchayat 29-Badagaon</p>
       </div>
     </section>
@@ -67,7 +74,7 @@
         <div class="section__header" style="margin-bottom:28px;">
           <div class="section__kicker">आपातकालीन / Emergency</div>
           <h2 class="section__title" id="emergencyTitle">
-            <span class="hi">🚨 आपातकालीन नंबर</span>
+            <span class="hi"><i data-lucide="alert-triangle" class="inline-icon"></i> आपातकालीन नंबर</span>
             <span class="en">Emergency Helplines</span>
           </h2>
           <p class="section__subtitle">किसी भी आपात स्थिति में इन नंबरों पर तुरंत कॉल करें।</p>
@@ -82,31 +89,31 @@
           <div class="emergency-item" role="listitem">
             <a href="tel:1076" aria-label="CM हेल्पलाइन 1076 पर कॉल करें">
               <span class="emergency-item__number">1076</span>
-              <span class="emergency-item__label">📞 CM हेल्पलाइन</span>
+              <span class="emergency-item__label"><i data-lucide="phone" class="inline-icon"></i> CM हेल्पलाइन</span>
             </a>
           </div>
           <div class="emergency-item" role="listitem">
             <a href="tel:1090" aria-label="महिला हेल्पलाइन 1090 पर कॉल करें">
               <span class="emergency-item__number">1090</span>
-              <span class="emergency-item__label">👩 महिला / Women</span>
+              <span class="emergency-item__label"><i data-lucide="user" class="inline-icon"></i> महिला / Women</span>
             </a>
           </div>
           <div class="emergency-item" role="listitem">
             <a href="tel:1930" aria-label="साइबर फ्रॉड 1930 पर कॉल करें">
               <span class="emergency-item__number">1930</span>
-              <span class="emergency-item__label">💻 साइबर फ्रॉड</span>
+              <span class="emergency-item__label"><i data-lucide="laptop" class="inline-icon"></i> साइबर फ्रॉड</span>
             </a>
           </div>
           <div class="emergency-item" role="listitem">
             <a href="tel:1064" aria-label="भ्रष्टाचार हेल्पलाइन 1064 पर कॉल करें">
               <span class="emergency-item__number">1064</span>
-              <span class="emergency-item__label">🔍 भ्रष्टाचार / ACB</span>
+              <span class="emergency-item__label"><i data-lucide="search" class="inline-icon"></i> भ्रष्टाचार / ACB</span>
             </a>
           </div>
           <div class="emergency-item" role="listitem">
             <a href="tel:1031" aria-label="ACB 1031 पर कॉल करें">
               <span class="emergency-item__number">1031</span>
-              <span class="emergency-item__label">🔍 सतर्कता / Vigilance</span>
+              <span class="emergency-item__label"><i data-lucide="search" class="inline-icon"></i> सतर्कता / Vigilance</span>
             </a>
           </div>
         </div>
@@ -139,39 +146,77 @@
   <footer class="site-footer" role="contentinfo">
     <div class="container">
       <div class="footer-grid">
+        <!-- Column 1: Brand & Mission -->
         <div class="footer-brand">
-          <div class="footer-brand__name">🏛️ ग्राम पंचायत 29-बड़ागांव</div>
-          <p class="footer-brand__desc">
-            विकास खण्ड 19-बेंहदर, जिला 113-हरदोई, उत्तर प्रदेश<br/>
-            Block 19-Behendar, District 113-Hardoi, Uttar Pradesh
+          <div class="footer-brand__name"><i data-lucide="landmark" class="inline-icon"></i> ग्राम पंचायत 29-बड़ागांव</div>
+          <p class="footer-brand__desc" style="margin-top: 12px; line-height: 1.6;">
+            <strong>ग्राम:</strong> बड़ागांव (Badagaon)<br/>
+            <strong>थाना:</strong> कासिमपुर (Kashimpur)<br/>
+            <strong>ब्लॉक:</strong> बेंहदर (Behandar)<br/>
+            <strong>तहसील:</strong> संडीला (Sandila)<br/>
+            <strong>जिला:</strong> हरदोई (Hardoi) - 241201 (U.P.)
+          </p>
+          <p style="margin-top:16px; font-size:0.82rem; color:rgba(255,255,255,0.5); line-height:1.5;">
+            नागरिकों को जागरूक और सशक्त बनाने की एक डिजिटल पहल।<br/>
+            <em>A digital initiative to empower citizens.</em>
           </p>
         </div>
+
+        <!-- Column 2: Quick Links -->
         <div class="footer-links">
-          <div class="footer-links__title">पोर्टल / Portal</div>
+          <div class="footer-links__title">पोर्टल / Quick Links</div>
           <ul class="footer-links__list" role="list">
-            <li><a href="index.html">🏠 होम</a></li>
-            <li><a href="rights.html">⚖️ नागरिक अधिकार</a></li>
-            <li><a href="schemes.html">📋 सरकारी योजनाएँ</a></li>
-            <li><a href="directory.html">📞 संपर्क सूची</a></li>
+            <li><a href="index.html"><i data-lucide="home" class="inline-icon"></i> होम / Home</a></li>
+            <li><a href="rights.html"><i data-lucide="scale" class="inline-icon"></i> अधिकार / Rights</a></li>
+            <li><a href="schemes.html"><i data-lucide="clipboard-list" class="inline-icon"></i> योजनाएँ / Schemes</a></li>
+            <li><a href="directory.html"><i data-lucide="phone" class="inline-icon"></i> संपर्क / Contacts</a></li>
           </ul>
         </div>
+
+        <!-- Column 3: Important Services -->
+        <div class="footer-links">
+          <div class="footer-links__title">महत्वपूर्ण सेवाएँ / Services</div>
+          <ul class="footer-links__list" role="list">
+            <li><a href="https://jansunwai.up.nic.in" target="_blank" rel="noopener">🌐 जनसुनवाई (Jansunwai)</a></li>
+            <li><a href="https://electoralsearch.eci.gov.in" target="_blank" rel="noopener"><i data-lucide="box" class="inline-icon"></i> मतदाता खोज (Voter Search)</a></li>
+            <li><a href="https://uppolice.gov.in" target="_blank" rel="noopener">🚔 यूपी पुलिस (UP Police)</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Emergency -->
         <div class="footer-links">
           <div class="footer-links__title">आपातकालीन / Emergency</div>
           <ul class="footer-links__list" role="list">
-            <li><a href="tel:112">🚔 पुलिस — 112</a></li>
-            <li><a href="tel:1076">📞 CM हेल्पलाइन — 1076</a></li>
-            <li><a href="tel:1090">👩 महिला हेल्पलाइन — 1090</a></li>
-            <li><a href="tel:1930">💻 साइबर फ्रॉड — 1930</a></li>
+            <li><a href="tel:112"><i data-lucide="alert-triangle" class="inline-icon"></i> पुलिस (Police) — 112</a></li>
+            <li><a href="tel:1076"><i data-lucide="phone" class="inline-icon"></i> CM हेल्पलाइन — 1076</a></li>
+            <li><a href="tel:1090"><i data-lucide="user" class="inline-icon"></i> महिला (Women) — 1090</a></li>
+            <li><a href="tel:1930"><i data-lucide="laptop" class="inline-icon"></i> साइबर (Cyber) — 1930</a></li>
           </ul>
         </div>
       </div>
-      <hr class="footer-divider" />
-      <div class="footer-bottom">
-        <span>© <span id="footerYear">2025</span> ग्राम पंचायत 29-बड़ागांव। सर्वाधिकार सुरक्षित।</span>
-        <span>GitHub Pages पर होस्ट किया गया</span>
+
+      <hr class="footer-divider" style="margin: 40px 0 24px;" />
+
+      <!-- Developer Credit Bottom Strip -->
+      <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap: 20px;">
+        <div style="font-size: 0.85rem; color: rgba(255,255,255,0.5);">
+          © <span id="footerYear">2025</span> ग्राम पंचायत 29-बड़ागांव। सर्वाधिकार सुरक्षित।
+        </div>
+        
+        <div style="display:flex; align-items:center; gap: 16px; background: rgba(255,255,255,0.05); padding: 8px 16px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.1);">
+          <div style="font-size: 0.75rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.05em;">Developed By</div>
+          <div style="font-size: 0.95rem; font-weight: 700; color: #fff;">Abhinav Kumar</div>
+          <div style="display:flex; gap: 12px; margin-left: 8px; border-left: 1px solid rgba(255,255,255,0.2); padding-left: 12px;">
+            <a href="https://abinavshukl.github.io/Abhinav-s-Portfolio/" target="_blank" rel="noopener" aria-label="Portfolio" style="color: #fff; text-decoration: none; font-size: 1.1rem; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">🌐</a>
+            <a href="https://github.com/abinavshukl" target="_blank" rel="noopener" aria-label="GitHub" style="color: #fff; text-decoration: none; font-size: 1.1rem; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'"><i data-lucide="laptop" class="inline-icon"></i></a>
+            <a href="mailto:abhinavshukla1000@gmail.com" aria-label="Email" style="color: #fff; text-decoration: none; font-size: 1.1rem; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">✉️</a>
+          </div>
+        </div>
       </div>
     </div>
   </footer>
+
+
 
   <script src="js/config.js"></script>
   <script src="js/main.js"></script>
@@ -179,10 +224,10 @@
     // ── Load and render directory from data/directory.json ──────────────
     (function () {
       const CATEGORY_LABELS = {
-        administration: { hi: "🏛️ प्रशासन", en: "Administration" },
-        police:         { hi: "🚔 पुलिस / आपातकालीन", en: "Police & Emergency" },
-        utilities:      { hi: "⚡ उपयोगिता सेवाएँ", en: "Utilities" },
-        health:         { hi: "🏥 स्वास्थ्य सेवाएँ", en: "Health Services" }
+        administration: { hi: '<i data-lucide="landmark" class="inline-icon"></i> प्रशासन', en: "Administration" },
+        police:         { hi: '<i data-lucide="shield-alert" class="inline-icon"></i> पुलिस / आपातकालीन', en: "Police & Emergency" },
+        utilities:      { hi: '<i data-lucide="zap" class="inline-icon"></i> उपयोगिता सेवाएँ', en: "Utilities" },
+        health:         { hi: '<i data-lucide="plus-square" class="inline-icon"></i> स्वास्थ्य सेवाएँ', en: "Health Services" }
       };
 
       function renderContact(contact) {
@@ -200,24 +245,26 @@
             <div class="contact-actions">
               ${hasPhone && !isPlaceholder ? `
                 <a href="tel:${contact.phone}" class="contact-btn contact-btn--call" aria-label="${contact.phone} पर कॉल करें">
-                  📞 ${contact.phone}
+                  <i data-lucide="phone" class="inline-icon"></i> ${contact.phone}
                 </a>
               ` : isPlaceholder ? `
-                <span class="btn btn--ghost btn--sm" style="cursor:default;opacity:0.6;">📞 नंबर अपडेट करें</span>
+                <a href="https://hardoi.nic.in/directory/" target="_blank" class="contact-btn contact-btn--call" style="background-color: var(--color-surface); color: var(--color-primary); border: 2px solid var(--color-primary);" aria-label="आधिकारिक वेबसाइट देखें">
+                  🌐 आधिकारिक पोर्टल देखें
+                </a>
               ` : ''}
               ${contact.altPhone ? `
                 <a href="tel:${contact.altPhone}" class="contact-btn contact-btn--call" aria-label="${contact.altPhone} पर कॉल करें">
-                  📞 ${contact.altPhone}
+                  <i data-lucide="phone" class="inline-icon"></i> ${contact.altPhone}
                 </a>
               ` : ''}
               ${contact.email ? `
                 <a href="mailto:${contact.email}" class="contact-btn contact-btn--call" aria-label="${contact.email} पर ईमेल करें">
-                  📧 Email
+                  <i data-lucide="mail" class="inline-icon"></i> Email
                 </a>
               ` : ''}
               ${hasWhatsApp && !isPlaceholder ? `
                 <a href="https://wa.me/91${contact.phone}" class="contact-btn contact-btn--wa" target="_blank" rel="noopener" aria-label="WhatsApp पर संपर्क करें">
-                  💬 WhatsApp
+                  <i data-lucide="message-circle" class="inline-icon"></i> WhatsApp
                 </a>
               ` : ''}
             </div>
@@ -254,7 +301,7 @@
         } catch (err) {
           container.innerHTML = `
             <div class="error-card">
-              <span class="error-icon">⚠️</span>
+              <span class="error-icon"><i data-lucide="alert-circle" class="inline-icon"></i></span>
               <p>संपर्क सूची लोड नहीं हो सकी। पृष्ठ रिफ्रेश करें।<br/>
               <small>Directory could not be loaded. Please refresh.</small></p>
             </div>`;
@@ -267,6 +314,14 @@
         loadDirectory();
       }
     })();
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+    });
   </script>
 </body>
 </html>

@@ -120,12 +120,36 @@
     window.print();
   };
 
+  // ── Mobile Nav Toggle ─────────────────────────────────────────────────
+  function initMobileNav() {
+    const toggle = document.querySelector(".menu-toggle");
+    const nav = document.getElementById("navMenu");
+    
+    if (toggle && nav) {
+      toggle.addEventListener("click", () => {
+        const isExpanded = toggle.getAttribute("aria-expanded") === "true";
+        toggle.setAttribute("aria-expanded", !isExpanded);
+        toggle.classList.toggle("toggle--active");
+        nav.classList.toggle("nav--open");
+      });
+
+      nav.querySelectorAll(".nav__link").forEach(link => {
+        link.addEventListener("click", () => {
+          toggle.setAttribute("aria-expanded", "false");
+          toggle.classList.remove("toggle--active");
+          nav.classList.remove("nav--open");
+        });
+      });
+    }
+  }
+
   // ── Init all ─────────────────────────────────────────────────────────
   function init() {
     setActiveNavLink();
     updateFooterYear();
     initSmoothScroll();
     initStickyHeader();
+    initMobileNav();
   }
 
   if (document.readyState === "loading") {

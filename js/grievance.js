@@ -24,7 +24,7 @@
     const errors = [];
     if (!data.name.trim()) errors.push("नाम अनिवार्य है। / Name is required.");
     if (!/^[6-9]\d{9}$/.test(data.phone)) errors.push("वैध 10 अंकों का मोबाइल नंबर दर्ज करें।");
-    if (!data.ward) errors.push("वार्ड चुनें। / Select Ward.");
+    if (!data.guardian) errors.push("पिता/पति का नाम अनिवार्य है। / Guardian name required.");
     if (!data.category) errors.push("समस्या श्रेणी चुनें। / Select issue category.");
     if (data.description.trim().length < 20)
       errors.push("समस्या विवरण कम से कम 20 अक्षरों में लिखें।");
@@ -50,38 +50,49 @@
     document.querySelectorAll(".field-error-msg").forEach((el) => el.remove());
   }
 
-  // ── Generate WhatsApp message ─────────────────────────────────────────
+  // ── Generate Links ─────────────────────────────────────────
+  function getCategoryConfig(categoryValue) {
+    if (typeof CONFIG === "undefined") return null;
+    return CONFIG.ISSUE_CATEGORIES.find((c) => c.value === categoryValue);
+  }
+
   function generateWhatsAppLink(data) {
-    const categoryLabel = CONFIG.ISSUE_CATEGORIES.find(
-      (c) => c.value === data.category
-    )?.label || data.category;
+    const catConfig = getCategoryConfig(data.category);
+    const categoryLabel = catConfig ? catConfig.label : data.category;
+    const number = catConfig && catConfig.whatsapp ? catConfig.whatsapp : "";
 
-    const epicLine = data.epicNo ? `\n🗳️ *मतदाता EPIC:* ${data.epicNo}` : '';
+    const epicLine = data.epicNo ? `\n▪️ *मतदाता पहचान पत्र (EPIC):* ${data.epicNo}` : '';
 
-    const text = [
-      `🙏 *ग्राम शिकायत — बड़ागांव*`,
-      `━━━━━━━━━━━━━━━━━━`,
-      `👤 *नाम:* ${data.name}${epicLine}`,
-      `📱 *मोबाइल:* ${data.phone}`,
-      `🏘️ *वार्ड:* ${data.ward}`,
-      `🏠 *मोहल्ला / मकान नं०:* ${data.mohalla || "अनिर्दिष्ट"}`,
-      `📋 *समस्या श्रेणी:* ${categoryLabel}`,
-      ``,
-      `📝 *विवरण:*`,
-      data.description,
-      `━━━━━━━━━━━━━━━━━━`,
-      `🗓️ दिनांक: ${new Date().toLocaleDateString("hi-IN", { day: "2-digit", month: "long", year: "numeric" })}`,
-      `🌐 ग्राम पंचायत 29-बड़ागांव, विकास खण्ड 19-बेंहदर, जिला 113-हरदोई`
-    ].join("\n");
+    const text = `*प्रार्थना पत्र / जन-शिकायत* ⚠️\n\n`
+      + `*सेवा में,*\n${catConfig && catConfig.authority ? catConfig.authority : "संबंधित अधिकारी महोदय"},\n`
+      + `ग्राम पंचायत 29-बड़ागांव, विकास खण्ड 19-बेंहदर, जिला 113-हरदोई\n\n`
+      + `*विषय:* ${categoryLabel} के संबंध में।\n\n`
+      + `*महोदय,*\n`
+      + `सविनय निवेदन है कि प्रार्थी/प्रार्थिनी *${data.name}*, पुत्र/पत्नी *${data.guardian}*, ग्राम 29-बड़ागांव का/की निवासी है। प्रार्थी का विवरण निम्न प्रकार है:\n`
+      + `▪️ *नाम:* ${data.name}\n`
+      + `▪️ *पिता/पति का नाम:* ${data.guardian}\n`
+      + `▪️ *मोबाइल:* ${data.phone}${epicLine}\n\n`
+      + `*शिकायत/समस्या का विवरण:*\n${data.description}\n\n`
+      + `अतः आपसे विनम्र निवेदन है कि जनहित को दृष्टिगत रखते हुए उक्त समस्या का त्वरित निवारण कराने की कृपा करें।\n\n`
+      + `*भवदीय,*\n${data.name}\nदिनांक: ${new Date().toLocaleDateString("hi-IN")}`;
 
-    const encoded = encodeURIComponent(text);
-    const number = (typeof CONFIG !== "undefined") ? CONFIG.WHATSAPP_NUMBER : "91XXXXXXXXXX";
-    return `https://wa.me/${number}?text=${encoded}`;
+    return `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
+  }
+
+  function generateEmailLink(data) {
+    const catConfig = getCategoryConfig(data.category);
+    const categoryLabel = catConfig ? catConfig.label : data.category;
+    const emailAddress = catConfig && catConfig.email ? catConfig.email : "gram.panchayat@example.com";
+
+    const subject = `जन-शिकायत (ग्राम बड़ागांव): ${categoryLabel} - प्रार्थी: ${data.name}`;
+    const body = generateDraftText(data);
+
+    return `mailto:${emailAddress}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }
 
   // ── Submit to Web3Forms (email fallback) ──────────────────────────────
   async function submitToApi(data) {
-    if (typeof CONFIG === "undefined" || CONFIG.WEB3FORMS_KEY === "YOUR_WEB3FORMS_ACCESS_KEY") {
+    if (typeof CONFIG === "undefined" || !CONFIG.WEB3FORMS_KEY) {
       console.warn("Web3Forms key not configured. Skipping API submission.");
       return;
     }
@@ -92,11 +103,10 @@
 
     const payload = {
       access_key: CONFIG.WEB3FORMS_KEY,
-      subject: `ग्राम शिकायत | वार्ड ${data.ward} | ${categoryLabel} | ${data.name}`,
+      subject: `ग्राम शिकायत | ${categoryLabel} | ${data.name}`,
       name: data.name,
       phone: data.phone,
-      ward: data.ward,
-      mohalla: data.mohalla,
+      guardian: data.guardian,
       category: categoryLabel,
       message: data.epicNo ? `मतदाता EPIC: ${data.epicNo}\n\n${data.description}` : data.description,
       epic_no: data.epicNo || "",
@@ -118,23 +128,23 @@
 
   // ── Copy grievance as draft text ──────────────────────────────────────
   function generateDraftText(data) {
-    const categoryLabel = CONFIG.ISSUE_CATEGORIES.find(
-      (c) => c.value === data.category
-    )?.label || data.category;
+    const catConfig = getCategoryConfig(data.category);
+    const categoryLabel = catConfig ? catConfig.label : data.category;
+    const authority = catConfig && catConfig.authority ? catConfig.authority : "संबंधित अधिकारी महोदय";
 
     const epicLine = data.epicNo
-      ? `\nमतदाता पहचान पत्र (EPIC): ${data.epicNo}`
+      ? `\n- मतदाता पहचान पत्र (EPIC): ${data.epicNo}`
       : '';
 
     return `सेवा में,
-श्रीमान पंचायत सचिव जी,
+${authority},
 ग्राम पंचायत 29-बड़ागांव, विकास खण्ड 19-बेंहदर, जिला 113-हरदोई
 
 विषय: ${categoryLabel} से संबंधित शिकायत
 
 महोदय,
 मेरा नाम ${data.name} है।${epicLine}
-मैं वार्ड ${data.ward}, मोहल्ला ${data.mohalla || "———"}, ग्राम बड़ागांव का/की निवासी हूँ।
+मैं ग्राम 29-बड़ागांव का/की निवासी हूँ।
 
 समस्या: ${data.description}
 
@@ -151,9 +161,37 @@ ${data.name}`;
   function initGrievanceForm() {
     const form = document.getElementById("complaintForm");
     const copyDraftBtn = document.getElementById("copyDraftBtn");
-    const submitBtn = document.getElementById("grievanceSubmitBtn");
+    const btnWhatsapp = document.getElementById("btnWhatsapp");
+    const btnEmail = document.getElementById("btnEmail");
+    const btnCall = document.getElementById("btnCall");
+    const issueCategory = document.getElementById("issueCategory");
 
     if (!form) return;
+
+    if (issueCategory) {
+      issueCategory.addEventListener("change", function(e) {
+        const cat = getCategoryConfig(e.target.value);
+        if (!cat) {
+          if (btnWhatsapp) btnWhatsapp.style.display = "none";
+          if (btnEmail) btnEmail.style.display = "none";
+          if (btnCall) btnCall.style.display = "none";
+          return;
+        }
+        
+        if (btnWhatsapp) btnWhatsapp.style.display = (cat.whatsapp && cat.whatsapp.length >= 10) ? "flex" : "none";
+        if (btnEmail) btnEmail.style.display = (cat.email && cat.email.length > 3) ? "flex" : "none";
+        
+        if (btnCall) {
+          if (cat.phone) {
+            btnCall.style.display = "flex";
+            btnCall.href = `tel:${cat.phone}`;
+            btnCall.innerHTML = `📞 कॉल करें (${cat.phone})`;
+          } else {
+            btnCall.style.display = "none";
+          }
+        }
+      });
+    }
 
     // Copy draft button
     if (copyDraftBtn) {
@@ -166,11 +204,8 @@ ${data.name}`;
       });
     }
 
-    // Form submit
-    form.addEventListener("submit", async function (e) {
-      e.preventDefault();
+    function processSubmission(dispatchType) {
       clearFieldErrors();
-
       const data = collectFormData();
       const errors = validateForm(data);
 
@@ -187,39 +222,36 @@ ${data.name}`;
       const errorBox = document.getElementById("formErrorBox");
       if (errorBox) errorBox.style.display = "none";
 
-      // Update submit button state
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.textContent = "भेज रहे हैं… / Sending…";
-      }
-
-      // Fire API in background (don't await — WhatsApp redirect is primary)
+      // Fire API in background
       submitToApi(data).catch(console.error);
 
-      // Primary: WhatsApp redirect
-      const waLink = generateWhatsAppLink(data);
-      window.open(waLink, "_blank");
+      if (dispatchType === 'whatsapp') {
+        const waLink = generateWhatsAppLink(data);
+        window.open(waLink, "_blank");
+        if (typeof window.showToast === "function") window.showToast("शिकायत WhatsApp पर भेजी जा रही है! ✅");
+      } else if (dispatchType === 'email') {
+        const emailLink = generateEmailLink(data);
+        window.location.href = emailLink;
+        if (typeof window.showToast === "function") window.showToast("ईमेल ऐप खोला जा रहा है! 📧");
+      }
 
-      // Reset form
       form.reset();
-      if (submitBtn) {
-        submitBtn.disabled = false;
-        submitBtn.textContent = "WhatsApp पर भेजें / Send via WhatsApp";
-      }
+    }
 
-      // Show success toast
-      if (typeof window.showToast === "function") {
-        window.showToast("शिकायत WhatsApp पर भेजी गई! ✅");
-      }
-    });
+    if (btnWhatsapp) {
+      btnWhatsapp.addEventListener("click", () => processSubmission('whatsapp'));
+    }
+    
+    if (btnEmail) {
+      btnEmail.addEventListener("click", () => processSubmission('email'));
+    }
   }
 
   function collectFormData() {
     return {
       name:        (document.getElementById('complainantName')?.value  || '').trim(),
       phone:       (document.getElementById('complainantPhone')?.value || '').trim(),
-      ward:        document.getElementById('complainantWard')?.value   || '',
-      mohalla:     (document.getElementById('complainantMohalla')?.value || '').trim(),
+      guardian:    (document.getElementById('complainantGuardian')?.value || '').trim(),
       category:    document.getElementById('issueCategory')?.value     || '',
       description: (document.getElementById('issueDescription')?.value || '').trim(),
       epicNo:      (document.getElementById('voterEpicNo')?.value      || '').trim()  // from voter-search.js
@@ -230,7 +262,7 @@ ${data.name}`;
   function highlightErrors(data) {
     if (!data.name) showFieldError("complainantName", "नाम अनिवार्य है।");
     if (!/^[6-9]\d{9}$/.test(data.phone)) showFieldError("complainantPhone", "वैध मोबाइल नंबर दर्ज करें।");
-    if (!data.ward) showFieldError("complainantWard", "वार्ड चुनें।");
+    if (!data.guardian) showFieldError("complainantGuardian", "पिता/पति का नाम अनिवार्य है।");
     if (!data.category) showFieldError("issueCategory", "समस्या श्रेणी चुनें।");
     if (data.description.length < 20) showFieldError("issueDescription", "कम से कम 20 अक्षरों में लिखें।");
   }

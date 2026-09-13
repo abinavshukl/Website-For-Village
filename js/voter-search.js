@@ -1,259 +1,172 @@
-/**
- * js/voter-search.js — Voter List Lookup & Grievance Form Auto-fill
- * Loads data/voters.json, provides live search by name or EPIC No.,
- * auto-fills the complaint form fields on match.
- *
- * DATA NOTE: Replace data/voters.json with the full 4,443-record
- * electoral roll for GP 29-Badagaon once converted from PDF.
- */
-
 (function () {
-  'use strict';
+  "use strict";
 
-  let votersData = [];
-  let searchTimeout = null;
-
-  // ── Load voter data ────────────────────────────────────────────────
-  async function loadVoterData() {
+  async function loadVoters() {
     try {
-      const res = await fetch('data/voters.json');
-      if (!res.ok) throw new Error('Network error');
-      votersData = await res.json();
-      initVoterSearch();
-    } catch (err) {
-      console.warn('Voter data not available:', err.message);
-      // Gracefully hide the search panel if data fails
-      const panel = document.getElementById('voterSearchPanel');
-      if (panel) panel.style.display = 'none';
+      const res = await fetch("data/voters.json");
+      if (!res.ok) throw new Error("Network response was not ok");
+      return await res.json();
+    } catch (error) {
+      console.error("Error fetching voters:", error);
+      return [];
     }
   }
 
-  // ── Normalise text for searching (remove diacritics, lowercase) ───
-  function normalise(str) {
-    return (str || '').toLowerCase().replace(/\s+/g, ' ').trim();
+  function hindiToLatin(str) {
+    if (!str) return "";
+    const map = {
+      'अ': 'a', 'आ': 'aa', 'इ': 'i', 'ई': 'ee', 'उ': 'u', 'ऊ': 'oo', 'ए': 'e', 'ऐ': 'ai', 'ओ': 'o', 'औ': 'au',
+      'क': 'k', 'ख': 'kh', 'ग': 'g', 'घ': 'gh', 'च': 'ch', 'छ': 'chh', 'ज': 'j', 'झ': 'jh',
+      'ट': 't', 'ठ': 'th', 'ड': 'd', 'ढ': 'dh', 'त': 't', 'थ': 'th', 'द': 'd', 'ध': 'dh', 'न': 'n',
+      'प': 'p', 'फ': 'ph', 'ब': 'b', 'भ': 'bh', 'म': 'm', 'य': 'y', 'र': 'r', 'ल': 'l', 'व': 'v',
+      'श': 'sh', 'ष': 'sh', 'स': 's', 'ह': 'h',
+      'ा': 'a', 'ि': 'i', 'ी': 'ee', 'ु': 'u', 'ू': 'oo', 'े': 'e', 'ै': 'ai', 'ो': 'o', 'ौ': 'au',
+      'ं': 'n', 'ँ': 'n', 'ृ': 'ri', '्': ''
+    };
+    let res = "";
+    for (let i = 0; i < str.length; i++) {
+      res += map[str[i]] || str[i];
+    }
+    return res.toLowerCase().replace(/[^a-z0-9 ]/g, '').replace(/\s+/g, ' ').trim();
   }
 
-  // ── Search voters by name (Hindi or English) or EPIC number ───────
-  function searchVoters(query) {
-    const q = normalise(query);
-    if (q.length < 2) return [];
-
-    return votersData.filter(v => {
-      return (
-        normalise(v.name).includes(q) ||
-        normalise(v.nameEn).includes(q) ||
-        normalise(v.epicNo).includes(q.toUpperCase()) ||
-        normalise(v.fatherHusbandName).includes(q) ||
-        normalise(v.fatherHusbandNameEn).includes(q)
-      );
-    }).slice(0, 8); // cap at 8 results
-  }
-
-  // ── Render search results dropdown ────────────────────────────────
-  function renderResults(results, inputEl) {
-    let dropdown = document.getElementById('voterSearchDropdown');
-    if (!dropdown) {
-      dropdown = document.createElement('div');
-      dropdown.id = 'voterSearchDropdown';
-      dropdown.className = 'voter-search-dropdown';
-      dropdown.setAttribute('role', 'listbox');
-      dropdown.setAttribute('aria-label', 'मतदाता सूची परिणाम');
-      inputEl.parentElement.style.position = 'relative';
-      inputEl.parentElement.appendChild(dropdown);
-    }
-
-    if (results.length === 0) {
-      dropdown.innerHTML = `
-        <div class="voter-result-empty">
-          <span>❌ कोई परिणाम नहीं मिला / No results found</span>
-          <a href="https://electoralsearch.eci.gov.in/" target="_blank" rel="noopener" class="voter-result-eci">
-            🔗 ECI आधिकारिक खोज पर जाएँ ↗
-          </a>
-        </div>`;
-      dropdown.style.display = 'block';
-      return;
-    }
-
-    dropdown.innerHTML = results.map((v, i) => `
-      <div
-        class="voter-result-item"
-        role="option"
-        tabindex="0"
-        data-index="${i}"
-        aria-label="${v.name}, EPIC: ${v.epicNo}, वार्ड ${v.ward}"
-      >
-        <div class="voter-result-item__main">
-          <span class="voter-result-item__name">${v.name}</span>
-          <span class="voter-result-item__epic">EPIC: ${v.epicNo}</span>
-        </div>
-        <div class="voter-result-item__sub">
-          ${v.relation}: ${v.fatherHusbandName} &nbsp;|&nbsp;
-          ${v.gender} &nbsp;|&nbsp; आयु ${v.age} &nbsp;|&nbsp;
-          <strong>वार्ड ${v.ward}</strong>
-        </div>
-        <div class="voter-result-item__addr">${v.address}</div>
-      </div>
-    `).join('');
-
-    dropdown.style.display = 'block';
-
-    // Click handler for each result
-    dropdown.querySelectorAll('.voter-result-item').forEach((el, i) => {
-      const handler = () => selectVoter(results[i], inputEl);
-      el.addEventListener('click', handler);
-      el.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handler(); }
+  window.copyEpic = function(epic) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(epic).then(() => {
+        if (window.showToast) window.showToast("EPIC नंबर कॉपी हो गया! (Copied)");
       });
-    });
-  }
+    } else {
+      // Fallback if clipboard API not supported
+      const tempInput = document.createElement("input");
+      tempInput.value = epic;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand("copy");
+      document.body.removeChild(tempInput);
+      if (window.showToast) window.showToast("EPIC नंबर कॉपी हो गया! (Copied)");
+    }
+  };
 
-  // ── Auto-fill the complaint form ──────────────────────────────────
-  function selectVoter(voter, inputEl) {
-    // Fill search display field
-    const searchInput = document.getElementById('voterSearchInput');
-    if (searchInput) searchInput.value = `${voter.name} — ${voter.epicNo}`;
+  function renderVoter(voter) {
+    const epicNo = voter.epicNo || voter.voterId || 'No EPIC';
+    const serialNo = voter.serialNo || 'N/A';
+    const name = voter.nameHindi || voter.name || 'Unknown';
+    const guardian = voter.guardianHindi || voter.fatherHusbandName || 'Unknown';
+    
+    const nameEng = voter.nameEnglish || voter.nameEn || '';
+    const guardianEng = voter.guardianEnglish || voter.fatherHusbandNameEn || '';
+    
+    const nameHtml = nameEng ? `${name} <br/><small style="color:#e5e7eb;font-weight:400;">${nameEng}</small>` : name;
+    const guardianHtml = guardianEng ? `${guardian} <span style="color:#6b7280;font-size:0.8rem;font-weight:400;">(${guardianEng})</span>` : guardian;
 
-    // Fill hidden EPIC field
-    const epicField = document.getElementById('voterEpicNo');
-    if (epicField) epicField.value = voter.epicNo;
-
-    // Fill complaint form fields
-    const nameField = document.getElementById('complainantName');
-    if (nameField && !nameField.value) nameField.value = voter.name;
-
-    const wardField = document.getElementById('complainantWard');
-    if (wardField) wardField.value = voter.ward;
-
-    const mohallaField = document.getElementById('complainantMohalla');
-    if (mohallaField && !mohallaField.value) mohallaField.value = voter.address;
-
-    // Show the selected voter's details panel
-    renderVoterCard(voter);
-
-    // Close dropdown
-    closeDropdown();
-
-    // Scroll to form
-    const form = document.getElementById('complaintForm');
-    if (form) form.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-
-  // ── Render the confirmed voter detail card ────────────────────────
-  function renderVoterCard(voter) {
-    const panel = document.getElementById('voterSelectedCard');
-    if (!panel) return;
-
-    panel.innerHTML = `
-      <div class="voter-selected-card" role="region" aria-label="चयनित मतदाता विवरण">
-        <div class="voter-selected-card__header">
-          <span class="voter-selected-card__icon" aria-hidden="true">✅</span>
-          <div>
-            <div class="voter-selected-card__title">मतदाता सूची में पाया गया / Voter Found</div>
-            <div class="voter-selected-card__subtitle">नीचे दिए विवरण फॉर्म में भर दिए गए हैं</div>
+    return `
+      <div class="booth-card animate-in" style="margin-bottom:12px;text-align:left;">
+        <div class="booth-card__header" style="padding:12px;display:flex;flex-direction:column;align-items:flex-start;">
+          <div style="display:flex;justify-content:space-between;width:100%;align-items:center;">
+            <div class="booth-card__badge" onclick="copyEpic('${epicNo}')" style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.25);padding:4px 10px;border-radius:6px;cursor:pointer;transition:background 0.2s;" title="Click to copy">
+              <span>EPIC: ${epicNo}</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </div>
+            <div style="font-size:0.8rem;color:rgba(255,255,255,0.9);font-weight:600;">क्र.सं: ${serialNo}</div>
           </div>
-          <button class="voter-selected-card__clear" onclick="clearVoterSelection()" aria-label="चयन हटाएँ">✕</button>
+          <div style="color:#fff;font-weight:700;font-size:1.1rem;margin-top:8px;">${nameHtml}</div>
         </div>
-        <div class="voter-selected-card__body">
-          <div class="voter-detail-grid">
-            <div class="voter-detail-item">
-              <span class="voter-detail-item__label">मतदाता पहचान पत्र (EPIC)</span>
-              <span class="voter-detail-item__value epic">${voter.epicNo}</span>
-            </div>
-            <div class="voter-detail-item">
-              <span class="voter-detail-item__label">नाम / Name</span>
-              <span class="voter-detail-item__value">${voter.name}</span>
-            </div>
-            <div class="voter-detail-item">
-              <span class="voter-detail-item__label">${voter.relation} का नाम</span>
-              <span class="voter-detail-item__value">${voter.fatherHusbandName}</span>
-            </div>
-            <div class="voter-detail-item">
-              <span class="voter-detail-item__label">लिंग / आयु</span>
-              <span class="voter-detail-item__value">${voter.gender}, ${voter.age} वर्ष</span>
-            </div>
-            <div class="voter-detail-item">
-              <span class="voter-detail-item__label">वार्ड / बूथ</span>
-              <span class="voter-detail-item__value">वार्ड ${voter.ward} &nbsp;|&nbsp; बूथ ${voter.boothNo}</span>
-            </div>
-            <div class="voter-detail-item voter-detail-item--full">
-              <span class="voter-detail-item__label">पता / Address</span>
-              <span class="voter-detail-item__value">${voter.address}</span>
-            </div>
+        <div class="booth-card__body" style="padding:12px;background:#fff;border-radius:0 0 8px 8px;border:1px solid #e5e7eb;border-top:none;">
+          <div style="font-size:0.88rem;margin-bottom:6px;"><strong>पिता/पति:</strong> ${guardianHtml}</div>
+          <div style="font-size:0.88rem;margin-bottom:6px;"><strong>आयु:</strong> ${voter.age || 'N/A'} | <strong>लिंग:</strong> ${voter.gender || 'N/A'}</div>
+          <div style="font-size:0.88rem;margin-bottom:6px;"><strong>मकान नं:</strong> ${voter.houseNo || 'N/A'} | <strong>वार्ड:</strong> ${voter.wardName || 'N/A'}</div>
+          <div style="font-size:0.88rem;color:#047857;font-weight:600;"><strong>बूथ:</strong> ${voter.boothName || 'N/A'}</div>
+          <hr style="margin:10px 0 8px 0;border:none;border-top:1px dashed #e5e7eb;" />
+          <div style="text-align:right;">
+             <a href="https://electoralsearch.eci.gov.in/" target="_blank" rel="noopener noreferrer" class="btn btn--outline" style="padding:4px 10px;font-size:0.8rem;display:inline-block;color:var(--color-primary);border-color:var(--color-primary);">
+               🌐 NVSP पर क्रॉस-चेक करें
+             </a>
           </div>
-          <p class="voter-detail-note">
-            ⚠️ ये विवरण मतदाता सूची से हैं। शिकायत में EPIC नंबर स्वतः शामिल होगा।<br/>
-            <em>These details are from the electoral roll. EPIC No. will be included in your complaint.</em>
-          </p>
         </div>
       </div>
     `;
-    panel.style.display = 'block';
   }
 
-  // ── Clear voter selection ─────────────────────────────────────────
-  window.clearVoterSelection = function () {
-    const searchInput = document.getElementById('voterSearchInput');
-    if (searchInput) { searchInput.value = ''; searchInput.focus(); }
+  async function initVoterSearch() {
+    const searchBtn = document.getElementById("findVoterBtn");
+    const searchInput = document.getElementById("voterSearchInput");
+    const resultDiv = document.getElementById("voterResult");
 
-    const epicField = document.getElementById('voterEpicNo');
-    if (epicField) epicField.value = '';
+    if (!searchBtn || !searchInput || !resultDiv) return;
 
-    const panel = document.getElementById('voterSelectedCard');
-    if (panel) { panel.innerHTML = ''; panel.style.display = 'none'; }
+    let votersData = null;
 
-    closeDropdown();
-  };
+    searchBtn.addEventListener("click", async () => {
+      const query = searchInput.value.trim().toLowerCase();
+      if (!query) {
+        resultDiv.innerHTML = `<div class="error-card"><span class="error-icon">⚠️</span> कृपया नाम या EPIC नंबर दर्ज करें।</div>`;
+        return;
+      }
 
-  // ── Close dropdown ─────────────────────────────────────────────────
-  function closeDropdown() {
-    const d = document.getElementById('voterSearchDropdown');
-    if (d) d.style.display = 'none';
+      resultDiv.innerHTML = `<div style="text-align:center;padding:12px;color:gray;">खोज रहा है... (Searching...)</div>`;
+
+      if (!votersData) {
+        votersData = await loadVoters();
+      }
+
+      // If query is fully english characters, clean it
+      const isEnglishQuery = /^[a-z0-9\s]+$/.test(query);
+      const cleanQuery = isEnglishQuery ? query.replace(/[^a-z0-9\s]/g, '') : query;
+      
+      const stopWords = ['son', 'of', 'wife', 'daughter', 'so', 'wo', 'do', 's/o', 'w/o', 'd/o', 'and', 'urff', 'urf', 'alias'];
+      const queryWords = cleanQuery.split(' ').filter(w => w.length > 0 && !stopWords.includes(w));
+
+      const results = votersData.filter(v => {
+        const epic = v.epicNo || v.voterId || "";
+        if (epic.toLowerCase().includes(cleanQuery)) return true;
+        
+        const nameHi = v.nameHindi || v.name || "";
+        const guardianHi = v.guardianHindi || v.fatherHusbandName || "";
+        const searchableHi = nameHi + " " + guardianHi;
+        
+        const nameEn = (v.nameEnglish || v.nameEn || "").toLowerCase();
+        const guardianEn = (v.guardianEnglish || v.fatherHusbandNameEn || "").toLowerCase();
+        const searchableEn = nameEn + " " + guardianEn;
+        
+        // Match word by word to handle transliteration edge cases (e.g. Abhinava Kumara matching abhinav kumar)
+        const matchHi = queryWords.every(word => searchableHi.includes(word));
+        if (matchHi) return true;
+        
+        if (isEnglishQuery) {
+          const matchEn = queryWords.every(word => searchableEn.includes(word));
+          if (matchEn) return true;
+        }
+        
+        return false;
+      });
+
+      if (results.length === 0) {
+        resultDiv.innerHTML = `<div class="error-card"><span class="error-icon">❌</span> कोई परिणाम नहीं मिला। (No results found.)</div>`;
+        return;
+      }
+
+      // Limit to first 20 results
+      const displayedResults = results.slice(0, 20);
+      let html = displayedResults.map(renderVoter).join("");
+      
+      if (results.length > 20) {
+        html += `<div style="text-align:center;padding:12px;font-size:0.85rem;color:gray;background:#f9fafb;border-radius:4px;">${results.length - 20} अधिक परिणाम... कृपया अधिक सटीक नाम दर्ज करें।</div>`;
+      }
+
+      resultDiv.innerHTML = html;
+    });
+
+    searchInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        searchBtn.click();
+      }
+    });
   }
 
-  // ── Initialize the voter search UI ───────────────────────────────
-  function initVoterSearch() {
-    const searchInput = document.getElementById('voterSearchInput');
-    if (!searchInput) return;
-
-    // Live search on input
-    searchInput.addEventListener('input', function () {
-      clearTimeout(searchTimeout);
-      const q = this.value.trim();
-      if (q.length < 2) { closeDropdown(); return; }
-      searchTimeout = setTimeout(() => {
-        const results = searchVoters(q);
-        renderResults(results, this);
-      }, 220);
-    });
-
-    // Close dropdown on outside click
-    document.addEventListener('click', function (e) {
-      if (!e.target.closest('#voterSearchPanel')) closeDropdown();
-    });
-
-    // Keyboard navigation in dropdown
-    searchInput.addEventListener('keydown', function (e) {
-      const items = document.querySelectorAll('.voter-result-item');
-      if (e.key === 'ArrowDown' && items.length) { e.preventDefault(); items[0].focus(); }
-      if (e.key === 'Escape') closeDropdown();
-    });
-  }
-
-  // ── Patch grievance.js to include EPIC in WhatsApp message ───────
-  // Override the generateWhatsAppLink function after it's defined
-  document.addEventListener('DOMContentLoaded', function () {
-    const originalGenerate = window._originalGenerateWA;
-    // Inject EPIC into the WhatsApp message via form data
-    const epicField = document.getElementById('voterEpicNo');
-    if (epicField) {
-      // grievance.js picks this up via collectFormData override below
-    }
-  });
-
-  // ── Start ─────────────────────────────────────────────────────────
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', loadVoterData);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initVoterSearch);
   } else {
-    loadVoterData();
+    initVoterSearch();
   }
 })();

@@ -18,7 +18,7 @@
   <div id="disclaimerOverlay" class="disclaimer-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="disclaimerTitle">
     <div class="disclaimer-modal">
       <div class="disclaimer-modal__header">
-        <div class="disclaimer-modal__icon" aria-hidden="true">⚖️</div>
+        <div class="disclaimer-modal__icon" aria-hidden="true"><i data-lucide="scale" class="inline-icon"></i></div>
         <div>
           <div class="disclaimer-modal__title">महत्वपूर्ण सूचना / Important Notice</div>
           <div class="disclaimer-modal__subtitle">कृपया आगे बढ़ने से पहले पढ़ें / Please read before proceeding</div>
@@ -26,16 +26,20 @@
       </div>
       <div class="disclaimer-modal__body">
         <div class="disclaimer-modal__text">
-          <strong>यह एक स्वतंत्र जन-जागरूकता पहल है।</strong> यह वेबसाइट ग्राम पंचायत 29-बड़ागांव के नागरिकों को सरकारी सेवाओं, अधिकारों और शिकायत प्रक्रियाओं के बारे में जागरूक करने के उद्देश्य से बनाई गई है।
+          <strong>कानूनी अस्वीकरण (Legal Disclaimer):</strong><br/>
+          यह वेबसाइट नागरिकों को उनके अधिकारों, योजनाओं और जन-सुविधाओं के बारे में जागरूक करने के लिए एक सकारात्मक और स्वतंत्र पहल है।
           <br/><br/>
-          🔴 <strong>यह कोई आधिकारिक सरकारी पोर्टल नहीं है।</strong> यहाँ उपलब्ध सभी प्रारूप, टेम्पलेट और जानकारी केवल सूचनात्मक एवं शैक्षिक उद्देश्य के लिए हैं। ये प्रशासन से नागरिकों को जोड़ने में सहायता के उपकरण हैं।
+          <strong>कृपया ध्यान दें:</strong><br/>
+          🔴 यह कोई आधिकारिक सरकारी पोर्टल नहीं है।<br/>
+          🔴 इस वेबसाइट का उद्देश्य केवल सूचना और शैक्षिक सहायता प्रदान करना है।<br/>
+          🔴 यद्यपि जानकारी को सटीक रखने का प्रयास किया गया है, वेबसाइट के निर्माता/डेवलपर किसी भी जानकारी की सटीकता या किसी शिकायत/आवेदन के परिणाम के लिए कानूनी रूप से उत्तरदायी नहीं हैं। आधिकारिक जानकारी के लिए संबंधित विभाग से संपर्क करें।
           <br/><br/>
-          <em style="font-size:0.85em;color:#92400e;">This is an independent public awareness initiative, not an official government portal. All templates and resources are purely informational tools to connect citizens with the administration.</em>
+          <em style="font-size:0.85em;color:#92400e;">This is an independent initiative to spread awareness. It is not an official government portal. The developer assumes no legal liability for the information provided or the outcome of any actions taken based on it.</em>
         </div>
       </div>
       <div class="disclaimer-modal__footer" style="justify-content: center;">
         <button id="disclaimerAccept" class="btn btn--primary btn--full">
-          ✅ समझ गया, आगे बढ़ें
+          ✅ मैं सहमत हूँ / I Agree (Proceed)
         </button>
       </div>
     </div>
@@ -49,19 +53,26 @@
     <div class="container">
       <div class="header-inner">
         <a href="index.html" class="site-logo" aria-label="ग्राम पंचायत 29-बड़ागांव — होम पेज">
-          <div class="site-logo__emblem" aria-hidden="true">🏛️</div>
+          <div class="site-logo__emblem" aria-hidden="true"><i data-lucide="landmark" class="inline-icon"></i></div>
           <div class="site-logo__text">
             <span class="site-logo__name">ग्राम पंचायत 29-बड़ागांव</span>
             <span class="site-logo__sub">जिला हरदोई, उत्तर प्रदेश</span>
           </div>
         </a>
 
+        <!-- Hamburger Button -->
+        <button class="menu-toggle" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="navMenu">
+          <span class="menu-toggle__bar"></span>
+          <span class="menu-toggle__bar"></span>
+          <span class="menu-toggle__bar"></span>
+        </button>
+
         <nav id="navMenu" class="site-nav" aria-label="मुख्य नेविगेशन">
           <ul class="nav__list" role="list">
-            <li><a href="index.html"     class="nav__link">🏠 होम</a></li>
-            <li><a href="rights.html"    class="nav__link">⚖️ अधिकार</a></li>
-            <li><a href="schemes.html"   class="nav__link">📋 योजनाएँ</a></li>
-            <li><a href="directory.html" class="nav__link">📞 संपर्क</a></li>
+            <li><a href="index.html"     class="nav__link"><i data-lucide="home" class="inline-icon"></i> होम</a></li>
+            <li><a href="rights.html"    class="nav__link"><i data-lucide="scale" class="inline-icon"></i> अधिकार</a></li>
+            <li><a href="schemes.html"   class="nav__link"><i data-lucide="clipboard-list" class="inline-icon"></i> योजनाएँ</a></li>
+            <li><a href="directory.html" class="nav__link"><i data-lucide="phone" class="inline-icon"></i> संपर्क</a></li>
           </ul>
         </nav>
       </div>
@@ -85,16 +96,16 @@
               <span class="en">Gram Panchayat 29-Badagaon</span>
             </h1>
             <p class="hero__subtitle">
-              सरकारी योजनाएँ, मतदाता बूथ, शिकायत निवारण — एक ही जगह।<br/>
-              <small>Government schemes, voter booth finder & grievance — all in one place.</small>
+              सरकारी योजनाएँ, मतदाता सूची, शिकायत निवारण — एक ही जगह।<br/>
+              <small>Government schemes, voter list & grievance — all in one place.</small>
             </p>
             <div class="hero__cta">
-              <a href="#boothFinderSection" class="btn btn--secondary btn--lg">🗳️ अपना बूथ खोजें</a>
-              <a href="#grievanceSection"   class="btn btn--outline  btn--lg" style="border-color:rgba(255,255,255,0.6);color:#fff;">📝 शिकायत दर्ज करें</a>
+              <a href="#voterSearchSection" class="btn btn--secondary btn--lg"><i data-lucide="search" class="inline-icon"></i> मतदाता सूची में नाम खोजें</a>
+              <a href="#grievanceSection"   class="btn btn--outline  btn--lg" style="border-color:rgba(255,255,255,0.6);color:#fff;"><i data-lucide="file-text" class="inline-icon"></i> शिकायत दर्ज करें</a>
             </div>
           </div>
           <div class="hero__emblem" aria-hidden="true">
-            <div class="hero__emblem-icon">🏛️</div>
+            <div class="hero__emblem-icon"><i data-lucide="landmark" class="inline-icon"></i></div>
             <div class="hero__emblem-text">
               ग्राम पंचायत<br/>29-बड़ागांव<br/>
               <span style="color:#86efac;font-size:0.9em;">हरदोई, UP</span>
@@ -137,54 +148,39 @@
       </div>
     </section>
 
-    <!-- ════ BOOTH FINDER ════ -->
-    <section id="boothFinderSection" class="section" aria-labelledby="boothFinderTitle">
+    <!-- ════ VOTER SEARCH ════ -->
+    <section id="voterSearchSection" class="section" aria-labelledby="voterSearchTitle">
       <div class="container">
         <div class="section__header">
-          <div class="section__kicker">मतदान / Polling</div>
-          <h2 class="section__title" id="boothFinderTitle">
-            <span class="hi">🗳️ अपना मतदान बूथ खोजें</span>
-            <span class="en">Find Your Polling Booth</span>
+          <div class="section__kicker">मतदाता सूची / Voter List</div>
+          <h2 class="section__title" id="voterSearchTitle">
+            <span class="hi"><i data-lucide="search" class="inline-icon"></i> मतदाता सूची में नाम खोजें</span>
+            <span class="en">Search Name in Voter List</span>
           </h2>
           <p class="section__subtitle">
-            अपना वार्ड नंबर चुनें और जानें आपका मतदान केंद्र, कक्ष, तथा सम्बद्ध वार्ड।
-            <br/><small>Select your ward number to find your booth, room, and polling station.</small>
+            अपना नाम या EPIC (वोटर आईडी) नंबर डालकर अपना मतदाता विवरण खोजें।
+            <br/><small>Search your voter details using your Name or EPIC number.</small>
           </p>
         </div>
 
-        <div class="booth-finder" role="search" aria-label="बूथ खोजें">
-          <div class="booth-finder__icon" aria-hidden="true">🏫</div>
-          <div class="booth-finder__title">मतदान केंद्र — 41-संविलियन विद्यालय बड़ागांव</div>
-          <div class="booth-finder__subtitle">Polling Station: 41-Samvilian Vidyalaya Badagaon</div>
-
-          <div class="ward-select-group">
+        <div class="booth-finder" role="search" aria-label="मतदाता खोजें">
+          <div class="ward-select-group" style="grid-template-columns: 1fr auto;">
             <div class="select-wrapper">
-              <label for="wardSelect" class="select-label">वार्ड संख्या चुनें / Select Ward Number</label>
-              <select id="wardSelect" class="form-select" aria-label="वार्ड चुनें">
-                <option value="">— वार्ड चुनें / Select Ward —</option>
-                <option value="1">वार्ड 1 / Ward 1</option>
-                <option value="2">वार्ड 2 / Ward 2</option>
-                <option value="3">वार्ड 3 / Ward 3</option>
-                <option value="4">वार्ड 4 / Ward 4</option>
-                <option value="5">वार्ड 5 / Ward 5</option>
-                <option value="6">वार्ड 6 / Ward 6</option>
-                <option value="7">वार्ड 7 / Ward 7</option>
-                <option value="8">वार्ड 8 / Ward 8</option>
-                <option value="9">वार्ड 9 / Ward 9</option>
-                <option value="10">वार्ड 10 / Ward 10</option>
-                <option value="11">वार्ड 11 / Ward 11</option>
-                <option value="12">वार्ड 12 / Ward 12</option>
-                <option value="13">वार्ड 13 / Ward 13</option>
-                <option value="14">वार्ड 14 / Ward 14</option>
-                <option value="15">वार्ड 15 / Ward 15</option>
-              </select>
+              <label for="voterSearchInput" class="select-label">नाम या EPIC नंबर दर्ज करें / Enter Name or EPIC</label>
+              <input type="text" id="voterSearchInput" class="form-select" placeholder="Enter Name or EPIC" style="height:48px;" />
             </div>
-            <button id="findBoothBtn" class="btn btn--primary" aria-label="बूथ खोजें">
-              🔍 खोजें
+            <button id="findVoterBtn" class="btn btn--primary" aria-label="मतदाता खोजें">
+              <i data-lucide="search" class="inline-icon"></i> खोजें
             </button>
           </div>
+          
+          <div style="margin-top:12px;text-align:center;">
+            <a href="https://electoralsearch.eci.gov.in/" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;color:var(--color-primary-dark);text-decoration:underline;font-weight:700;">
+              🌐 राष्ट्रीय मतदाता सेवा पोर्टल (NVSP) पर खोजें
+            </a>
+          </div>
 
-          <div id="boothResult" aria-live="polite" aria-atomic="true"></div>
+          <div id="voterResult" aria-live="polite" aria-atomic="true" style="margin-top:20px;max-height:400px;overflow-y:auto;padding-right:8px;"></div>
         </div>
       </div>
     </section>
@@ -195,23 +191,23 @@
         <div class="section__header">
           <div class="section__kicker">सेवाएँ / Services</div>
           <h2 class="section__title" id="pillarsTitle">
-            <span class="hi">हमारी प्रतिबद्धताएँ</span>
-            <span class="en">Our Commitments to You</span>
+            <span class="hi">पंचायत के लक्ष्य और पहल</span>
+            <span class="en">Goals & Initiatives</span>
           </h2>
           <p class="section__subtitle">ग्राम पंचायत की चार मुख्य प्राथमिकताएँ और जन-सेवाएँ।</p>
         </div>
         <div class="pillars-grid">
           <article class="pillar-card">
             <span class="pillar-card__icon">⚡</span>
-            <div class="pillar-card__title">24 घंटे बिजली गारंटी</div>
-            <div class="pillar-card__en">24-hr Electricity Guarantee</div>
-            <p class="pillar-card__desc">ट्रांसफार्मर खराब होने पर 24 घंटे के भीतर बदलवाने की पहल। खराबी की सूचना लाइनमैन को WhatsApp से दें।</p>
+            <div class="pillar-card__title">विद्युत आपूर्ति सुधार पहल</div>
+            <div class="pillar-card__en">Electricity Supply Initiative</div>
+            <p class="pillar-card__desc">ट्रांसफार्मर खराब होने पर त्वरित संज्ञान लेने की पहल। खराबी की सूचना जन-शिकायत पोर्टल से दें।</p>
           </article>
           <article class="pillar-card">
             <span class="pillar-card__icon">💧</span>
-            <div class="pillar-card__title">हर घर जल निगरानी</div>
-            <div class="pillar-card__en">Har Ghar Jal Monitoring</div>
-            <p class="pillar-card__desc">जल जीवन मिशन के तहत नल-जल कनेक्शन की गुणवत्ता और नियमितता की जाँच। हैंडपंप मरम्मत में प्राथमिकता।</p>
+            <div class="pillar-card__title">स्वच्छ पेयजल जागरूकता</div>
+            <div class="pillar-card__en">Clean Water Awareness</div>
+            <p class="pillar-card__desc">जल जीवन मिशन के तहत नल-जल कनेक्शन और गुणवत्ता सुधार में सहयोग।</p>
           </article>
           <article class="pillar-card">
             <span class="pillar-card__icon">📚</span>
@@ -241,19 +237,19 @@
         </div>
         <div class="pillars-grid">
           <a href="rights.html" class="pillar-card" style="text-decoration:none;color:inherit;border-color:#d1fae5;">
-            <span class="pillar-card__icon">⚖️</span>
+            <span class="pillar-card__icon"><i data-lucide="scale" class="inline-icon"></i></span>
             <div class="pillar-card__title">आपके अधिकार</div>
             <div class="pillar-card__en">Your Rights</div>
             <p class="pillar-card__desc">पंचायती राज, ग्राम सभा, RTI, MNREGA — आपके कानूनी अधिकार जानें।</p>
           </a>
           <a href="schemes.html" class="pillar-card" style="text-decoration:none;color:inherit;border-color:#d1fae5;">
-            <span class="pillar-card__icon">📋</span>
+            <span class="pillar-card__icon"><i data-lucide="clipboard-list" class="inline-icon"></i></span>
             <div class="pillar-card__title">सरकारी योजनाएँ</div>
             <div class="pillar-card__en">Government Schemes</div>
             <p class="pillar-card__desc">PM किसान, आवास, पेंशन, आयुष्मान, राशन — पात्रता और आवेदन प्रक्रिया।</p>
           </a>
           <a href="directory.html" class="pillar-card" style="text-decoration:none;color:inherit;border-color:#d1fae5;">
-            <span class="pillar-card__icon">📞</span>
+            <span class="pillar-card__icon"><i data-lucide="phone" class="inline-icon"></i></span>
             <div class="pillar-card__title">संपर्क सूची</div>
             <div class="pillar-card__en">Contacts & Helplines</div>
             <p class="pillar-card__desc">पंचायत सचिव, लेखपाल, ANM, पुलिस, CM हेल्पलाइन — सभी नंबर एक जगह।</p>
@@ -268,17 +264,17 @@
         <div class="section__header">
           <div class="section__kicker">शिकायत / Grievance</div>
           <h2 class="section__title" id="grievanceTitle">
-            <span class="hi">📝 शिकायत दर्ज करें</span>
+            <span class="hi">शिकायत दर्ज करें</span>
             <span class="en">File a Complaint</span>
           </h2>
-          <p class="section__subtitle">WhatsApp के ज़रिये सीधे ग्राम पंचायत तक अपनी बात पहुँचाएँ।</p>
+          <p class="section__subtitle">इस पोर्टल के ज़रिये आधिकारिक विभागों को शिकायत भेजने में सहायता प्राप्त करें।</p>
         </div>
 
         <div class="grievance-wrapper">
           <!-- Info panel -->
           <div class="grievance-info">
             <h3 class="grievance-info__title">शिकायत कैसे काम करती है?</h3>
-            <p style="color:var(--color-neutral-light);font-size:0.9rem;">नीचे फॉर्म भरें और "WhatsApp पर भेजें" दबाएँ। आपकी शिकायत सीधे पंचायत कार्यालय तक पहुँचेगी।</p>
+            <p style="color:var(--color-neutral-light);font-size:0.9rem;">नीचे फॉर्म भरें। यह पोर्टल आपको संबंधित अधिकारियों को शिकायत का औपचारिक मसौदा भेजने में मदद करेगा।</p>
             <div class="grievance-info__steps">
               <div class="step-item">
                 <div class="step-item__num">1</div>
@@ -343,34 +339,19 @@
                 </div>
 
                 <div class="form-row">
-                  <div class="form-group">
-                    <label for="complainantWard" class="form-label">
-                      वार्ड <span class="form-required" aria-hidden="true">*</span>
-                      <span class="text-en">Ward Number</span>
-                    </label>
-                    <select id="complainantWard" name="ward" class="form-select" required aria-required="true">
-                      <option value="">— वार्ड चुनें —</option>
-                      <option value="1">वार्ड 1</option><option value="2">वार्ड 2</option>
-                      <option value="3">वार्ड 3</option><option value="4">वार्ड 4</option>
-                      <option value="5">वार्ड 5</option><option value="6">वार्ड 6</option>
-                      <option value="7">वार्ड 7</option><option value="8">वार्ड 8</option>
-                      <option value="9">वार्ड 9</option><option value="10">वार्ड 10</option>
-                      <option value="11">वार्ड 11</option><option value="12">वार्ड 12</option>
-                      <option value="13">वार्ड 13</option><option value="14">वार्ड 14</option>
-                      <option value="15">वार्ड 15</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="complainantMohalla" class="form-label">
-                      मोहल्ला / मकान नं०
-                      <span class="text-en">Mohalla / House No.</span>
+                  <div class="form-group" style="flex:1;">
+                    <label for="complainantGuardian" class="form-label">
+                      पिता / पति का नाम <span class="form-required" aria-hidden="true">*</span>
+                      <span class="text-en">Father's / Husband's Name</span>
                     </label>
                     <input
                       type="text"
-                      id="complainantMohalla"
-                      name="mohalla"
+                      id="complainantGuardian"
+                      name="guardian"
                       class="form-input"
-                      placeholder="मोहल्ला या मकान नंबर"
+                      placeholder="पिता या पति का नाम"
+                      required
+                      aria-required="true"
                     />
                   </div>
                 </div>
@@ -402,17 +383,84 @@
                   ></textarea>
                 </div>
 
-                <div class="form-actions">
-                  <button type="submit" id="grievanceSubmitBtn" class="btn btn--primary btn--lg">
-                    💬 WhatsApp पर भेजें
+                <div class="form-actions" style="display:flex; flex-direction:column; gap:12px;">
+                  <div style="display:flex; gap:12px; flex-wrap:wrap;">
+                    <button type="button" id="btnWhatsapp" class="btn btn--primary btn--lg" style="flex:1; min-width: 200px; display: none;">
+                      <i data-lucide="message-circle" class="inline-icon"></i> WhatsApp पर भेजें
+                    </button>
+                    <button type="button" id="btnEmail" class="btn btn--secondary btn--lg" style="flex:1; min-width: 200px; background-color: var(--color-surface); color: var(--color-primary); border: 2px solid var(--color-primary); display: none;">
+                      <i data-lucide="mail" class="inline-icon"></i> ईमेल से भेजें
+                    </button>
+                    <a href="#" id="btnCall" class="btn btn--secondary btn--lg" style="flex:1; min-width: 200px; background-color: #2563eb; color: #fff; border: 2px solid #2563eb; display:none; text-decoration:none; justify-content:center;">
+                      <i data-lucide="phone" class="inline-icon"></i> हेल्पलाइन कॉल करें
+                    </a>
+                  </div>
+                  <button type="button" id="copyDraftBtn" class="btn btn--ghost" style="align-self: center;">
+                    <i data-lucide="clipboard-list" class="inline-icon"></i> प्रारूप कॉपी करें
                   </button>
-                  <button type="button" id="copyDraftBtn" class="btn btn--ghost">
-                    📋 प्रारूप कॉपी करें
-                  </button>
+                  
+                  <div style="margin-top: 20px; padding-top: 20px; border-top: 1px dashed #e5e7eb; text-align: center;">
+                    <p style="font-size: 0.9rem; color: #6b7280; margin-bottom: 12px;">WhatsApp या Email से शिकायत संभव नहीं है?</p>
+                    <a href="https://jansunwai.up.nic.in" target="_blank" rel="noopener noreferrer" class="btn btn--outline" style="width:100%; border-color:#dc2626; color:#dc2626; justify-content:center;">
+                      <i data-lucide="alert-triangle" class="inline-icon"></i> जनसुनवाई (Jansunwai) पोर्टल पर जाएँ
+                    </a>
+                  </div>
                 </div>
               </div>
             </form>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════ BOOTH FINDER ════ -->
+    <section id="boothFinderSection" class="section section--alt" aria-labelledby="boothFinderTitle">
+      <div class="container">
+        <div class="section__header">
+          <div class="section__kicker">मतदान / Polling</div>
+          <h2 class="section__title" id="boothFinderTitle">
+            <span class="hi"><i data-lucide="box" class="inline-icon"></i> अपना मतदान बूथ खोजें</span>
+            <span class="en">Find Your Polling Booth</span>
+          </h2>
+          <p class="section__subtitle">
+            अपना वार्ड नंबर चुनें और जानें आपका मतदान केंद्र, कक्ष, तथा सम्बद्ध वार्ड।
+            <br/><small>Select your ward number to find your booth, room, and polling station.</small>
+          </p>
+        </div>
+
+        <div class="booth-finder" role="search" aria-label="बूथ खोजें" style="max-width:600px;margin:0 auto;">
+          <div class="booth-finder__icon" aria-hidden="true"><i data-lucide="school" class="inline-icon"></i></div>
+          <div class="booth-finder__title">मतदान केंद्र — 41-संविलियन विद्यालय बड़ागांव</div>
+          <div class="booth-finder__subtitle">Polling Station: 41-Samvilian Vidyalaya Badagaon</div>
+
+          <div class="ward-select-group" style="grid-template-columns: 1fr auto;">
+            <div class="select-wrapper">
+              <label for="wardSelect" class="select-label">वार्ड संख्या चुनें / Select Ward Number</label>
+              <select id="wardSelect" class="form-select" aria-label="वार्ड चुनें">
+                <option value="">— वार्ड चुनें / Select Ward —</option>
+                <option value="1">वार्ड 1 / Ward 1</option>
+                <option value="2">वार्ड 2 / Ward 2</option>
+                <option value="3">वार्ड 3 / Ward 3</option>
+                <option value="4">वार्ड 4 / Ward 4</option>
+                <option value="5">वार्ड 5 / Ward 5</option>
+                <option value="6">वार्ड 6 / Ward 6</option>
+                <option value="7">वार्ड 7 / Ward 7</option>
+                <option value="8">वार्ड 8 / Ward 8</option>
+                <option value="9">वार्ड 9 / Ward 9</option>
+                <option value="10">वार्ड 10 / Ward 10</option>
+                <option value="11">वार्ड 11 / Ward 11</option>
+                <option value="12">वार्ड 12 / Ward 12</option>
+                <option value="13">वार्ड 13 / Ward 13</option>
+                <option value="14">वार्ड 14 / Ward 14</option>
+                <option value="15">वार्ड 15 / Ward 15</option>
+              </select>
+            </div>
+            <button id="findBoothBtn" class="btn btn--primary" aria-label="बूथ खोजें">
+              <i data-lucide="search" class="inline-icon"></i> खोजें
+            </button>
+          </div>
+
+          <div id="boothResult" aria-live="polite" aria-atomic="true"></div>
         </div>
       </div>
     </section>
@@ -423,44 +471,83 @@
   <footer class="site-footer" role="contentinfo">
     <div class="container">
       <div class="footer-grid">
+        <!-- Column 1: Brand & Mission -->
         <div class="footer-brand">
-          <div class="footer-brand__name">🏛️ ग्राम पंचायत 29-बड़ागांव</div>
-          <p class="footer-brand__desc">
-            विकास खण्ड 19-बेंहदर, जिला 113-हरदोई, उत्तर प्रदेश<br/>
-            Block 19-Behendar, District 113-Hardoi, Uttar Pradesh
+          <div class="footer-brand__name"><i data-lucide="landmark" class="inline-icon"></i> ग्राम पंचायत 29-बड़ागांव</div>
+          <p class="footer-brand__desc" style="margin-top: 12px; line-height: 1.6;">
+            <strong>ग्राम:</strong> बड़ागांव (Badagaon)<br/>
+            <strong>थाना:</strong> कासिमपुर (Kashimpur)<br/>
+            <strong>ब्लॉक:</strong> बेंहदर (Behandar)<br/>
+            <strong>तहसील:</strong> संडीला (Sandila)<br/>
+            <strong>जिला:</strong> हरदोई (Hardoi) - 241201 (U.P.)
+          </p>
+          <p style="margin-top:16px; font-size:0.82rem; color:rgba(255,255,255,0.5); line-height:1.5;">
+            नागरिकों को जागरूक और सशक्त बनाने की एक डिजिटल पहल।<br/>
+            <em>A digital initiative to empower citizens.</em>
           </p>
         </div>
+
+        <!-- Column 2: Quick Links -->
         <div class="footer-links">
-          <div class="footer-links__title">पोर्टल / Portal</div>
+          <div class="footer-links__title">पोर्टल / Quick Links</div>
           <ul class="footer-links__list" role="list">
-            <li><a href="index.html">🏠 होम</a></li>
-            <li><a href="rights.html">⚖️ नागरिक अधिकार</a></li>
-            <li><a href="schemes.html">📋 सरकारी योजनाएँ</a></li>
-            <li><a href="directory.html">📞 संपर्क सूची</a></li>
+            <li><a href="index.html"><i data-lucide="home" class="inline-icon"></i> होम / Home</a></li>
+            <li><a href="rights.html"><i data-lucide="scale" class="inline-icon"></i> अधिकार / Rights</a></li>
+            <li><a href="schemes.html"><i data-lucide="clipboard-list" class="inline-icon"></i> योजनाएँ / Schemes</a></li>
+            <li><a href="directory.html"><i data-lucide="phone" class="inline-icon"></i> संपर्क / Contacts</a></li>
           </ul>
         </div>
+
+        <!-- Column 3: Important Services -->
+        <div class="footer-links">
+          <div class="footer-links__title">महत्वपूर्ण सेवाएँ / Services</div>
+          <ul class="footer-links__list" role="list">
+            <li><a href="https://jansunwai.up.nic.in" target="_blank" rel="noopener">🌐 जनसुनवाई (Jansunwai)</a></li>
+            <li><a href="https://electoralsearch.eci.gov.in" target="_blank" rel="noopener"><i data-lucide="box" class="inline-icon"></i> मतदाता खोज (Voter Search)</a></li>
+            <li><a href="https://uppolice.gov.in" target="_blank" rel="noopener">🚔 यूपी पुलिस (UP Police)</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Emergency -->
         <div class="footer-links">
           <div class="footer-links__title">आपातकालीन / Emergency</div>
           <ul class="footer-links__list" role="list">
-            <li><a href="tel:112">🚔 पुलिस — 112</a></li>
-            <li><a href="tel:1076">📞 CM हेल्पलाइन — 1076</a></li>
-            <li><a href="tel:1090">👩 महिला हेल्पलाइन — 1090</a></li>
-            <li><a href="tel:1930">💻 साइबर फ्रॉड — 1930</a></li>
+            <li><a href="tel:112"><i data-lucide="alert-triangle" class="inline-icon"></i> पुलिस (Police) — 112</a></li>
+            <li><a href="tel:1076"><i data-lucide="phone" class="inline-icon"></i> CM हेल्पलाइन — 1076</a></li>
+            <li><a href="tel:1090"><i data-lucide="user" class="inline-icon"></i> महिला (Women) — 1090</a></li>
+            <li><a href="tel:1930"><i data-lucide="laptop" class="inline-icon"></i> साइबर (Cyber) — 1930</a></li>
           </ul>
         </div>
       </div>
-      <hr class="footer-divider" />
-      <div class="footer-bottom">
-        <span>© <span id="footerYear">2025</span> ग्राम पंचायत 29-बड़ागांव। सर्वाधिकार सुरक्षित।</span>
-        <span>GitHub Pages पर होस्ट किया गया | Hosted on GitHub Pages</span>
+
+      <hr class="footer-divider" style="margin: 40px 0 24px;" />
+
+      <!-- Developer Credit Bottom Strip -->
+      <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap: 20px;">
+        <div style="font-size: 0.85rem; color: rgba(255,255,255,0.5);">
+          © <span id="footerYear">2025</span> ग्राम पंचायत 29-बड़ागांव। सर्वाधिकार सुरक्षित।
+        </div>
+        
+        <div style="display:flex; align-items:center; gap: 16px; background: rgba(255,255,255,0.05); padding: 8px 16px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.1);">
+          <div style="font-size: 0.75rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.05em;">Developed By</div>
+          <div style="font-size: 0.95rem; font-weight: 700; color: #fff;">Abhinav Kumar</div>
+          <div style="display:flex; gap: 12px; margin-left: 8px; border-left: 1px solid rgba(255,255,255,0.2); padding-left: 12px;">
+            <a href="https://abinavshukl.github.io/Abhinav-s-Portfolio/" target="_blank" rel="noopener" aria-label="Portfolio" style="color: #fff; text-decoration: none; font-size: 1.1rem; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">🌐</a>
+            <a href="https://github.com/abinavshukl" target="_blank" rel="noopener" aria-label="GitHub" style="color: #fff; text-decoration: none; font-size: 1.1rem; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'"><i data-lucide="laptop" class="inline-icon"></i></a>
+            <a href="mailto:abhinavshukla1000@gmail.com" aria-label="Email" style="color: #fff; text-decoration: none; font-size: 1.1rem; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">✉️</a>
+          </div>
+        </div>
       </div>
     </div>
   </footer>
+
+
 
   <!-- ── Scripts ── -->
   <script src="js/config.js"></script>
   <script src="js/main.js"></script>
   <script src="js/booth-finder.js"></script>
+  <script src="js/voter-search.js?v=2"></script>
   <script src="js/grievance.js"></script>
   <script>
     /* ── Disclaimer Modal Logic ── */
@@ -482,6 +569,14 @@
         }
       });
     })();
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+    });
   </script>
 </body>
 </html>

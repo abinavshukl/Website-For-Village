@@ -17,19 +17,26 @@
     <div class="container">
       <div class="header-inner">
         <a href="index.html" class="site-logo" aria-label="ग्राम पंचायत 29-बड़ागांव — होम पेज">
-          <div class="site-logo__emblem" aria-hidden="true">🏛️</div>
+          <div class="site-logo__emblem" aria-hidden="true"><i data-lucide="landmark" class="inline-icon"></i></div>
           <div class="site-logo__text">
             <span class="site-logo__name">ग्राम पंचायत 29-बड़ागांव</span>
             <span class="site-logo__sub">जिला हरदोई, उत्तर प्रदेश</span>
           </div>
         </a>
 
+        <!-- Hamburger Button -->
+        <button class="menu-toggle" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="navMenu">
+          <span class="menu-toggle__bar"></span>
+          <span class="menu-toggle__bar"></span>
+          <span class="menu-toggle__bar"></span>
+        </button>
+
         <nav id="navMenu" class="site-nav" aria-label="मुख्य नेविगेशन">
           <ul class="nav__list" role="list">
-            <li><a href="index.html"     class="nav__link">🏠 होम</a></li>
-            <li><a href="rights.html"    class="nav__link">⚖️ अधिकार</a></li>
-            <li><a href="schemes.html"   class="nav__link nav__link--active" aria-current="page">📋 योजनाएँ</a></li>
-            <li><a href="directory.html" class="nav__link">📞 संपर्क</a></li>
+            <li><a href="index.html"     class="nav__link"><i data-lucide="home" class="inline-icon"></i> होम</a></li>
+            <li><a href="rights.html"    class="nav__link"><i data-lucide="scale" class="inline-icon"></i> अधिकार</a></li>
+            <li><a href="schemes.html"   class="nav__link nav__link--active" aria-current="page"><i data-lucide="clipboard-list" class="inline-icon"></i> योजनाएँ</a></li>
+            <li><a href="directory.html" class="nav__link"><i data-lucide="phone" class="inline-icon"></i> संपर्क</a></li>
           </ul>
         </nav>
       </div>
@@ -43,7 +50,7 @@
     <section class="page-header" aria-labelledby="schemesPageTitle">
       <div class="container">
         <p class="page-header__kicker">सरकारी योजनाएँ / Government Schemes</p>
-        <h1 id="schemesPageTitle" class="page-header__title">📋 सरकारी योजनाएँ</h1>
+        <h1 id="schemesPageTitle" class="page-header__title"><i data-lucide="clipboard-list" class="inline-icon"></i> सरकारी योजनाएँ</h1>
         <p class="page-header__sub">Government Schemes for Badagaon Residents — Eligibility, Steps & Portals</p>
       </div>
     </section>
@@ -57,11 +64,11 @@
           <div class="schemes-filter" role="group" aria-label="योजना श्रेणी फ़िल्टर" id="schemesFilter">
             <button class="filter-btn active" data-filter="all"         aria-pressed="true">सभी / All</button>
             <button class="filter-btn"        data-filter="agriculture" aria-pressed="false">🌾 कृषि / Agriculture</button>
-            <button class="filter-btn"        data-filter="housing"     aria-pressed="false">🏠 आवास / Housing</button>
+            <button class="filter-btn"        data-filter="housing"     aria-pressed="false"><i data-lucide="home" class="inline-icon"></i> आवास / Housing</button>
             <button class="filter-btn"        data-filter="pension"     aria-pressed="false">👴 पेंशन / Pension</button>
             <button class="filter-btn"        data-filter="health"      aria-pressed="false">🏥 स्वास्थ्य / Health</button>
             <button class="filter-btn"        data-filter="food"        aria-pressed="false">🍚 खाद्य / Food</button>
-            <button class="filter-btn"        data-filter="grievance"   aria-pressed="false">📋 शिकायत / Grievance</button>
+            <button class="filter-btn"        data-filter="grievance"   aria-pressed="false"><i data-lucide="clipboard-list" class="inline-icon"></i> शिकायत / Grievance</button>
           </div>
         </div>
 
@@ -76,7 +83,7 @@
 
         <!-- Empty state -->
         <div id="schemesEmpty" style="display:none;text-align:center;padding:48px;color:var(--color-neutral-light);">
-          <div style="font-size:2rem;margin-bottom:12px;">🔍</div>
+          <div style="font-size:2rem;margin-bottom:12px;"><i data-lucide="search" class="inline-icon"></i></div>
           <p>इस श्रेणी में कोई योजना नहीं मिली। / No schemes found in this category.</p>
         </div>
       </div>
@@ -97,10 +104,10 @@
         </div>
         <div class="flex-center gap-4" style="flex-wrap:wrap;">
           <a href="directory.html" class="btn btn--primary btn--lg">
-            📞 संपर्क सूची देखें
+            <i data-lucide="phone" class="inline-icon"></i> संपर्क सूची देखें
           </a>
           <a href="tel:1076" class="btn btn--secondary btn--lg">
-            📞 CM हेल्पलाइन — 1076
+            <i data-lucide="phone" class="inline-icon"></i> CM हेल्पलाइन — 1076
           </a>
           <a href="https://jansunwai.up.nic.in" target="_blank" rel="noopener" class="btn btn--outline btn--lg">
             🌐 जनसुनवाई पोर्टल
@@ -115,39 +122,76 @@
   <footer class="site-footer" role="contentinfo">
     <div class="container">
       <div class="footer-grid">
+        <!-- Column 1: Brand & Mission -->
         <div class="footer-brand">
-          <div class="footer-brand__name">🏛️ ग्राम पंचायत 29-बड़ागांव</div>
-          <p class="footer-brand__desc">
-            विकास खण्ड 19-बेंहदर, जिला 113-हरदोई, उत्तर प्रदेश<br/>
-            Block 19-Behendar, District 113-Hardoi, Uttar Pradesh
+          <div class="footer-brand__name"><i data-lucide="landmark" class="inline-icon"></i> ग्राम पंचायत 29-बड़ागांव</div>
+          <p class="footer-brand__desc" style="margin-top: 12px; line-height: 1.6;">
+            <strong>ग्राम:</strong> बड़ागांव (Badagaon)<br/>
+            <strong>थाना:</strong> कासिमपुर (Kashimpur)<br/>
+            <strong>ब्लॉक:</strong> बेंहदर (Behandar)<br/>
+            <strong>तहसील:</strong> संडीला (Sandila)<br/>
+            <strong>जिला:</strong> हरदोई (Hardoi) - 241201 (U.P.)
+          </p>
+          <p style="margin-top:16px; font-size:0.82rem; color:rgba(255,255,255,0.5); line-height:1.5;">
+            नागरिकों को जागरूक और सशक्त बनाने की एक डिजिटल पहल।<br/>
+            <em>A digital initiative to empower citizens.</em>
           </p>
         </div>
+
+        <!-- Column 2: Quick Links -->
         <div class="footer-links">
-          <div class="footer-links__title">पोर्टल / Portal</div>
+          <div class="footer-links__title">पोर्टल / Quick Links</div>
           <ul class="footer-links__list" role="list">
-            <li><a href="index.html">🏠 होम</a></li>
-            <li><a href="rights.html">⚖️ नागरिक अधिकार</a></li>
-            <li><a href="schemes.html">📋 सरकारी योजनाएँ</a></li>
-            <li><a href="directory.html">📞 संपर्क सूची</a></li>
+            <li><a href="index.html"><i data-lucide="home" class="inline-icon"></i> होम / Home</a></li>
+            <li><a href="rights.html"><i data-lucide="scale" class="inline-icon"></i> अधिकार / Rights</a></li>
+            <li><a href="schemes.html"><i data-lucide="clipboard-list" class="inline-icon"></i> योजनाएँ / Schemes</a></li>
+            <li><a href="directory.html"><i data-lucide="phone" class="inline-icon"></i> संपर्क / Contacts</a></li>
           </ul>
         </div>
+
+        <!-- Column 3: Important Services -->
+        <div class="footer-links">
+          <div class="footer-links__title">महत्वपूर्ण सेवाएँ / Services</div>
+          <ul class="footer-links__list" role="list">
+            <li><a href="https://jansunwai.up.nic.in" target="_blank" rel="noopener">🌐 जनसुनवाई (Jansunwai)</a></li>
+            <li><a href="https://electoralsearch.eci.gov.in" target="_blank" rel="noopener"><i data-lucide="box" class="inline-icon"></i> मतदाता खोज (Voter Search)</a></li>
+            <li><a href="https://uppolice.gov.in" target="_blank" rel="noopener">🚔 यूपी पुलिस (UP Police)</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Emergency -->
         <div class="footer-links">
           <div class="footer-links__title">आपातकालीन / Emergency</div>
           <ul class="footer-links__list" role="list">
-            <li><a href="tel:112">🚔 पुलिस — 112</a></li>
-            <li><a href="tel:1076">📞 CM हेल्पलाइन — 1076</a></li>
-            <li><a href="tel:1090">👩 महिला हेल्पलाइन — 1090</a></li>
-            <li><a href="tel:1930">💻 साइबर फ्रॉड — 1930</a></li>
+            <li><a href="tel:112"><i data-lucide="alert-triangle" class="inline-icon"></i> पुलिस (Police) — 112</a></li>
+            <li><a href="tel:1076"><i data-lucide="phone" class="inline-icon"></i> CM हेल्पलाइन — 1076</a></li>
+            <li><a href="tel:1090"><i data-lucide="user" class="inline-icon"></i> महिला (Women) — 1090</a></li>
+            <li><a href="tel:1930"><i data-lucide="laptop" class="inline-icon"></i> साइबर (Cyber) — 1930</a></li>
           </ul>
         </div>
       </div>
-      <hr class="footer-divider" />
-      <div class="footer-bottom">
-        <span>© <span id="footerYear">2025</span> ग्राम पंचायत 29-बड़ागांव। सर्वाधिकार सुरक्षित।</span>
-        <span>GitHub Pages पर होस्ट किया गया</span>
+
+      <hr class="footer-divider" style="margin: 40px 0 24px;" />
+
+      <!-- Developer Credit Bottom Strip -->
+      <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap: 20px;">
+        <div style="font-size: 0.85rem; color: rgba(255,255,255,0.5);">
+          © <span id="footerYear">2025</span> ग्राम पंचायत 29-बड़ागांव। सर्वाधिकार सुरक्षित।
+        </div>
+        
+        <div style="display:flex; align-items:center; gap: 16px; background: rgba(255,255,255,0.05); padding: 8px 16px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.1);">
+          <div style="font-size: 0.75rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.05em;">Developed By</div>
+          <div style="font-size: 0.95rem; font-weight: 700; color: #fff;">Abhinav Kumar</div>
+          <div style="display:flex; gap: 12px; margin-left: 8px; border-left: 1px solid rgba(255,255,255,0.2); padding-left: 12px;">
+            <a href="https://abinavshukl.github.io/Abhinav-s-Portfolio/" target="_blank" rel="noopener" aria-label="Portfolio" style="color: #fff; text-decoration: none; font-size: 1.1rem; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">🌐</a>
+            <a href="https://github.com/abinavshukl" target="_blank" rel="noopener" aria-label="GitHub" style="color: #fff; text-decoration: none; font-size: 1.1rem; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'"><i data-lucide="laptop" class="inline-icon"></i></a>
+            <a href="mailto:abhinavshukla1000@gmail.com" aria-label="Email" style="color: #fff; text-decoration: none; font-size: 1.1rem; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">✉️</a>
+          </div>
+        </div>
       </div>
     </div>
   </footer>
+
 
   <script src="js/config.js"></script>
   <script src="js/main.js"></script>
@@ -269,7 +313,7 @@
         } catch (err) {
           loading.innerHTML = `
             <div class="error-card" style="max-width:480px;margin:0 auto;">
-              <span class="error-icon">⚠️</span>
+              <span class="error-icon"><i data-lucide="alert-circle" class="inline-icon"></i></span>
               <p>योजनाएँ लोड नहीं हो सकीं। पृष्ठ रिफ्रेश करें।<br/>
               <small>Schemes could not be loaded. Please refresh the page.</small></p>
             </div>`;
@@ -282,6 +326,14 @@
         loadSchemes();
       }
     })();
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+    });
   </script>
 </body>
 </html>
