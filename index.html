@@ -121,7 +121,7 @@
         <div class="notice-ticker__content">
           <span><i data-lucide="bell" class="inline-icon"></i> <strong>नया:</strong> सभी विधिक टेम्पलेट BNS 2023 के अनुसार अपडेट कर दिए गए हैं।</span>
           <span><i data-lucide="scale" class="inline-icon"></i> <strong>RTI:</strong> ग्राम पंचायत और ब्लॉक स्तर के नए RTI प्रारूप अब उपलब्ध हैं। <a href="rights.html">यहाँ देखें</a></span>
-          <span><i data-lucide="alert-circle" class="inline-icon"></i> <strong>सुरक्षा:</strong> यह पोर्टल पूर्णतः सुरक्षित है और कोई निजी जानकारी एकत्र नहीं करता।</span>
+          <span><i data-lucide="alert-circle" class="inline-icon"></i> <strong>गोपनीयता:</strong> यह डिजिटल पहल नागरिकों की कोई भी निजी जानकारी (PII) एकत्र नहीं करती।</span>
         </div>
       </div>
     </div>
@@ -174,8 +174,8 @@
           <span class="stat-box__label">सरकारी योजनाएँ</span>
         </div>
         <div class="glass-panel stat-box">
-          <span class="stat-box__number">100%</span>
-          <span class="stat-box__label">BNS 2023 अनुपालन</span>
+          <span class="stat-box__number" style="font-size: 1.8rem; margin-top: 10px;">BNS 2023</span>
+          <span class="stat-box__label">नए कानूनों पर आधारित</span>
         </div>
       </div>
     </div>
@@ -254,23 +254,26 @@
       </div>
     </section>
 
-    <!-- ════ VOTER SEARCH ════ -->
-    <section id="voterSearchSection" class="section" aria-labelledby="voterSearchTitle">
+    
+    <!-- ════ ELECTIONS & VOTING UNIFIED SECTION ════ -->
+    <section id="voterSearchSection" class="section" aria-labelledby="electionsTitle">
       <div class="container">
         <div class="section__header">
-          <div class="section__kicker">मतदाता सूची / Voter List</div>
-          <h2 class="section__title" id="voterSearchTitle">
-            <span class="hi"><i data-lucide="search" class="inline-icon"></i> मतदाता सूची में नाम खोजें</span>
-            <span class="en">Search Name in Voter List</span>
+          <div class="section__kicker">मतदान और चुनाव / Elections & Voting</div>
+          <h2 class="section__title" id="electionsTitle">
+            <span class="hi"><i data-lucide="check-square" class="inline-icon"></i> चुनाव और मतदान सेवाएँ</span>
+            <span class="en">Elections & Polling Services</span>
           </h2>
-          <p class="section__subtitle">
-            अपना नाम या EPIC (वोटर आईडी) नंबर डालकर अपना मतदाता विवरण खोजें।
-            <br/><small>Search your voter details using your Name or EPIC number.</small>
-          </p>
+          <p class="section__subtitle">अपना नाम मतदाता सूची में खोजें और अपने मतदान केंद्र (पोलिंग बूथ) की जानकारी प्राप्त करें।</p>
         </div>
 
-        <div class="booth-finder" role="search" aria-label="मतदाता खोजें">
-          <div class="ward-select-group" style="grid-template-columns: 1fr auto;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; align-items: start;">
+          
+          <!-- Voter Search Card -->
+          <div class="booth-finder glass-card" role="search" aria-label="मतदाता खोजें" style="margin: 0; max-width: none; background: var(--color-surface); box-shadow: var(--shadow-md);">
+            <div class="booth-finder__icon" aria-hidden="true"><i data-lucide="users" class="inline-icon"></i></div>
+            <div class="booth-finder__title" style="margin-bottom: 16px;">मतदाता सूची में नाम खोजें</div>
+            <div class="ward-select-group" style="grid-template-columns: 1fr auto;">
             <div class="select-wrapper">
               <label for="voterSearchInput" class="select-label">नाम या EPIC नंबर दर्ज करें / Enter Name or EPIC</label>
               <input type="text" id="voterSearchInput" class="form-select" placeholder="Enter Name or EPIC" style="height:48px;" />
@@ -287,11 +290,52 @@
           </div>
 
           <div id="voterResult" aria-live="polite" aria-atomic="true" style="margin-top:20px;max-height:400px;overflow-y:auto;padding-right:8px;"></div>
+     
+          </div>
+
+          <!-- Booth Finder Card -->
+          <div class="booth-finder glass-card" role="search" aria-label="बूथ खोजें" style="margin: 0; max-width: none; background: var(--color-surface); box-shadow: var(--shadow-md);">
+            
+          <div class="booth-finder__icon" aria-hidden="true"><i data-lucide="school" class="inline-icon"></i></div>
+          <div class="booth-finder__title">मतदान केंद्र — प्राथमिक विद्यालय (उदाहरण)</div>
+          <div class="booth-finder__subtitle">Polling Station: Primary School (Example)</div>
+
+          <div class="ward-select-group" style="grid-template-columns: 1fr auto;">
+            <div class="select-wrapper">
+              <label for="wardSelect" class="select-label">वार्ड संख्या चुनें / Select Ward Number</label>
+              <select id="wardSelect" class="form-select" aria-label="वार्ड चुनें">
+                <option value="">— वार्ड चुनें / Select Ward —</option>
+                <option value="1">वार्ड 1 / Ward 1</option>
+                <option value="2">वार्ड 2 / Ward 2</option>
+                <option value="3">वार्ड 3 / Ward 3</option>
+                <option value="4">वार्ड 4 / Ward 4</option>
+                <option value="5">वार्ड 5 / Ward 5</option>
+                <option value="6">वार्ड 6 / Ward 6</option>
+                <option value="7">वार्ड 7 / Ward 7</option>
+                <option value="8">वार्ड 8 / Ward 8</option>
+                <option value="9">वार्ड 9 / Ward 9</option>
+                <option value="10">वार्ड 10 / Ward 10</option>
+                <option value="11">वार्ड 11 / Ward 11</option>
+                <option value="12">वार्ड 12 / Ward 12</option>
+                <option value="13">वार्ड 13 / Ward 13</option>
+                <option value="14">वार्ड 14 / Ward 14</option>
+                <option value="15">वार्ड 15 / Ward 15</option>
+              </select>
+            </div>
+            <button id="findBoothBtn" class="btn btn--primary" aria-label="बूथ खोजें">
+              <i data-lucide="search" class="inline-icon"></i> खोजें
+            </button>
+          </div>
+
+          <div id="boothResult" aria-live="polite" aria-atomic="true"></div>
+        </div>
+     
+          </div>
+
         </div>
       </div>
     </section>
-
-    <!-- ════ SERVICE PILLARS ════ -->
+<!-- ════ SERVICE PILLARS ════ -->
     <section class="section section--alt" aria-labelledby="pillarsTitle">
       <div class="container">
         <div class="section__header">
@@ -519,57 +563,7 @@
       </div>
     </section>
 
-    <!-- ════ BOOTH FINDER ════ -->
-    <section id="boothFinderSection" class="section section--alt" aria-labelledby="boothFinderTitle">
-      <div class="container">
-        <div class="section__header">
-          <div class="section__kicker">मतदान / Polling</div>
-          <h2 class="section__title" id="boothFinderTitle">
-            <span class="hi"><i data-lucide="box" class="inline-icon"></i> अपना मतदान बूथ खोजें</span>
-            <span class="en">Find Your Polling Booth</span>
-          </h2>
-          <p class="section__subtitle">
-            अपना वार्ड नंबर चुनें और जानें आपका मतदान केंद्र, कक्ष, तथा सम्बद्ध वार्ड।
-            <br/><small>Select your ward number to find your booth, room, and polling station.</small>
-          </p>
-        </div>
 
-        <div class="booth-finder" role="search" aria-label="बूथ खोजें" style="max-width:600px;margin:0 auto;">
-          <div class="booth-finder__icon" aria-hidden="true"><i data-lucide="school" class="inline-icon"></i></div>
-          <div class="booth-finder__title">मतदान केंद्र — प्राथमिक विद्यालय (उदाहरण)</div>
-          <div class="booth-finder__subtitle">Polling Station: Primary School (Example)</div>
-
-          <div class="ward-select-group" style="grid-template-columns: 1fr auto;">
-            <div class="select-wrapper">
-              <label for="wardSelect" class="select-label">वार्ड संख्या चुनें / Select Ward Number</label>
-              <select id="wardSelect" class="form-select" aria-label="वार्ड चुनें">
-                <option value="">— वार्ड चुनें / Select Ward —</option>
-                <option value="1">वार्ड 1 / Ward 1</option>
-                <option value="2">वार्ड 2 / Ward 2</option>
-                <option value="3">वार्ड 3 / Ward 3</option>
-                <option value="4">वार्ड 4 / Ward 4</option>
-                <option value="5">वार्ड 5 / Ward 5</option>
-                <option value="6">वार्ड 6 / Ward 6</option>
-                <option value="7">वार्ड 7 / Ward 7</option>
-                <option value="8">वार्ड 8 / Ward 8</option>
-                <option value="9">वार्ड 9 / Ward 9</option>
-                <option value="10">वार्ड 10 / Ward 10</option>
-                <option value="11">वार्ड 11 / Ward 11</option>
-                <option value="12">वार्ड 12 / Ward 12</option>
-                <option value="13">वार्ड 13 / Ward 13</option>
-                <option value="14">वार्ड 14 / Ward 14</option>
-                <option value="15">वार्ड 15 / Ward 15</option>
-              </select>
-            </div>
-            <button id="findBoothBtn" class="btn btn--primary" aria-label="बूथ खोजें">
-              <i data-lucide="search" class="inline-icon"></i> खोजें
-            </button>
-          </div>
-
-          <div id="boothResult" aria-live="polite" aria-atomic="true"></div>
-        </div>
-      </div>
-    </section>
 
   </main>
 
