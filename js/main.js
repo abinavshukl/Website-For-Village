@@ -143,50 +143,109 @@
     }
   }
 
-  // ── Init all ─────────────────────────────────────────────────────────
+  // ── Dynamic News Ticker — Multi-source, JS-driven, never-empty ─────────
+  const CIVIC_FALLBACK = [
+    { icon: 'home',     label: 'आवास योजना',     text: 'पीएम आवास योजना (ग्रामीण) के तहत पक्के घर के लिए ₹1.20 लाख की सहायता पाएं।', link: '' },
+    { icon: 'tractor',  label: 'किसान अपडेट',    text: 'पीएम किसान सम्मान निधि की अगली किस्त के लिए e-KYC तुरंत पूरा करें, यह अनिवार्य है!', link: '' },
+    { icon: 'building', label: 'ग्राम सचिवालय', text: 'आय, जाति और निवास प्रमाण पत्र सीधे अपने पंचायत भवन से बनवाएं।', link: '' },
+    { icon: 'wheat',    label: 'राशन योजना',     text: 'पीएम गरीब कल्याण अन्न योजना के तहत मुफ्त राशन वितरण जारी है।', link: '' },
+    { icon: 'scale',    label: 'RTI अधिकार',     text: 'RTI दाखिल करें — सूचना का अधिकार हर नागरिक का मौलिक अधिकार है।', link: 'rights.html' },
+    { icon: 'file-text',label: 'जनसुनवाई',       text: 'अपनी शिकायत अब घर बैठे डिजिटल जनसुनवाई पोर्टल पर दर्ज करें।', link: '#grievanceSection' },
+    { icon: 'bell',     label: 'BNS 2023',        text: 'सभी विधिक टेम्पलेट नए BNS 2023 के अनुसार अपडेट कर दिए गए हैं।', link: 'rights.html' },
+    { icon: 'shield-check', label: 'जागरूकता',   text: 'अपने ग्राम पंचायत की बैठकों में भाग लें — यह आपका अधिकार और कर्तव्य है।', link: '' },
+  ];
 
-  // ── Dynamic News Ticker (with Offline Fallback) ────────────────────────
+  // All free RSS sources (rss2json converts any RSS to JSON for free)
+  const NEWS_SOURCES = [
+    'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.amarujala.com%2Frss%2Futtar-pradesh.xml',
+    'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.jagran.com%2Frss%2Futtar-pradesh.xml',
+    'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Findiapress.org%2Ffeed%2F',
+  ];
+
+  let tickerItems = [];
+  let tickerIndex = 0;
+  let tickerTimer = null;
+
+  function buildTickerSpan(item) {
+    const linkHtml = item.link
+      ? ` <a href="${item.link}" target="_blank" rel="noopener noreferrer" style="color:var(--color-primary);text-decoration:underline;margin-left:4px;">${item.link.startsWith('http') ? 'पूरा पढ़ें' : 'यहाँ देखें'}</a>`
+      : '';
+    return `<i data-lucide="${item.icon}" class="inline-icon" style="color:#eab308;"></i> <strong>${item.label}:</strong> ${item.text}${linkHtml}`;
+  }
+
+  function showNextTick() {
+    const tickerContent = document.querySelector('.notice-ticker__content');
+    if (!tickerContent || tickerItems.length === 0) return;
+
+    const item = tickerItems[tickerIndex % tickerItems.length];
+    tickerIndex++;
+
+    // Fade out → update → fade in
+    tickerContent.style.transition = 'opacity 0.4s ease';
+    tickerContent.style.opacity = '0';
+    setTimeout(() => {
+      tickerContent.innerHTML = `<span>${buildTickerSpan(item)}</span>`;
+      if (window.lucide) window.lucide.createIcons();
+      tickerContent.style.opacity = '1';
+    }, 400);
+  }
+
+  function startTickerRotation() {
+    if (tickerTimer) clearInterval(tickerTimer);
+    showNextTick(); // Show immediately
+    tickerTimer = setInterval(showNextTick, 5000); // Rotate every 5 seconds
+  }
+
+  async function fetchNewsFromSources() {
+    for (const url of NEWS_SOURCES) {
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 6000);
+        const response = await fetch(url, { signal: controller.signal });
+        clearTimeout(timeoutId);
+        if (!response.ok) continue;
+        const data = await response.json();
+        if (data.status === 'ok' && data.items && data.items.length > 0) {
+          return data.items.slice(0, 6).map(item => ({
+            icon: 'zap',
+            label: 'ताज़ा खबर',
+            text: item.title.trim(),
+            link: item.link || '',
+          }));
+        }
+      } catch (e) {
+        console.warn('News source failed:', url, e.message);
+      }
+    }
+    return null; // All sources failed
+  }
+
   async function initNewsTicker() {
     const tickerContent = document.querySelector('.notice-ticker__content');
     if (!tickerContent) return;
 
-    // Save the built-in educational facts as fallback
-    const fallbackHTML = tickerContent.innerHTML;
+    // Start immediately with civic fallback so ticker is NEVER empty
+    tickerItems = [...CIVIC_FALLBACK];
+    startTickerRotation();
 
-    try {
-      // Free RSS to JSON API for UP Local News (Amar Ujala UP RSS)
-      const rssUrl = encodeURIComponent('https://www.amarujala.com/rss/uttar-pradesh.xml');
-      const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${rssUrl}`;
-      
-      // Timeout fetch after 5 seconds so it doesn't hang forever
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 5000);
-      
-      const response = await fetch(apiUrl, { signal: controller.signal });
-      clearTimeout(timeoutId);
-      
-      if (!response.ok) throw new Error('API request failed');
-      const data = await response.json();
-      
-      if (data.status === 'ok' && data.items && data.items.length > 0) {
-        let newHtml = '';
-        // Inject top 4 breaking news items
-        const items = data.items.slice(0, 4);
-        items.forEach(item => {
-          let title = item.title.trim();
-          newHtml += `<span><i data-lucide="zap" class="inline-icon" style="color:#eab308;"></i> <strong>ताज़ा खबर:</strong> ${title} <a href="${item.link}" target="_blank" rel="noopener noreferrer" style="color:var(--color-primary);text-decoration:underline;margin-left:4px;">पूरा पढ़ें</a></span>`;
-        });
-        
-        tickerContent.innerHTML = newHtml;
-        if (window.lucide) window.lucide.createIcons();
-      } else {
-        throw new Error('No news items found');
-      }
-    } catch (error) {
-      console.warn("Live news fetch failed (offline or API down). Showing built-in civic facts.", error.message);
-      tickerContent.innerHTML = fallbackHTML; // Fallback to safe local content
-      if (window.lucide) window.lucide.createIcons();
+    // Try to load live news in background
+    const liveNews = await fetchNewsFromSources();
+    if (liveNews && liveNews.length > 0) {
+      // Merge live news + civic facts for variety
+      tickerItems = [...liveNews, ...CIVIC_FALLBACK];
+      console.log(`Ticker loaded ${liveNews.length} live news + ${CIVIC_FALLBACK.length} civic facts.`);
+    } else {
+      console.warn('Live news unavailable. Using civic facts only.');
     }
+
+    // Auto-refresh every 4 hours to keep content fresh
+    setInterval(async () => {
+      const freshNews = await fetchNewsFromSources();
+      if (freshNews && freshNews.length > 0) {
+        tickerItems = [...freshNews, ...CIVIC_FALLBACK];
+        tickerIndex = 0;
+      }
+    }, 4 * 60 * 60 * 1000);
   }
 
   function init() {
@@ -195,7 +254,7 @@
     initSmoothScroll();
     initStickyHeader();
     initMobileNav();
-      initNewsTicker();
+    initNewsTicker();
   }
 
   if (document.readyState === "loading") {
@@ -204,3 +263,4 @@
     init();
   }
 })();
+
