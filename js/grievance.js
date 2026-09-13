@@ -129,7 +129,6 @@
           }
           // Hide outputs if error
           if (outputBox) outputBox.style.display = "none";
-          if (jansunwaiActions) jansunwaiActions.style.display = "none";
           return;
         }
 
@@ -141,10 +140,10 @@
         }
 
         if (outputBox) outputBox.style.display = "block";
-        if (jansunwaiActions) jansunwaiActions.style.display = "flex";
         
-        // Hide the generate button to make room for actions
-        btnGenerate.style.display = "none";
+        // Removed hiding of buttons so they stay visible
+        // if (jansunwaiActions) jansunwaiActions.style.display = "flex";
+        // btnGenerate.style.display = "none";
 
         if (typeof window.showToast === "function") {
           window.showToast("मसौदा तैयार है! इसे कॉपी करके जनसुनवाई पोर्टल पर पेस्ट करें।");
