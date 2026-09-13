@@ -221,59 +221,43 @@
   }
 
   let tickerItems = [];
-  let tickerIndex = 0;
-  let tickerTimer = null;
 
   function buildTickerSpan(item) {
     const linkHtml = item.link
-      ? ` <a href="${item.link}" target="_blank" rel="noopener noreferrer" style="color:var(--color-primary);text-decoration:underline;margin-left:4px;">${item.link.startsWith('http') ? 'पूरा पढ़ें' : 'यहाँ देखें'}</a>`
+      ? ` <a href="${item.link}" target="_blank" rel="noopener noreferrer" style="color:#93c5fd;text-decoration:underline;margin-left:4px;">${item.link.startsWith('http') ? 'पूरा पढ़ें' : 'यहाँ देखें'}</a>`
       : '';
-    return `<i data-lucide="${item.icon}" class="inline-icon" style="color:#eab308;"></i> <strong>${item.label}:</strong> ${item.text}${linkHtml}`;
+    return `<i data-lucide="${item.icon}" class="inline-icon" style="color:#eab308;margin-right:4px;"></i><strong>${item.label}:</strong> ${item.text}${linkHtml}`;
   }
 
-  function showNextTick() {
+  function renderMarquee() {
     const tickerContent = document.querySelector('.notice-ticker__content');
     if (!tickerContent || tickerItems.length === 0) return;
 
-    const item = tickerItems[tickerIndex % tickerItems.length];
-    tickerIndex++;
+    // Render all items × 2 for seamless infinite loop
+    const html = [...tickerItems, ...tickerItems]
+      .map(item => `<span class="ticker-item">${buildTickerSpan(item)}</span>`)
+      .join('');
 
-    // Fade out → update → fade in
-    tickerContent.style.transition = 'opacity 0.4s ease';
-    tickerContent.style.opacity = '0';
-    setTimeout(() => {
-      tickerContent.innerHTML = `<span>${buildTickerSpan(item)}</span>`;
-      if (window.lucide) window.lucide.createIcons();
-      tickerContent.style.opacity = '1';
-    }, 400);
+    tickerContent.innerHTML = html;
+    tickerContent.style.animationDuration = `${tickerItems.length * 9}s`;
+    tickerContent.style.animationPlayState = 'running';
+
+    if (window.lucide) window.lucide.createIcons();
   }
-
-  function startTickerRotation() {
-    if (tickerTimer) clearInterval(tickerTimer);
-    showNextTick(); // Show immediately
-    tickerTimer = setInterval(showNextTick, 8000); // Rotate every 8 seconds — enough time to read
-  }
-
-
-
 
   async function initNewsTicker() {
-    const tickerContent = document.querySelector('.notice-ticker__content');
-    if (!tickerContent) return;
-
-    // Start immediately with civic fallback so ticker is NEVER empty
+    // Show civic fallback immediately — never empty
     tickerItems = [...CIVIC_FALLBACK];
-    startTickerRotation();
+    renderMarquee();
 
-    // Try to load live news in background — replace civic facts if successful
+    // Fetch live news in background
     const liveNews = await fetchNewsFromSources();
     if (liveNews && liveNews.length > 0) {
-      tickerItems = [...liveNews]; // ✅ Live news only — civic facts hidden
-      startTickerRotation();       // Restart cleanly from headline #1 (clears old timer)
+      tickerItems = [...liveNews];
+      renderMarquee(); // Swap to live news only
       console.log(`✅ Showing ${liveNews.length} live news headlines.`);
     } else {
       console.warn('⚠️ API unavailable. Showing civic facts as fallback.');
-      // tickerItems already set to CIVIC_FALLBACK above — no change needed
     }
 
     // Auto-refresh every 30 minutes
@@ -281,7 +265,7 @@
       const freshNews = await fetchNewsFromSources();
       if (freshNews && freshNews.length > 0) {
         tickerItems = [...freshNews];
-        startTickerRotation(); // Restart cleanly on refresh too
+        renderMarquee();
       }
     }, 30 * 60 * 1000);
   }
