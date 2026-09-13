@@ -421,155 +421,143 @@
         </div>
 
         <div class="grievance-wrapper">
-          <!-- Info panel -->
-          <div class="grievance-info">
-            <h3 class="grievance-info__title">यह कैसे काम करता है?</h3>
-            <p style="color:var(--color-neutral-light);font-size:0.9rem;">कृपया ध्यान दें: यह कोई आधिकारिक सरकारी शिकायत पोर्टल नहीं है, और यहाँ से शिकायत के समाधान की कोई गारंटी नहीं है। यह सिर्फ एक सहायता टूल है।</p>
-            <div class="grievance-info__steps">
-              <div class="step-item">
-                <div class="step-item__num">1</div>
-                <p class="step-item__text"><strong>फॉर्म भरें</strong> — अपनी समस्या का पूरा विवरण दें ताकि एक उचित प्रार्थना-पत्र तैयार हो सके।</p>
-              </div>
-              <div class="step-item">
-                <div class="step-item__num">2</div>
-                <p class="step-item__text"><strong>मसौदा (Draft) कॉपी करें</strong> — आप तैयार हुए प्रारूप को कॉपी करके अधिकारियों को स्वयं लिखित या डिजिटल रूप से दे सकते हैं।</p>
-              </div>
-              <div class="step-item">
-                <div class="step-item__num">3</div>
-                <p class="step-item__text"><strong>WhatsApp/Email द्वारा भेजें</strong> — यदि किसी विभाग का नंबर कॉन्फ़िगर है, तो ड्राफ्ट सीधा आपके अपने डिवाइस से भेजा जाएगा।</p>
-              </div>
-              <div class="step-item">
-                <div class="step-item__num">4</div>
-                <p class="step-item__text"><strong>आधिकारिक जनसुनवाई</strong> — ठोस कानूनी कार्रवाई और बड़ी समस्याओं के लिए हमेशा आधिकारिक <a href="https://jansunwai.up.nic.in" target="_blank" rel="noopener noreferrer">jansunwai.up.nic.in</a> का ही उपयोग करें।</p>
-              </div>
+          
+          <!-- Jansunwai Disclaimer Banner -->
+          <div style="background-color: #fef2f2; border: 1px solid #f87171; border-radius: 8px; padding: 16px; margin-bottom: 24px;">
+            <div style="display:flex; align-items:center; gap:8px; color:#b91c1c; font-weight:700; margin-bottom:8px;">
+              <i data-lucide="alert-triangle" class="inline-icon"></i> 
+              ध्यान दें: जनसुनवाई (IGRS 1076) पर निम्न शिकायतें स्वीकार नहीं होंगी
             </div>
+            <ul style="margin: 0; padding-left: 24px; color: #7f1d1d; font-size: 0.9rem; line-height: 1.6;">
+              <li>सूचना का अधिकार (RTI) मामले।</li>
+              <li>माननीय न्यायालय में विचाराधीन (Sub-judice) प्रकरण।</li>
+              <li>सुझाव (Suggestions) या आर्थिक सहायता / नौकरी की मांग।</li>
+              <li>सरकारी सेवकों के सेवा संबंधी विवाद।</li>
+            </ul>
           </div>
 
           <!-- Complaint form -->
           <div class="grievance-form">
+            <h3 style="margin-bottom:20px; font-size:1.2rem; color:var(--color-neutral-dark); border-bottom: 2px solid var(--color-primary); padding-bottom: 8px;">जनसुनवाई प्री-ड्राफ्टर (Jansunwai Pre-Drafter)</h3>
             <ul id="formErrorBox" class="form-error-box" role="alert" aria-live="assertive"></ul>
-
             <form id="complaintForm" novalidate aria-label="शिकायत फॉर्म">
+              
+              <!-- Applicant Details -->
+              <h4 style="font-size:1rem; color:var(--color-primary); margin:24px 0 12px;">1. शिकायतकर्ता का विवरण (Applicant Details)</h4>
               <div class="form-grid">
                 <div class="form-row">
                   <div class="form-group">
                     <label for="complainantName" class="form-label">
-                      नाम <span class="form-required" aria-hidden="true">*</span>
-                      <span class="text-en">Full Name</span>
+                      पूरा नाम <span class="form-required" aria-hidden="true">*</span>
                     </label>
-                    <input
-                      type="text"
-                      id="complainantName"
-                      name="name"
-                      class="form-input"
-                      placeholder="आपका पूरा नाम"
-                      autocomplete="name"
-                      required
-                      aria-required="true"
-                    />
+                    <input type="text" id="complainantName" class="form-input" placeholder="शिकायतकर्ता का नाम" required>
                   </div>
+                  <div class="form-group">
+                    <label for="complainantGuardian" class="form-label">
+                      पिता/पति का नाम <span class="form-required" aria-hidden="true">*</span>
+                    </label>
+                    <input type="text" id="complainantGuardian" class="form-input" placeholder="पिता या पति का नाम" required>
+                  </div>
+                </div>
+                <div class="form-row">
                   <div class="form-group">
                     <label for="complainantPhone" class="form-label">
                       मोबाइल नंबर <span class="form-required" aria-hidden="true">*</span>
-                      <span class="text-en">Mobile Number</span>
                     </label>
-                    <input
-                      type="tel"
-                      id="complainantPhone"
-                      name="phone"
-                      class="form-input"
-                      placeholder="10 अंकों का नंबर"
-                      pattern="[6-9][0-9]{9}"
-                      maxlength="10"
-                      autocomplete="tel"
-                      required
-                      aria-required="true"
-                    />
+                    <input type="tel" id="complainantPhone" class="form-input" placeholder="10-अंकों का मोबाइल नंबर" required pattern="[6-9][0-9]{9}" maxlength="10">
                   </div>
-                </div>
-
-                <div class="form-row">
-                  <div class="form-group" style="flex:1;">
-                    <label for="complainantGuardian" class="form-label">
-                      पिता / पति का नाम <span class="form-required" aria-hidden="true">*</span>
-                      <span class="text-en">Father's / Husband's Name</span>
+                  <div class="form-group">
+                    <label for="referenceNo" class="form-label">
+                      पिछला संदर्भ संख्या (Previous Reference) <span style="font-weight:normal;color:#6b7280;">(वैकल्पिक)</span>
                     </label>
-                    <input
-                      type="text"
-                      id="complainantGuardian"
-                      name="guardian"
-                      class="form-input"
-                      placeholder="पिता या पति का नाम"
-                      required
-                      aria-required="true"
-                    />
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label for="issueCategory" class="form-label">
-                    समस्या श्रेणी <span class="form-required" aria-hidden="true">*</span>
-                    <span class="text-en">Issue Category</span>
-                  </label>
-                  <select id="issueCategory" name="category" class="form-select" required aria-required="true">
-                    <option value="">— श्रेणी चुनें / Select Category —</option>
-                    <!-- Populated by grievance.js from CONFIG -->
-                  </select>
-                </div>
-
-                <div class="form-group">
-                  <label for="issueDescription" class="form-label">
-                    समस्या का विवरण <span class="form-required" aria-hidden="true">*</span>
-                    <span class="text-en">Description of Issue</span>
-                  </label>
-                  <textarea
-                    id="issueDescription"
-                    name="description"
-                    class="form-textarea"
-                    placeholder="समस्या विस्तार से लिखें (कम से कम 20 अक्षर)…"
-                    required
-                    aria-required="true"
-                    minlength="20"
-                  ></textarea>
-                </div>
-
-                <div class="form-actions" style="display:flex; flex-direction:column; gap:12px;">
-                  <div style="display:flex; gap:12px; flex-wrap:wrap;">
-                    <button type="button" id="btnWhatsapp" class="btn btn--primary btn--lg" style="flex:1; min-width: 200px; display: none;">
-                      <i data-lucide="message-circle" class="inline-icon"></i> WhatsApp पर भेजें
-                    </button>
-                    <button type="button" id="btnEmail" class="btn btn--secondary btn--lg" style="flex:1; min-width: 200px; background-color: var(--color-surface); color: var(--color-primary); border: 2px solid var(--color-primary); display: none;">
-                      <i data-lucide="mail" class="inline-icon"></i> ईमेल से भेजें
-                    </button>
-                    <a href="#" id="btnCall" class="btn btn--secondary btn--lg" style="flex:1; min-width: 200px; background-color: #2563eb; color: #fff; border: 2px solid #2563eb; display:none; text-decoration:none; justify-content:center;">
-                      <i data-lucide="phone" class="inline-icon"></i> हेल्पलाइन कॉल करें
-                    </a>
-                  </div>
-                  <button type="button" id="copyDraftBtn" class="btn btn--ghost" style="align-self: center;">
-                    <i data-lucide="clipboard-list" class="inline-icon"></i> प्रारूप कॉपी करें
-                  </button>
-                  
-                  <div style="margin-top: 20px; padding-top: 20px; border-top: 1px dashed #e5e7eb; text-align: center;">
-                    <p style="font-size: 0.9rem; color: #6b7280; margin-bottom: 12px;">WhatsApp या Email से शिकायत संभव नहीं है?</p>
-                    <a href="https://jansunwai.up.nic.in" target="_blank" rel="noopener noreferrer" class="btn btn--outline" style="width:100%; border-color:#dc2626; color:#dc2626; justify-content:center;">
-                      <i data-lucide="alert-triangle" class="inline-icon"></i> जनसुनवाई (Jansunwai) पोर्टल पर जाएँ
-                    </a>
+                    <input type="text" id="referenceNo" class="form-input" placeholder="यदि पहले शिकायत की है">
                   </div>
                 </div>
               </div>
-            
-                <div style="margin-top:16px; padding:12px; background:#f3f4f6; border-radius:8px; border:1px solid #d1d5db; display:flex; align-items:start; gap:8px;">
-                  <i data-lucide="shield-alert" class="inline-icon" style="color:#6b7280; flex-shrink:0; margin-top:2px;"></i>
-                  <div style="font-size:0.82rem; color:#4b5563; line-height:1.4;">
-                    <strong>गोपनीयता सूचना (Privacy Notice):</strong> यह जन-शिकायत फॉर्म आपके डिवाइस पर ही ड्राफ्ट (Draft) होता है। आपका नाम, फोन नंबर और शिकायत विवरण सीधा आपके द्वारा चुने गए आधिकारिक माध्यम (WhatsApp/Email) से भेजा जाता है और हमारे किसी भी सर्वर पर सहेजा नहीं जाता।
+
+              <!-- Jurisdiction -->
+              <h4 style="font-size:1rem; color:var(--color-primary); margin:24px 0 12px;">2. प्रशासनिक क्षेत्र (Jurisdiction)</h4>
+              <div class="form-grid" style="opacity: 0.8; pointer-events: none; background: #f9fafb; padding: 12px; border-radius: 8px;">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label">जनपद (District)</label>
+                    <input type="text" class="form-input" value="113-हरदोई" readonly>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">तहसील (Tehsil)</label>
+                    <input type="text" class="form-input" value="संडीला" readonly>
                   </div>
                 </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label">विकास खण्ड (Block)</label>
+                    <input type="text" class="form-input" value="19-बेंहदर" readonly>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">ग्राम पंचायत (Gram Panchayat)</label>
+                    <input type="text" class="form-input" value="29-बड़ागांव" readonly>
+                  </div>
+                </div>
+              </div>
 
-              </form>
+              <!-- Complaint Details -->
+              <h4 style="font-size:1rem; color:var(--color-primary); margin:24px 0 12px;">3. शिकायत का विवरण (Complaint Details)</h4>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="issueCategory" class="form-label">
+                    विभाग चुनें (Department) <span class="form-required" aria-hidden="true">*</span>
+                  </label>
+                  <select id="issueCategory" class="form-input" required>
+                    <option value="">-- विभाग चुनें --</option>
+                    <!-- Populated by JS -->
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="issueDescription" class="form-label">
+                    समस्या का विवरण (Factual Description) <span class="form-required" aria-hidden="true">*</span>
+                  </label>
+                  <textarea id="issueDescription" class="form-input" rows="5" placeholder="तथ्यात्मक विवरण लिखें... (कम से कम 20 अक्षर)" required minlength="20"></textarea>
+                </div>
+              </div>
+
+              <!-- Output Box & Actions -->
+              <div id="draftOutputBox" style="display:none; margin-top:24px; border: 2px solid #ea580c; border-radius: 8px; overflow:hidden;">
+                <div style="background:#ea580c; color:#fff; padding:12px 16px; font-weight:700; display:flex; justify-content:space-between; align-items:center;">
+                  <span>आपका मसौदा तैयार है!</span>
+                  <button type="button" id="copyDraftBtnInner" class="btn btn--sm" style="background:rgba(255,255,255,0.2); border:none; color:#fff; cursor:pointer;">
+                    <i data-lucide="copy" class="inline-icon"></i> कॉपी करें
+                  </button>
+                </div>
+                <textarea id="draftOutputText" readonly style="width:100%; height:250px; padding:16px; border:none; background:#fff7ed; color:#9a3412; font-family:monospace; resize:none;"></textarea>
+              </div>
+
+              <div class="form-actions" style="margin-top:24px; display:flex; flex-direction:column; gap:16px;">
+                <button type="button" id="generateDraftBtn" class="btn btn--primary btn--lg" style="width:100%; justify-content:center;">
+                  <i data-lucide="file-edit" class="inline-icon"></i> मसौदा तैयार करें (Generate Draft)
+                </button>
+                
+                <div id="jansunwaiActions" style="display:none; flex-direction:column; gap:12px;">
+                  <a href="https://jansunwai.up.nic.in/onlineComplaint" target="_blank" rel="noopener noreferrer" class="btn btn--lg" style="background:#ea580c; color:#fff; border-color:#ea580c; width:100%; justify-content:center; text-decoration:none;">
+                    <i data-lucide="external-link" class="inline-icon"></i> 1. कॉपी किया हुआ मसौदा यहाँ पेस्ट करें (Open Jansunwai)
+                  </a>
+                  <a href="tel:1076" class="btn btn--outline btn--lg" style="width:100%; justify-content:center; border-color:#ea580c; color:#ea580c; text-decoration:none;">
+                    <i data-lucide="phone-call" class="inline-icon"></i> 2. CM हेल्पलाइन 1076 पर सीधे कॉल करें
+                  </a>
+                </div>
+              </div>
+            </form>
+            
+            <div style="margin-top:24px; padding:12px; background:#f3f4f6; border-radius:8px; border:1px solid #d1d5db; display:flex; align-items:start; gap:8px;">
+              <i data-lucide="shield-check" class="inline-icon" style="color:#10b981; flex-shrink:0; margin-top:2px;"></i>
+              <div style="font-size:0.82rem; color:#4b5563; line-height:1.4;">
+                <strong>DPDPA 2023 अनुपालन (Zero Data Liability):</strong> यह टूल 100% सुरक्षित है। आपका कोई भी डेटा हमारे सर्वर पर सहेजा या भेजा नहीं जाता है। मसौदा केवल आपके डिवाइस (Client-Side) पर तैयार होता है।
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
-    </section>
+</section>
 
 
 
