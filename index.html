@@ -538,9 +538,20 @@
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="issueDescription" class="form-label">
-                    शिकायत का संक्षिप्त एवं तथ्यात्मक विवरण <span class="form-required" aria-hidden="true">*</span> <span style="font-weight:normal;color:#6b7280;font-size:0.85em;">(अधिकतम 2500 शब्द)</span>
-                  </label>
+                  <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:8px;">
+                    <label for="issueDescription" class="form-label" style="margin:0;">
+                      शिकायत का संक्षिप्त विवरण <span class="form-required" aria-hidden="true">*</span> 
+                    </label>
+                    <div style="display:flex; gap:12px; align-items:center;">
+                      <label style="font-size:0.85rem; display:flex; align-items:center; gap:6px; cursor:pointer; color:var(--color-primary); font-weight:600; background:#eff6ff; padding:4px 8px; border-radius:4px; border:1px solid #bfdbfe;" title="English में टाइप करें, हिंदी में अपने आप बदल जाएगा">
+                        <input type="checkbox" id="enableTransliteration" style="accent-color:var(--color-primary);">
+                        <i data-lucide="keyboard" class="inline-icon" style="width:14px; height:14px; margin:0;"></i> Hinglish -> हिंदी
+                      </label>
+                      <button type="button" id="micBtn" class="btn btn--sm" style="background:#ef4444; color:#fff; border:none; padding:4px 10px; font-size:0.85rem; display:flex; align-items:center; gap:6px; border-radius:4px; box-shadow:0 2px 4px rgba(239,68,68,0.2);" title="बोलकर टाइप करें">
+                        <i data-lucide="mic" class="inline-icon" style="width:14px; height:14px; margin:0;" id="micIcon"></i> <span id="micText">बोलकर लिखें</span>
+                      </button>
+                    </div>
+                  </div>
                   <textarea id="issueDescription" class="form-input" rows="5" placeholder="घटना, तिथि, स्थान एवं संबंधित अधिकारियों को दिए गए पूर्व प्रार्थना पत्रों का संक्षिप्त विवरण लिखें (कृपया तथ्यपरक भाषा का उपयोग करें)..." required minlength="20"></textarea>
                 </div>
               </div>
@@ -746,5 +757,7 @@
       }
     });
   </script>
+  <!-- Google Transliteration API -->
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 </body>
 </html>

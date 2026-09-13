@@ -112,6 +112,111 @@
 
   // ── Main handler ──────────────────────────────────────────────────────
   function initGrievanceForm() {
+
+    // ── VOICE TYPING LOGIC ──
+    const micBtn = document.getElementById("micBtn");
+    const micIcon = document.getElementById("micIcon");
+    const micText = document.getElementById("micText");
+    const issueDesc = document.getElementById("issueDescription");
+    
+    if (micBtn && issueDesc) {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (SpeechRecognition) {
+        const recognition = new SpeechRecognition();
+        recognition.lang = 'hi-IN'; // Hindi
+        recognition.continuous = true;
+        recognition.interimResults = true;
+        
+        let isRecording = false;
+        
+        recognition.onstart = function() {
+          isRecording = true;
+          micBtn.style.background = "#b91c1c";
+          micBtn.style.animation = "pulse-red 1.5s infinite";
+          if (micText) micText.textContent = "सुन रहा है...";
+        };
+        
+        recognition.onresult = function(event) {
+          let finalTranscript = '';
+          for (let i = event.resultIndex; i < event.results.length; ++i) {
+            if (event.results[i].isFinal) {
+              finalTranscript += event.results[i][0].transcript + ' ';
+            }
+          }
+          if (finalTranscript) {
+            // Append to existing text
+            const currentText = issueDesc.value;
+            issueDesc.value = currentText + (currentText.length > 0 && !currentText.endsWith(' ') ? ' ' : '') + finalTranscript;
+          }
+        };
+        
+        recognition.onerror = function(event) {
+          console.error("Speech recognition error", event.error);
+          stopRecording();
+          if (typeof window.showToast === "function") window.showToast("माइक में समस्या आई: " + event.error);
+        };
+        
+        recognition.onend = function() {
+          stopRecording();
+        };
+        
+        function stopRecording() {
+          isRecording = false;
+          micBtn.style.background = "#ef4444";
+          micBtn.style.animation = "none";
+          if (micText) micText.textContent = "बोलकर लिखें";
+        }
+        
+        micBtn.addEventListener("click", function() {
+          if (isRecording) {
+            recognition.stop();
+          } else {
+            recognition.start();
+          }
+        });
+      } else {
+        // Browser does not support speech recognition
+        micBtn.style.display = 'none';
+      }
+    }
+
+    // ── TRANSLITERATION LOGIC ──
+    const transToggle = document.getElementById("enableTransliteration");
+    let control = null;
+    
+    if (transToggle) {
+      transToggle.addEventListener("change", function() {
+        if (this.checked) {
+          // Initialize Google Transliteration if not already done
+          if (!control && window.google && window.google.load) {
+            window.google.load("elements", "1", {
+              packages: "transliteration",
+              callback: function() {
+                const options = {
+                  sourceLanguage: 'en',
+                  destinationLanguage: ['hi'],
+                  shortcutKey: 'ctrl+g',
+                  transliterationEnabled: true
+                };
+                control = new window.google.elements.transliteration.TransliterationControl(options);
+                control.makeTransliteratable(['issueDescription']);
+                if (typeof window.showToast === "function") window.showToast("Hinglish टाइपिंग चालू हो गई है।");
+              }
+            });
+          } else if (control) {
+            control.enableTransliteration();
+            if (typeof window.showToast === "function") window.showToast("Hinglish टाइपिंग चालू हो गई है।");
+          }
+        } else {
+          // Disable transliteration
+          if (control) {
+            control.disableTransliteration();
+            if (typeof window.showToast === "function") window.showToast("Hinglish टाइपिंग बंद हो गई है।");
+          }
+        }
+      });
+    }
+
     const btnGenerate = document.getElementById("generateDraftBtn");
     const btnCopy = document.getElementById("copyDraftBtnInner");
     const outputBox = document.getElementById("draftOutputBox");
