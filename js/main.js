@@ -239,7 +239,7 @@
       .join('');
 
     tickerContent.innerHTML = html;
-    tickerContent.style.animationDuration = `${tickerItems.length * 9}s`;
+    tickerContent.style.animationDuration = `${tickerItems.length * 18}s`;
     tickerContent.style.animationPlayState = 'running';
 
     if (window.lucide) window.lucide.createIcons();
