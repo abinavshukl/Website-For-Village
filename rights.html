@@ -318,6 +318,34 @@
             </div>
           </div>
 
+          
+          <!-- Land & Farmer Rights -->
+          <div class="demo-module demo-module--land" style="border-left-color: #f59e0b;">
+            <div class="demo-module__header" style="background: rgba(245,158,11,0.05); border-bottom: 1px solid rgba(245,158,11,0.1);">
+              <div class="demo-module__header-icon" style="background: #f59e0b;"><i data-lucide="tractor"></i></div>
+              <div>
+                <div class="demo-module__header-title" style="color: #b45309;">भूमि एवं किसान अधिकार (Land & Revenue)</div>
+                <div class="demo-module__header-sub">अवैध कब्ज़ा, खतौनी और किसान सम्मान निधि</div>
+              </div>
+            </div>
+            <div class="demo-module__body">
+              <div style="display: grid; gap: 20px;">
+                <div style="background: #fffbeb; padding: 20px; border-radius: var(--radius-sm); border-left: 4px solid #f59e0b;">
+                  <h4 style="font-weight: 800; color: #b45309; margin-bottom: 8px;">अवैध कब्ज़ा (UP Revenue Code 67/134)</h4>
+                  <p style="margin: 0; line-height: 1.6; font-size: 0.95rem; color: #78350f;">यदि किसी दबंग ने आपकी पुश्तैनी ज़मीन या ग्राम सभा की ज़मीन (जैसे चरागाह, तालाब) पर कब्ज़ा कर लिया है, तो SDM (उप-ज़िलाधिकारी) संडीला की कोर्ट में बेदखली (Eviction) का मुकदमा दायर करें। लेखपाल की रिपोर्ट के आधार पर कब्ज़ा हटाया जाएगा।</p>
+                </div>
+                <div style="background: #fefce8; padding: 20px; border-radius: var(--radius-sm); border-left: 4px solid #eab308;">
+                  <h4 style="font-weight: 800; color: #a16207; margin-bottom: 8px;">खतौनी और वरासत (मुफ्त अधिकार)</h4>
+                  <p style="margin: 0; line-height: 1.6; font-size: 0.95rem; color: #713f12;">लेखपाल को खतौनी निकालने या वरासत (उत्तराधिकार) दर्ज करने के लिए रिश्वत देने की ज़रूरत नहीं है। आप <strong>upbhulekh.gov.in</strong> से मुफ्त में खतौनी देख सकते हैं और वरासत दर्ज कराने के लिए <strong>राजस्व परिषद (Revenue Board UP)</strong> पोर्टल पर ऑनलाइन आवेदन कर सकते हैं।</p>
+                </div>
+                <div style="background: #fef3c7; padding: 20px; border-radius: var(--radius-sm); border-left: 4px solid #d97706;">
+                  <h4 style="font-weight: 800; color: #b45309; margin-bottom: 8px;">PM किसान सम्मान निधि / फसल बीमा</h4>
+                  <p style="margin: 0; line-height: 1.6; font-size: 0.95rem; color: #78350f;">यदि आप पात्र हैं लेकिन कृषि विभाग या लेखपाल आपकी निधि रोक रहे हैं, तो तुरंत <strong>कृषि विभाग के ब्लॉक कार्यालय (कछौना/संडीला)</strong> में संपर्क करें या CM जनसुनवाई (1076) पर 'कृषि/किसान कल्याण' श्रेणी में शिकायत दर्ज करें।</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- Senior Citizens Rights (Detailed Demo Module) -->
           <div class="demo-module demo-module--seniors">
             <div class="demo-module__header">
@@ -586,6 +614,22 @@
       if (typeof lucide !== 'undefined') {
         lucide.createIcons();
       }
+
+    // Back to Top functionality
+    const backToTopBtn = document.getElementById("backToTop");
+    if (backToTopBtn) {
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          backToTopBtn.classList.add("visible");
+        } else {
+          backToTopBtn.classList.remove("visible");
+        }
+      });
+      backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    }
+
     });
   </script>
 </body>
