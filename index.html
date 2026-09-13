@@ -654,12 +654,20 @@
     /* ── Disclaimer Modal Logic ── */
     (function () {
       var overlay = document.getElementById('disclaimerOverlay');
+      
+      // Check if user already accepted in this session
+      if (sessionStorage.getItem('disclaimerAccepted') === 'true') {
+        overlay.classList.add('hidden');
+        return;
+      }
+      
       var acceptBtn = document.getElementById('disclaimerAccept');
       // Show modal; trap focus inside
       acceptBtn.focus();
       acceptBtn.addEventListener('click', function () {
         overlay.classList.add('hidden');
         document.body.style.overflow = '';
+        sessionStorage.setItem('disclaimerAccepted', 'true');
       });
       document.body.style.overflow = 'hidden';
       // Close on overlay click (outside modal box)
@@ -667,6 +675,7 @@
         if (e.target === overlay) {
           overlay.classList.add('hidden');
           document.body.style.overflow = '';
+          sessionStorage.setItem('disclaimerAccepted', 'true');
         }
       });
     })();
