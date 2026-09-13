@@ -1526,3 +1526,19 @@ select, input, textarea {
 
 
 
+
+/* Accordion Details Styling */
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+details[open] > summary i {
+  transform: rotate(180deg);
+  transition: transform 0.2s ease;
+}
+details:not([open]) > summary i {
+  transform: rotate(0deg);
+  transition: transform 0.2s ease;
+}
