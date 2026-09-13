@@ -238,14 +238,14 @@
       console.warn('Live news unavailable. Using civic facts only.');
     }
 
-    // Auto-refresh every 4 hours to keep content fresh
+    // Auto-refresh every 30 minutes to keep content fresh
     setInterval(async () => {
       const freshNews = await fetchNewsFromSources();
       if (freshNews && freshNews.length > 0) {
         tickerItems = [...freshNews, ...CIVIC_FALLBACK];
         tickerIndex = 0;
       }
-    }, 4 * 60 * 60 * 1000);
+    }, 30 * 60 * 1000);
   }
 
   function init() {
