@@ -1,3 +1,11 @@
+/**
+ * Voter search deliberately does not search a local voter file. The input is
+ * only a trigger for the privacy explanation and the official ECI redirect.
+ * This keeps names and EPIC searches out of this static site.
+ *
+ * HTML contract in index.html:
+ * #findVoterBtn, #voterSearchInput, and #voterResult.
+ */
 (function () {
   "use strict";
 
@@ -9,7 +17,8 @@
     if (!searchBtn || !resultDiv) return;
 
     searchBtn.addEventListener("click", () => {
-      // 1. Show a clear privacy/redirection message
+      // Show the explanation before opening the external site. Users with
+      // popup blocking still receive a usable link in this message.
       resultDiv.innerHTML = `
         <div class="booth-card animate-in" style="margin-bottom:12px;text-align:left;border:1px solid #10b981;">
           <div class="booth-card__header" style="padding:12px;background:#10b981;color:#fff;border-radius:8px 8px 0 0;">
@@ -29,12 +38,14 @@
         </div>
       `;
 
-      // 2. Re-initialize lucide icons for the newly injected HTML
+      // The result card was inserted with innerHTML, so initialize its icon
+      // placeholder again after the new markup enters the DOM.
       if (typeof lucide !== 'undefined') {
         lucide.createIcons();
       }
 
-      // 3. Automatically open the ECI portal
+      // Open from the click handler to preserve the browser's user gesture.
+      // The official portal handles the actual search and its own privacy terms.
       window.open("https://electoralsearch.eci.gov.in/", "_blank", "noopener,noreferrer");
     });
 

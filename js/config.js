@@ -2,27 +2,35 @@
  * js/config.js — Global Application Constants
  * Hardoi, Uttar Pradesh (A Private Initiative)
  *
- * UPDATE THESE VALUES before deployment:
- *  - WHATSAPP_NUMBER: The 10-digit Indian mobile number for grievance dispatch
- *  - WEB3FORMS_KEY: Get free key from https://web3forms.com
+ * This file is the single source of truth for public identity values and
+ * labels shared by the HTML pages and client-side tools. It is loaded before
+ * the feature scripts, so those scripts can read CONFIG directly.
+ *
+ * Keep this file limited to information that is safe to publish. This is a
+ * static GitHub Pages site, so anything placed here can be downloaded by every
+ * visitor. The grievance workflow is local-only and does not submit complaint
+ * text anywhere from this site.
  */
 
 const CONFIG = {
-  // ── Panchayat Identity ──────────────────────────────────────────────
+  // Public location labels used in headings, generated drafts, and metadata.
+  // They identify the coverage area and do not imply government ownership.
   gpName: "29-बड़ागांव",
   gpNameEn: "Hardoi",
   block: "19-बेंहदर",
   district: "113-हरदोई",
   state: "उत्तर प्रदेश",
 
-  // ── Demographics ─────────────────────────────────────────────────────
+  // Public aggregate figures only. Do not add names, EPIC numbers, Aadhaar
+  // numbers, phone lists, or other person-level voter information here.
   totalVoters: 4443,
   maleVoters: 2360,
   femaleVoters: 2083,
   totalHouseholds: 704,
   totalWards: 15,
 
-  // ── Official Portal Links ────────────────────────────────────────────
+  // Destination URLs for official services. This site references these links
+  // but does not proxy, authenticate, or submit data to them.
   PORTALS: {
     pmKisan:    "https://pmkisan.gov.in",
     pmAway:     "https://pmayg.nic.in",
@@ -35,7 +43,8 @@ const CONFIG = {
     childLine:  "tel:1098"
   },
 
-  // ── Issue Categories (Jansunwai Departments) ────────────────────────
+  // Values are stable internal identifiers. Labels are user-facing text and
+  // are inserted into the grievance form and generated Hindi draft.
   ISSUE_CATEGORIES: [
     { value: "revenue", label: "राजस्व (Revenue / Land / Encroachment)" },
     { value: "home", label: "गृह एवं गोपन / पुलिस (Home & Confidential / Police)" },
@@ -77,7 +86,8 @@ const CONFIG = {
   ]
 };
 
-// Freeze the config to prevent accidental mutation
+// Freezing catches accidental mutation in the browser. It is not a security
+// boundary because this entire object is intentionally public source code.
 Object.freeze(CONFIG);
 Object.freeze(CONFIG.PORTALS);
 Object.freeze(CONFIG.ISSUE_CATEGORIES);

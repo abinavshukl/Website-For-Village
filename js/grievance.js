@@ -1,12 +1,13 @@
 /**
  * js/grievance.js — Jansunwai (IGRS 1076) Pre-Drafter
- * Purely client-side logic (Zero Data Liability / DPDPA 2023 Compliant)
+ * Purely client-side draft generator. The site does not submit or store complaint text.
  */
 
 (function () {
   "use strict";
 
-  // ── Populate issue categories from CONFIG ────────────────────────────
+  // CONFIG is loaded before this file by index.html. Keeping the list there
+  // avoids a second, potentially stale copy in the form.
   function populateCategoryDropdown() {
     const select = document.getElementById("issueCategory");
     if (!select || typeof CONFIG === "undefined") return;
@@ -19,7 +20,8 @@
     });
   }
 
-  // ── Validate form fields ─────────────────────────────────────────────
+  // Validation is local and only checks what is needed to produce a usable
+  // draft. It does not claim that an official portal will accept or resolve it.
   function validateForm(data) {
     const errors = [];
     if (!data.name.trim()) errors.push("शिकायतकर्ता का नाम अनिवार्य है।");
@@ -73,6 +75,8 @@
     };
   }
 
+  // Generate the Hindi letter from a validated snapshot. This function has no
+  // DOM side effects, so its format can change independently of validation.
   // ── Generate Jansunwai Text ──────────────────────────────────────────
   function getCategoryLabel(categoryValue) {
     if (typeof CONFIG === "undefined") return categoryValue;
@@ -82,34 +86,35 @@
 
   function generateJansunwaiDraft(data) {
     const categoryLabel = getCategoryLabel(data.category);
-    
-    let draft = `विभाग: ${categoryLabel}\n`;
-    
+
+    let draft = `सेवा में,\n`;
+    draft += `सक्षम अधिकारी महोदय,\n`;
+    draft += `${categoryLabel},\n`;
+    draft += `जनपद - ${data.district}, उत्तर प्रदेश\n\n`;
+    draft += `विषय: ${categoryLabel} से संबंधित शिकायत/समस्या के त्वरित समाधान हेतु।\n\n`;
+    draft += `महोदय,\n`;
+    draft += `सविनय निवेदन है कि मैं ${data.name}, पुत्र/पत्नी ${data.guardian}, निवासी ग्राम पंचायत ${data.gp}, विकास खंड ${data.block}, तहसील ${data.tehsil}, जनपद ${data.district} का नागरिक हूँ।\n`;
+
     if (data.referenceNo) {
-      draft += `पूर्व संदर्भ संख्या: ${data.referenceNo}\n`;
+      draft += `\nपूर्व शिकायत संदर्भ संख्या: ${data.referenceNo}\n`;
     }
-    
-    draft += `\nशिकायतकर्ता का विवरण:\n`;
+
+    draft += `\nमुख्य घटनाक्रम एवं समस्या का विवरण:\n`;
+    draft += `${data.description}\n\n`;
+    draft += `राहत/अनुरोध:\n`;
+    draft += `अतः श्रीमान जी से विनम्र निवेदन है कि कृपया उक्त प्रकरण की निष्पक्ष जांच कराकर त्वरित एवं उचित कार्यवाही करने की कृपा करें, जिससे प्रार्थी की समस्या का समाधान हो सके।\n\n`;
+    draft += `सधन्यवाद।\n\n`;
+    draft += `भवदीय,\n`;
     draft += `नाम: ${data.name}\n`;
     draft += `पिता/पति का नाम: ${data.guardian}\n`;
     draft += `मोबाइल नंबर: ${data.phone}\n`;
-    
-    if (data.epicNo) {
-      draft += `मतदाता पहचान पत्र (EPIC): ${data.epicNo}\n`;
-    }
-
-    draft += `\nप्रशासनिक क्षेत्र:\n`;
-    draft += `ग्राम पंचायत: ${data.gp}\n`;
-    draft += `विकास खण्ड: ${data.block}\n`;
-    draft += `तहसील: ${data.tehsil}\n`;
-    draft += `जनपद: ${data.district}\n`;
-
-    draft += `\nशिकायत का तथ्यात्मक विवरण:\n`;
-    draft += `${data.description}\n`;
+    draft += `पता: ग्राम - ${data.gp}, तहसील - ${data.tehsil}, जनपद - ${data.district}\n`;
 
     return draft;
   }
 
+  // Wire optional enhancements first, then generation and copy actions. Every
+  // lookup is guarded so this shared script is safe on pages without the form.
   // ── Main handler ──────────────────────────────────────────────────────
   function initGrievanceForm() {
 
@@ -128,9 +133,11 @@
         recognition.interimResults = true;
         
         let isRecording = false;
+        let lastProcessedFinalIndex = -1;
         
         recognition.onstart = function() {
           isRecording = true;
+          lastProcessedFinalIndex = -1;
           micBtn.style.background = "#b91c1c";
           micBtn.style.animation = "pulse-red 1.5s infinite";
           if (micText) micText.textContent = "सुन रहा है...";
@@ -139,14 +146,16 @@
         recognition.onresult = function(event) {
           let finalTranscript = '';
           for (let i = event.resultIndex; i < event.results.length; ++i) {
-            if (event.results[i].isFinal) {
+            if (event.results[i].isFinal && i > lastProcessedFinalIndex) {
               finalTranscript += event.results[i][0].transcript + ' ';
+              lastProcessedFinalIndex = i;
             }
           }
           if (finalTranscript) {
-            // Append to existing text
             const currentText = issueDesc.value;
-            issueDesc.value = currentText + (currentText.length > 0 && !currentText.endsWith(' ') ? ' ' : '') + finalTranscript;
+            const separator = currentText.length > 0 && !currentText.endsWith(' ') ? ' ' : '';
+            const maxLength = issueDesc.maxLength > 0 ? issueDesc.maxLength : 1200;
+            issueDesc.value = (currentText + separator + finalTranscript).slice(0, maxLength);
           }
         };
         

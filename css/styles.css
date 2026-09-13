@@ -4,9 +4,13 @@
    Font: Mukta (Devanagari-optimised Google Font)
    ═══════════════════════════════════════════════════════════════════ */
 
+/* Shared stylesheet for every page. Keep reusable layout, typography,
+   controls, print rules, and responsive behavior here. */
 @import url("https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;700;800&display=swap");
 
 /* ── CSS Custom Properties ───────────────────────────────────────── */
+/* Design tokens: change colors, spacing, or radii here first so all pages
+  remain visually consistent. These values are presentation only. */
 :root {
   --color-primary:       #1e3a8a;
   --color-primary-light: #2563eb;
@@ -60,6 +64,10 @@ body {
 }
 
 img, svg { display: block; max-width: 100%; }
+a, button, input, select, textarea { max-width: 100%; }
+p, li, h1, h2, h3, h4, .btn, .nav__link, .contact-btn, .scheme-card, .contact-card, .pillar-card {
+  overflow-wrap: anywhere;
+}
 a { color: var(--color-primary); text-decoration: none; }
 a:hover { text-decoration: underline; }
 button { font-family: inherit; cursor: pointer; }
@@ -229,6 +237,8 @@ p  { margin-bottom: 0.75rem; }
   color: var(--color-neutral-mid);
   transition: all var(--transition-fast);
   text-decoration: none;
+  min-width: 0;
+  text-align: center;
 }
 .nav__link:hover {
   color: var(--color-primary);
@@ -1311,6 +1321,8 @@ select, input, textarea {
 }
 
 /* ── Responsive — Tablet (≤900px) ───────────────────────────────── */
+/* Tablet breakpoint: collapse multi-column content before it becomes too
+  narrow, while retaining the desktop navigation. */
 @media (max-width: 900px) {
   .hero__inner { grid-template-columns: 1fr; }
   .hero__emblem { display: none; }
@@ -1320,9 +1332,13 @@ select, input, textarea {
 }
 
 /* ── Responsive — Mobile (≤640px) ───────────────────────────────── */
+/* Mobile breakpoint: prioritize readable Hindi text and touch targets. Check
+  any new grid or fixed-width component at 320px before shipping it. */
 @media (max-width: 640px) {
   :root { --nav-height: 84px; }
+  body { overflow-x: hidden; }
   .section { padding: 48px 0; }
+  .container { padding: 0 14px; }
 
   .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
   
@@ -1371,7 +1387,9 @@ select, input, textarea {
     align-items: center;
   }
 
-  .hero { padding: 56px 0 52px; }
+  .hero { padding: 48px 0 44px; }
+  .hero__title { font-size: 2rem; line-height: 1.16; }
+  .hero__subtitle { font-size: 0.98rem; }
   .hero__cta { flex-direction: column; }
   .hero__cta .btn { width: 100%; justify-content: center; }
 
@@ -1385,13 +1403,29 @@ select, input, textarea {
   .pillars-grid { grid-template-columns: 1fr; }
 
   .grievance-form { padding: 20px 16px; }
+  #draftOutputBox > div { flex-direction: column; align-items: stretch !important; gap: 10px; }
+  #copyDraftBtnInner { width: 100%; justify-content: center; }
+  #draftOutputText { min-height: 260px; font-size: 0.9rem; }
 
   .footer-grid { grid-template-columns: 1fr; gap: 28px; }
   .footer-bottom { flex-direction: column; text-align: center; }
+  .site-footer [style*="border-radius: 999px"] { border-radius: 8px !important; width: 100%; justify-content: center; }
 
   .schemes-grid { grid-template-columns: 1fr; }
   .contacts-grid { grid-template-columns: 1fr; }
   .emergency-numbers { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 420px) {
+  .quick-stats,
+  .stats-grid,
+  .emergency-numbers {
+    grid-template-columns: 1fr;
+  }
+
+  .btn--lg { padding-left: 18px; padding-right: 18px; font-size: 0.98rem; }
+  .disclaimer-modal { max-height: 92vh; }
+  .disclaimer-modal__body { max-height: 58vh; }
 }
 
 /* ════════════════════════════════════════════════════════════════

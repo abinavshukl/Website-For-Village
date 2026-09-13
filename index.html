@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="एक निजी पहल, विकास खण्ड 19-बेंहदर, जिला 113-हरदोई — नागरिक पोर्टल। मतदाता बूथ खोजें, शिकायत दर्ज करें, और सरकारी योजनाओं की जानकारी प्राप्त करें।" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#065f46" />
   <meta name="keywords" content="गांव, a village, ग्राम पंचायत, हरदोई, बेंहदर, UP, voter booth, shikayat, gram panchayat portal" />
   <meta property="og:title" content="एक निजी पहल — नागरिक पोर्टल" />
   <meta property="og:description" content="नागरिकों के लिए एक निजी जागरूकता पोर्टल (A Private Initiative) — बूथ खोजें, शिकायत दर्ज करें।" />
@@ -13,6 +15,7 @@
 
   <link rel="canonical" href="https://abinavshukl.github.io/jaano-apne-adhikar/" />
   <meta property="og:type" content="website" />
+  <meta property="og:locale" content="hi_IN" />
   <meta property="og:url" content="https://abinavshukl.github.io/jaano-apne-adhikar/" />
   <meta property="og:image" content="https://abinavshukl.github.io/jaano-apne-adhikar/assets/og-banner.jpg" />
   <meta property="og:site_name" content="जानो अपने अधिकार" />
@@ -24,19 +27,16 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "NGO",
+    "@type": "WebSite",
     "name": "जानो अपने अधिकार (Know Your Rights)",
     "alternateName": "Jaano Apne Adhikar A Private Initiative",
     "url": "https://abinavshukl.github.io/jaano-apne-adhikar/",
-    "logo": "https://abinavshukl.github.io/jaano-apne-adhikar/assets/favicon.svg",
-    "description": "Legal awareness and citizen rights portal for Hardoi, UP (A Private Initiative), Uttar Pradesh.",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "a village, Sandila",
-      "addressRegion": "Uttar Pradesh",
-      "postalCode": "241204",
-      "addressCountry": "IN"
-    }
+    "inLanguage": ["hi-IN", "en-IN"],
+    "publisher": {
+      "@type": "Person",
+      "name": "Abhinav Kumar"
+    },
+    "description": "Independent legal awareness and citizen information portal for Hardoi, Uttar Pradesh."
   }
   </script>
 
@@ -56,14 +56,14 @@
       <div class="disclaimer-modal__body">
         <div class="disclaimer-modal__text">
           <strong>कानूनी अस्वीकरण (Legal Disclaimer):</strong><br/>
-          यह वेबसाइट नागरिकों को उनके अधिकारों, योजनाओं और जन-सुविधाओं के बारे में जागरूक करने के लिए एक सकारात्मक और स्वतंत्र पहल है।
+          यह वेबसाइट नागरिकों को अधिकारों, योजनाओं और जन-सुविधाओं के बारे में सामान्य जानकारी देने वाली एक स्वतंत्र जन-जागरूकता पहल है।
           <br/><br/>
           <strong>कृपया ध्यान दें:</strong><br/>
           🔴 यह कोई आधिकारिक सरकारी पोर्टल नहीं है।<br/>
-          🔴 इस वेबसाइट का उद्देश्य केवल सूचना और शैक्षिक सहायता प्रदान करना है।<br/>
-          🔴 यद्यपि जानकारी को सटीक रखने का प्रयास किया गया है, वेबसाइट के निर्माता/डेवलपर किसी भी जानकारी की सटीकता या किसी शिकायत/आवेदन के परिणाम के लिए कानूनी रूप से उत्तरदायी नहीं हैं। आधिकारिक जानकारी के लिए संबंधित विभाग से संपर्क करें।
+          🔴 यह कानूनी सलाह, सरकारी आदेश या सेवा की गारंटी नहीं है।<br/>
+          🔴 जानकारी को सटीक रखने का प्रयास किया गया है, फिर भी किसी कार्रवाई से पहले संबंधित आधिकारिक पोर्टल/विभाग से पुष्टि करें। वेबसाइट के निर्माता/डेवलपर किसी शिकायत, आवेदन, निर्णय या परिणाम के लिए उत्तरदायी नहीं हैं।
           <br/><br/>
-          <em style="font-size:0.85em;color:#92400e;">This is an independent initiative to spread awareness. It is not an official government portal. The developer assumes no legal liability for the information provided or the outcome of any actions taken based on it.</em>
+          <em style="font-size:0.85em;color:#92400e;">This is an independent awareness initiative, not an official government portal or legal advice. Please verify details with official sources before taking action.</em>
         </div>
       </div>
       <div class="disclaimer-modal__footer" style="justify-content: center;">
@@ -80,7 +80,7 @@
   <!-- ════ SITE HEADER ════ -->
   <header class="site-header" role="banner">
   <div style="background-color: #fef2f2; color: #991b1b; text-align: center; padding: 8px 16px; font-size: 0.85rem; font-weight: 600; border-bottom: 1px solid #fca5a5; margin-bottom: 16px;">
-    विधिक अस्वीकरण (Legal Disclaimer): यह वेबसाइट केवल शैक्षिक उद्देश्यों के लिए एक स्वतंत्र, गैर-सरकारी पहल है। यह कोई कानूनी सलाह नहीं है।
+    विधिक अस्वीकरण (Legal Disclaimer): यह वेबसाइट स्वतंत्र, गैर-सरकारी जन-जागरूकता पहल है। यह कानूनी सलाह, सरकारी आदेश या सेवा की गारंटी नहीं है।
   </div>
     <div class="container">
       <div class="header-inner">
@@ -102,6 +102,7 @@
             <li><a href="rights.html"    class="nav__link"><i data-lucide="scale" class="inline-icon"></i> अधिकार</a></li>
             <li><a href="schemes.html"   class="nav__link"><i data-lucide="clipboard-list" class="inline-icon"></i> योजनाएँ</a></li>
             <li><a href="directory.html" class="nav__link"><i data-lucide="phone" class="inline-icon"></i> संपर्क</a></li>
+            <li><a href="legal.html"     class="nav__link"><i data-lucide="file-text" class="inline-icon"></i> नीति</a></li>
           </ul>
         </nav>
       </div>
@@ -134,15 +135,18 @@
           <div class="hero__content">
             <div class="hero__badge" role="status">
               <span class="hero__badge-dot" aria-hidden="true"></span>
-              जनहित में जारी (Public Interest) &nbsp;|&nbsp; 100% सुरक्षित (Zero Data Liability)
+              जन-जागरूकता के लिए तैयार &nbsp;|&nbsp; केवल सूचना-आधारित सहायता
             </div>
               <h1 id="heroTitle" class="hero__title">
-                जानो अपने अधिकार <br/><span style="font-size: 0.7em; opacity: 0.95;">जागरूक बनें, सशक्त बनें</span>
-                <span class="en">Know Your Rights. Empower Yourself.</span>
+                जानो अपने अधिकार <br/><span style="font-size: 0.7em; opacity: 0.95;">जागरूक बनें, समझें, और सही कदम उठाएँ</span>
+                <span class="en">Know Your Rights. Learn Before You Act.</span>
               </h1>
             <p class="hero__subtitle">
-              सरकारी योजनाएँ, मतदाता सूची, शिकायत निवारण — एक ही जगह।<br/>
-              <small>Government schemes, voter list & grievance — all in one place.</small>
+              सरकारी योजनाएँ, मतदाता सूची, और नागरिक जानकारी — एक सरल, जानकारी-आधारित प्रारंभिक मार्ग।<br/>
+              <small>Public schemes, voter information, and civic guidance in one simple reference point.</small>
+            </p>
+            <p style="margin-top: 12px; color: #fef3c7; font-size: 0.95rem; line-height: 1.6; max-width: 700px;">
+              <strong>शैक्षिक जानकारी केवल:</strong> यह वेबसाइट सामान्य नागरिक जागरूकता के लिए है; यह सरकारी सेवा, कानूनी सलाह या आधिकारिक फाइलिंग मंच नहीं है। कोई भी निर्णय लेने से पहले आधिकारिक स्रोतों की पुष्टि करें।
             </p>
             <div class="hero__cta">
               <a href="#voterSearchSection" class="btn btn--secondary btn--lg"><i data-lucide="search" class="inline-icon"></i> मतदाता सूची में नाम खोजें</a>
@@ -169,8 +173,8 @@
           <span class="stat-box__label">विधिक अधिकार सूचीबद्ध</span>
         </div>
         <div class="glass-panel stat-box">
-          <span class="stat-box__number">10+</span>
-          <span class="stat-box__label">सरकारी योजनाएँ</span>
+          <span class="stat-box__number">6</span>
+          <span class="stat-box__label">प्रकाशित योजनाएँ</span>
         </div>
         <div class="glass-panel stat-box">
           <span class="stat-box__number" style="font-size: 1.8rem; margin-top: 10px;">BNS 2023</span>
@@ -519,7 +523,7 @@
                       </button>
                     </div>
                   </div>
-                  <textarea id="issueDescription" class="form-input" rows="5" placeholder="घटना, तिथि, स्थान एवं संबंधित अधिकारियों को दिए गए पूर्व प्रार्थना पत्रों का संक्षिप्त विवरण लिखें (कृपया तथ्यपरक भाषा का उपयोग करें)..." required minlength="20"></textarea>
+                  <textarea id="issueDescription" class="form-input" rows="5" placeholder="घटना, तिथि, स्थान एवं संबंधित अधिकारियों को दिए गए पूर्व प्रार्थना पत्रों का संक्षिप्त विवरण लिखें (कृपया तथ्यपरक भाषा का उपयोग करें)..." required minlength="20" maxlength="1200"></textarea>
                 </div>
               </div>
 
@@ -586,8 +590,8 @@
             <div style="padding:20px; background:#f8fafc; border-radius:8px; border:1px solid #cbd5e1; display:flex; align-items:start; gap:12px; box-shadow: var(--shadow-sm);">
               <i data-lucide="shield-check" class="inline-icon" style="color:#10b981; flex-shrink:0; width:24px; height:24px; margin-top:2px;"></i>
               <div style="font-size:0.9rem; color:#4b5563; line-height:1.5;">
-                <strong style="color:#111827; display:block; margin-bottom:6px; font-size:1.05rem;">DPDPA 2023 अनुपालन<br><span style="font-size:0.9rem; color:#4b5563;">(Zero Data Liability)</span></strong>
-                यह टूल 100% सुरक्षित है। आपका कोई भी डेटा हमारे सर्वर पर सहेजा या भेजा नहीं जाता है। मसौदा केवल आपके डिवाइस (Client-Side) पर तैयार होता है।
+                <strong style="color:#111827; display:block; margin-bottom:6px; font-size:1.05rem;">डेटा गोपनीयता<br><span style="font-size:0.9rem; color:#4b5563;">(Client-side draft)</span></strong>
+                यह टूल आपकी शिकायत का मसौदा ब्राउज़र में ही तैयार करता है। वेबसाइट किसी सर्वर पर शिकायत का विवरण सहेजती या भेजती नहीं है।
               </div>
             </div>
 
@@ -655,8 +659,11 @@
 
       <hr class="footer-divider" style="margin: 40px 0 24px;" />
 
-            <div style="background: rgba(255,255,255,0.05); padding: 16px; border-radius: 8px; margin-bottom: 24px; font-size: 0.8rem; color: rgba(255,255,255,0.6); text-align: justify; line-height: 1.5; border: 1px solid rgba(255,255,255,0.1);">
-        <strong>देयता सीमा (Limitation of Liability):</strong> यह मंच "जैसी है" (As-Is) के आधार पर बिना किसी वैधानिक वारंटी के प्रदान किया गया है। ऑपरेटर किसी भी व्यक्तिगत विवाद, डेटा सटीकता, या इस जानकारी के उपयोग से उत्पन्न होने वाली किसी भी नागरिक/आपराधिक देयता के लिए जिम्मेदार नहीं है। आधिकारिक कार्यवाही के लिए कृपया DLSA या पंजीकृत अधिवक्ता से संपर्क करें।
+      <div style="background: rgba(255,255,255,0.05); padding: 16px; border-radius: 8px; margin-bottom: 18px; font-size: 0.8rem; color: rgba(255,255,255,0.6); text-align: justify; line-height: 1.6; border: 1px solid rgba(255,255,255,0.1);">
+        <strong>विधिक सूचना (Legal Notice):</strong> यह वेबसाइट एक स्वतंत्र नागरिक-जागरूकता पहल है। यह सरकारी पोर्टल, विभागीय सेवा, कानूनी सलाह, या आधिकारिक फाइलिंग मंच नहीं है। यहाँ दी गई जानकारी सामान्य शैक्षिक उद्देश्य के लिए है और उसे किसी भी स्थिति में कानूनी सलाह के रूप में नहीं माना जाना चाहिए। सभी योजनाएँ, अधिकार, प्रक्रिया, और संपर्क विवरण की पुष्टि संबंधित आधिकारिक सरकारी पोर्टल, विभाग, या योग्य विधिक सहायता से अवश्य करें।
+      </div>
+      <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-bottom: 18px;">
+        <a href="legal.html" class="btn btn--outline btn--sm" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.15); color:#fff;">Privacy Policy & Terms</a>
       </div>
       <!-- Developer Credit Bottom Strip -->
       <div style="margin-bottom:16px; font-size:0.8rem; color:#fca5a5; text-align:center;"><i data-lucide="check-circle" class="inline-icon" style="height:12px;width:12px;"></i> जानकारी अंतिम बार जांची गई (Last Verified): <strong>सितंबर 2026 (Sept 2026)</strong></div>

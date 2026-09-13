@@ -1,0 +1,17 @@
+---
+description: News ticker, grievance drafter, and civic feature behavior
+globs: "{js,css,data}/**/*.{js,css,json},*.html"
+alwaysApply: false
+---
+
+# Feature logic
+
+**News ticker (`js/main.js`):** Hindi RSS (BBC, DW, The Wire) via CORS proxy; CSS marquee; fallback to hardcoded civic facts if fetch fails.
+
+**Jansunwai (`js/grievance.js`):** Local Hindi complaint draft; Web Speech API; Hinglish→Hindi via Google Input Tools; copy-ready letter. Never POST user content.
+
+**Booth finder (`js/booth-finder.js`):** Ward 1–15 → `data/booths.json` (booths 96–101). Not the official ECI site.
+
+**Voter search (`js/voter-search.js`):** No local roll. Redirect users to `https://electoralsearch.eci.gov.in/` with `noopener noreferrer`.
+
+When changing UI, keep Hindi copy, disclaimers, and 320px layout intact.

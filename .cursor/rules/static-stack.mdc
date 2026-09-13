@@ -1,0 +1,14 @@
+---
+description: Static hosting, stack, and UI constraints for GitHub Pages
+alwaysApply: true
+---
+
+# Stack and hosting
+
+- Ship **static files only** (HTML/CSS/JS). No Node/Python/PHP runtime, no database, no backend compute.
+- Current app is vanilla HTML5, CSS3, ES6+. Frameworks (React, Vue, Vite, Tailwind, Next static export) are allowed **only** if `npm run build` produces GitHub Pages–compatible static assets.
+- Icons: Lucide. Fonts: Google Fonts **Mukta** for Hindi.
+- **Mobile-first:** no horizontal overflow at 320px width.
+- User-facing copy: accessible, professional **Hindi**.
+
+Shipped as of Sep 2026: four HTML pages; `css/styles.css`; `js/main.js` (ticker), `js/grievance.js` (local Jansunwai draft), `js/voter-search.js` (ECI redirect), `js/booth-finder.js`, `js/config.js`; `data/booths.json` (15 wards), `schemes.json` (6), `directory.json` (12 contacts). Live: `https://abinavshukl.github.io/jaano-apne-adhikar/`. See `README.md` and `STATUS.md`.

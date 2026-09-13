@@ -1,6 +1,13 @@
 /**
  * js/booth-finder.js — Ward-to-Booth Lookup
- * Loads data/booths.json and renders booth info on ward selection.
+ *
+ * Data flow:
+ *   data/booths.json -> loadBooths() -> boothsData -> handleWardChange()
+ *   -> renderBoothCard() -> #boothResult in index.html
+ *
+ * Update booth content in the JSON file rather than hard-coding a second copy
+ * here. This feature reads public booth data only; it must never be extended
+ * to load or expose a voter roll.
  */
 
 (function () {
@@ -8,7 +15,8 @@
 
   let boothsData = [];
 
-  // ── Fetch booth data ──────────────────────────────────────────────────
+  // Fetch once on page load. The lookup cannot work until the JSON has been
+  // parsed, so initialization starts only after a successful response.
   async function loadBooths() {
     try {
       const response = await fetch("data/booths.json");
@@ -28,7 +36,8 @@
     }
   }
 
-  // ── Initialize dropdown & event listener ─────────────────────────────
+  // Support both selection-change and button-triggered lookup. The button is
+  // useful for keyboard and touch users even though selection also updates it.
   function initBoothFinder() {
     const select = document.getElementById("wardSelect");
     const btn = document.getElementById("findBoothBtn");
@@ -38,7 +47,7 @@
     if (btn) btn.addEventListener("click", handleWardChange);
   }
 
-  // ── Handle ward selection ─────────────────────────────────────────────
+  // Render a blank state, a missing-data error, or one matching JSON record.
   function handleWardChange() {
     const select = document.getElementById("wardSelect");
     const wardNum = parseInt(select.value, 10);
@@ -70,7 +79,8 @@
     });
   }
 
-  // ── Render booth result card ──────────────────────────────────────────
+  // Keep these class names aligned with styles.css. The print button calls the
+  // public window.printBoothInfo function because this card is injected later.
   function renderBoothCard(entry) {
     return `
       <div class="booth-card" role="region" aria-label="Booth information for ward ${entry.ward}">
@@ -113,7 +123,8 @@
     `;
   }
 
-  // ── Print booth information ───────────────────────────────────────────
+  // Open a small print document instead of printing the whole homepage. Keep
+  // this tied to the click handler so popup blockers are less likely to stop it.
   window.printBoothInfo = function (ward, booth, room, station) {
     const win = window.open("", "_blank", "width=600,height=400");
     win.document.write(`
@@ -145,7 +156,7 @@
     win.document.close();
   };
 
-  // ── Init on DOM ready ─────────────────────────────────────────────────
+  // Support both script-loading orders: before or after DOMContentLoaded.
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", loadBooths);
   } else {

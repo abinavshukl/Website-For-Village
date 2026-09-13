@@ -6,9 +6,7 @@
 (function () {
   "use strict";
 
-
-
-  // ── Active nav link ───────────────────────────────────────────────────
+  // Shared helpers are defensive because this file is loaded on every page.
   function setActiveNavLink() {
     const currentPage = window.location.pathname.split("/").pop() || "index.html";
     document.querySelectorAll(".nav__link").forEach((link) => {
@@ -20,7 +18,6 @@
     });
   }
 
-  // ── Toast notification ────────────────────────────────────────────────
   function createToastContainer() {
     let container = document.getElementById("toastContainer");
     if (!container) {
@@ -52,6 +49,8 @@
     }, duration);
   };
 
+  // Copy uses the secure API when available and a temporary textarea fallback
+  // for local previews and older browsers. Nothing is persisted by the site.
   // ── Copy to clipboard ─────────────────────────────────────────────────
   window.copyToClipboard = function (text, toastMessage) {
     const msg = toastMessage || "प्रारूप कॉपी हो गया! ✅";
@@ -101,7 +100,7 @@
     });
   }
 
-  // ── Sticky header shadow on scroll ───────────────────────────────────
+  // ── Sticky header shadow on scroll ────────────────────────────────────
   function initStickyHeader() {
     const header = document.querySelector(".site-header");
     if (!header) return;
