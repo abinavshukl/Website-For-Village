@@ -1,0 +1,37 @@
+[
+  {
+    "scenario": "A local police officer at Sandila Thana demands a bribe to register an FIR for a theft in Gram Panchayat Badagaon.",
+    "violation": "Extortion under Bharatiya Nyaya Sanhita (BNS) & violation of the Prevention of Corruption Act.",
+    "protection": "Do not pay the bribe. Record evidence if safely possible. Report the corrupt officer directly to the Anti-Corruption Organization (ACO) UP by dialing 1064, or send a written complaint via registered post to the Superintendent of Police (SP) Hardoi."
+  },
+  {
+    "scenario": "The police from Kasimpur Thana pick up a young villager from Badagaon and keep him locked up overnight without showing any official paperwork or telling his family.",
+    "violation": "Illegal Confinement. Violation of Article 22 (Protection against arbitrary arrest) and Bharatiya Nagarik Suraksha Sanhita (BNSS) rules regarding the 24-Hour limit and duty to inform relatives.",
+    "protection": "The family must immediately send a telegraph or registered letter to the Chief Judicial Magistrate (CJM) Hardoi and the SP Hardoi regarding the illegal detention. They can also file a Habeas Corpus petition in the Allahabad High Court (Lucknow Bench) or seek free help from the District Legal Services Authority (DLSA) at the Hardoi District Court."
+  },
+  {
+    "scenario": "A female villager is called to the Sandila police station at 8:00 PM for questioning regarding a neighborhood dispute.",
+    "violation": "Violation of BNSS procedural safeguards for women, which state that a woman cannot be called to the police station for questioning, nor arrested after sunset or before sunrise without special prior permission from a Judicial Magistrate.",
+    "protection": "Refuse to go to the station at night. Tell the officers that under the BNSS, questioning must happen at her residence in the presence of a female police officer or a family member. If forced, immediately dial UP Women Power Line 1090 or UP Police 112."
+  },
+  {
+    "scenario": "Police physically assault a villager in custody at the local Thana to extract a confession.",
+    "violation": "Custodial Violence and Torture. Direct violation of Article 21 (Right to Life and Dignity) and criminal assault under BNS.",
+    "protection": "When produced before the Magistrate, immediately lift your shirt/clothes to show the injuries to the judge and demand an immediate medical examination by a government doctor at CHC or District Hospital Hardoi. Later, file a formal complaint with the UP State Human Rights Commission (SHRC) or National Human Rights Commission (NHRC) online."
+  },
+  {
+    "scenario": "A crime happens in Badagaon, but the Kasimpur police say 'this area does not fall under our jurisdiction' and refuse to write the FIR.",
+    "violation": "Refusal of Zero FIR. Under the BNSS, police cannot refuse an FIR based on territorial jurisdiction.",
+    "protection": "Tell the Station House Officer (SHO) that under the new BNSS, they are legally bound to register a 'Zero FIR' and transfer it to the correct station later. If they still refuse, submit the complaint online via the UP Police Citizen Portal (CCTNS) or send it in writing to the SP Hardoi via registered post."
+  },
+  {
+    "scenario": "The police finally register the FIR but refuse to give the complainant a copy, saying 'come back tomorrow'.",
+    "violation": "Violation of BNSS rules regarding the immediate right to a free copy of the FIR.",
+    "protection": "Under the BNSS, the informant is legally entitled to a free copy of the FIR immediately upon registration. Demand the copy citing the law. If denied, file a grievance on the CM Jansunwai Portal (1076) against the SHO."
+  },
+  {
+    "scenario": "Local police consistently harass a marginalized family in Badagaon, conducting illegal searches and using casteist slurs.",
+    "violation": "Violation of Article 15 (Right against Discrimination), SC/ST (Prevention of Atrocities) Act, and BNS.",
+    "protection": "File a detailed complaint with the UP State Police Complaints Authority (PCA) which investigates serious police misconduct. Seek assistance from the District Legal Services Authority (DLSA) in Hardoi to get a free government lawyer to file a private complaint (under BNSS) directly before the local Magistrate in Hardoi."
+  }
+]
