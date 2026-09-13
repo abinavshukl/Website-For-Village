@@ -254,29 +254,8 @@
     tickerTimer = setInterval(showNextTick, 5000); // Rotate every 5 seconds
   }
 
-  async function fetchNewsFromSources() {
-    for (const url of NEWS_SOURCES) {
-      try {
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 6000);
-        const response = await fetch(url, { signal: controller.signal });
-        clearTimeout(timeoutId);
-        if (!response.ok) continue;
-        const data = await response.json();
-        if (data.status === 'ok' && data.items && data.items.length > 0) {
-          return data.items.slice(0, 6).map(item => ({
-            icon: 'zap',
-            label: 'ताज़ा खबर',
-            text: item.title.trim(),
-            link: item.link || '',
-          }));
-        }
-      } catch (e) {
-        console.warn('News source failed:', url, e.message);
-      }
-    }
-    return null; // All sources failed
-  }
+
+
 
   async function initNewsTicker() {
     const tickerContent = document.querySelector('.notice-ticker__content');
