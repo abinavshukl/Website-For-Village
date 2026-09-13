@@ -40,11 +40,11 @@
     {
       "title": "पंचायत सचिव",
       "titleEn": "Panchayat Secretary (Sachiv)",
-      "name": "श्री / श्रीमती [सचिव का नाम]",
+      "name": "जानकारी उपलब्ध नहीं",
       "nameEn": "[Secretary Name]",
       "office": "ग्राम पंचायत 29-बड़ागांव, बेंहदर",
       "officeEn": "GP Badagaon, Behandar",
-      "phone": "[पंचायत सचिव का नंबर]",
+      "phone": "",
       "note": "ग्राम पंचायत 29-बड़ागांव के सचिव",
       "noteEn": "Secretary, GP 29-Badagaon",
       "whatsapp": true
@@ -52,11 +52,11 @@
     {
       "title": "लेखपाल",
       "titleEn": "Lekhpal (Revenue Inspector)",
-      "name": "श्री [लेखपाल का नाम]",
+      "name": "जानकारी उपलब्ध नहीं",
       "nameEn": "[Lekhpal Name]",
       "office": "तहसील संडीला",
       "officeEn": "Tehsil Sandila",
-      "phone": "[लेखपाल का नंबर]",
+      "phone": "",
       "note": "राजस्व निरीक्षक, हल्का बड़ागांव",
       "noteEn": "Revenue Inspector, Halka Badagaon",
       "whatsapp": true
@@ -117,11 +117,11 @@
     {
       "title": "नलकूप ऑपरेटर",
       "titleEn": "Tubewell Operator",
-      "name": "श्री [ऑपरेटर का नाम]",
+      "name": "जानकारी उपलब्ध नहीं",
       "nameEn": "[Operator Name]",
       "office": "राजकीय नलकूप, बड़ागांव",
       "officeEn": "Govt. Tubewell, Badagaon",
-      "phone": "[ऑपरेटर का नंबर]",
+      "phone": "",
       "note": "सिंचाई / पेयजल आपूर्ति",
       "noteEn": "Irrigation / Drinking Water Supply",
       "whatsapp": true
@@ -144,11 +144,11 @@
     {
       "title": "ANM / ASHA सेविका",
       "titleEn": "ANM / ASHA Worker",
-      "name": "श्रीमती [सेविका का नाम]",
+      "name": "जानकारी उपलब्ध नहीं",
       "nameEn": "[Worker Name]",
       "office": "उप स्वास्थ्य केंद्र, बड़ागांव",
       "officeEn": "Sub Health Centre, Badagaon",
-      "phone": "[सेविका का नंबर]",
+      "phone": "",
       "note": "टीकाकरण, मातृ स्वास्थ्य",
       "noteEn": "Vaccination, Maternal Health",
       "whatsapp": true

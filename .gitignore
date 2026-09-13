@@ -1,0 +1,10 @@
+# Ignore personal data and AI training sets
+data/voters*.json
+data/badagaon_voters*.json
+data/*.pdf
+ai_training_data_*.json
+
+# Allow config files in data/
+!data/booths.json
+!data/directory.json
+!data/schemes.json

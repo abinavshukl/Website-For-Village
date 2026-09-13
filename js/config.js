@@ -11,7 +11,7 @@ const CONFIG = {
   // ── Panchayat Identity ──────────────────────────────────────────────
   gpName: "29-बड़ागांव",
   gpNameEn: "Hardoi",
-  block: "संडीला",
+  block: "19-बेंहदर",
   district: "113-हरदोई",
   state: "उत्तर प्रदेश",
 
@@ -23,12 +23,12 @@ const CONFIG = {
   totalWards: 15,
 
   // ── Contact / WhatsApp ───────────────────────────────────────────────
-  // Replace with actual 10-digit mobile number (without country code)
-  WHATSAPP_NUMBER: "91XXXXXXXXXX",
+  // Keep empty until a verified official number is provided
+  WHATSAPP_NUMBER: "",
 
   // ── Web3Forms (serverless email fallback) ────────────────────────────
-  // Get your free access key from https://web3forms.com
-  WEB3FORMS_KEY: "YOUR_WEB3FORMS_ACCESS_KEY",
+  // Keep empty until a valid key is provided
+  WEB3FORMS_KEY: "",
   WEB3FORMS_ENDPOINT: "https://api.web3forms.com/submit",
 
   // ── Official Portal Links ────────────────────────────────────────────
@@ -60,7 +60,7 @@ const CONFIG = {
     { value: "anganwadi",   label: "आंगनवाड़ी / बाल विकास (Anganwadi)", authority: "श्रीमान बाल विकास परियोजना अधिकारी (CDPO)", whatsapp: "", email: "cdpohar@nic.in", phone: "1076" },
     { value: "bhrashtachar",label: "भ्रष्टाचार (Corruption)", authority: "श्रीमान जिलाधिकारी महोदय (DM)", whatsapp: "", email: "dmhar@nic.in", phone: "1064" },
     { value: "swachh",      label: "स्वच्छता / कचरा (Sanitation / Waste)", authority: "श्रीमान जिला पंचायत राज अधिकारी (DPRO)", whatsapp: "", email: "dprohar@nic.in", phone: "1076" },
-    { value: "other",       label: "अन्य (Other)", authority: "श्रीमान पंचायत सचिव / ग्राम प्रधान जी", whatsapp: "910000000000", email: "", phone: "" } // Example of local whatsapp fallback
+    { value: "other",       label: "अन्य (Other)", authority: "श्रीमान पंचायत सचिव / ग्राम प्रधान जी", whatsapp: "", email: "", phone: "" }
   ]
 };
 
