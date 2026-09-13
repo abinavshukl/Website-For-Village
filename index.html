@@ -112,10 +112,25 @@
   </header>
 
 
+  
+  <!-- ════ NOTICE TICKER ════ -->
+  <div class="notice-ticker" role="marquee" aria-label="नवीनतम अपडेट">
+    <div class="container" style="display: flex; align-items: center; width: 100%;">
+      <div class="notice-ticker__label">अपडेट</div>
+      <div style="overflow: hidden; flex-grow: 1;">
+        <div class="notice-ticker__content">
+          <span><i data-lucide="bell" class="inline-icon"></i> <strong>नया:</strong> सभी विधिक टेम्पलेट BNS 2023 के अनुसार अपडेट कर दिए गए हैं।</span>
+          <span><i data-lucide="scale" class="inline-icon"></i> <strong>RTI:</strong> ग्राम पंचायत और ब्लॉक स्तर के नए RTI प्रारूप अब उपलब्ध हैं। <a href="rights.html">यहाँ देखें</a></span>
+          <span><i data-lucide="alert-circle" class="inline-icon"></i> <strong>सुरक्षा:</strong> यह पोर्टल पूर्णतः सुरक्षित है और कोई निजी जानकारी एकत्र नहीं करता।</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <main id="main-content">
 
     <!-- ════ HERO ════ -->
-    <section class="hero" aria-labelledby="heroTitle">
+    <section class="hero bg-animate-gradient" aria-labelledby="heroTitle" style="background: none;">
       <div class="container">
         <div class="hero__inner">
           <div class="hero__content">
@@ -146,6 +161,65 @@
         </div>
       </div>
     </section>
+
+    <!-- ════ QUICK STATS ════ -->
+    <div class="container">
+      <div class="quick-stats">
+        <div class="glass-panel stat-box">
+          <span class="stat-box__number">15+</span>
+          <span class="stat-box__label">विधिक अधिकार सूचीबद्ध</span>
+        </div>
+        <div class="glass-panel stat-box">
+          <span class="stat-box__number">10+</span>
+          <span class="stat-box__label">सरकारी योजनाएँ</span>
+        </div>
+        <div class="glass-panel stat-box">
+          <span class="stat-box__number">100%</span>
+          <span class="stat-box__label">BNS 2023 अनुपालन</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════ FEATURED RIGHTS ════ -->
+    <section class="featured-rights">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-header__title">प्रमुख वैधानिक अधिकार</h2>
+          <p class="section-header__sub">नागरिकों को सशक्त बनाने के लिए सबसे अधिक उपयोग किए जाने वाले अधिकार और उनके कानूनी उपाय।</p>
+        </div>
+        <div class="featured-grid">
+          
+          <a href="rights.html#rti-section" class="glass-card" style="text-decoration: none; color: inherit;">
+            <div style="background: rgba(30, 64, 175, 0.1); color: var(--color-primary); padding: 12px; border-radius: 12px; display: inline-flex; margin-bottom: 20px; width: fit-content;">
+              <i data-lucide="file-text" style="width: 28px; height: 28px;"></i>
+            </div>
+            <h3 style="font-size: 1.3rem; font-weight: 800; margin-bottom: 12px;">RTI (सूचना का अधिकार)</h3>
+            <p style="color: var(--color-neutral-mid); line-height: 1.6; margin-bottom: 20px; flex-grow: 1;">ग्राम पंचायत या ब्लॉक स्तर से सरकारी कार्यों और फंड आवंटन की जानकारी प्राप्त करने का वैधानिक प्रारूप।</p>
+            <span style="color: var(--color-primary); font-weight: 700; display: inline-flex; align-items: center; gap: 8px;">प्रारूप देखें <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+          </a>
+
+          <a href="rights.html#fir-section" class="glass-card" style="text-decoration: none; color: inherit;">
+            <div style="background: rgba(220, 38, 38, 0.1); color: #dc2626; padding: 12px; border-radius: 12px; display: inline-flex; margin-bottom: 20px; width: fit-content;">
+              <i data-lucide="shield-alert" style="width: 28px; height: 28px;"></i>
+            </div>
+            <h3 style="font-size: 1.3rem; font-weight: 800; margin-bottom: 12px;">पुलिस FIR दर्ज न करे तो?</h3>
+            <p style="color: var(--color-neutral-mid); line-height: 1.6; margin-bottom: 20px; flex-grow: 1;">BNSS धारा 173(4) और 175(3) के तहत SP और मजिस्ट्रेट को सीधे शिकायत करने के कानूनी विकल्प।</p>
+            <span style="color: #dc2626; font-weight: 700; display: inline-flex; align-items: center; gap: 8px;">प्रारूप देखें <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+          </a>
+
+          <a href="rights.html#women-section" class="glass-card" style="text-decoration: none; color: inherit;">
+            <div style="background: rgba(219, 39, 119, 0.1); color: #db2777; padding: 12px; border-radius: 12px; display: inline-flex; margin-bottom: 20px; width: fit-content;">
+              <i data-lucide="users" style="width: 28px; height: 28px;"></i>
+            </div>
+            <h3 style="font-size: 1.3rem; font-weight: 800; margin-bottom: 12px;">महिलाओं के वैधानिक अधिकार</h3>
+            <p style="color: var(--color-neutral-mid); line-height: 1.6; margin-bottom: 20px; flex-grow: 1;">सूर्यास्त के बाद गिरफ्तारी के नियम (BNSS 43) और घरेलू हिंसा के खिलाफ सुरक्षा (BNS 85)।</p>
+            <span style="color: #db2777; font-weight: 700; display: inline-flex; align-items: center; gap: 8px;">प्रारूप देखें <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
 
     <!-- ════ STATS STRIP ════ -->
     <section class="stats-strip" aria-label="ग्राम पंचायत जनसांख्यिकी">
