@@ -155,12 +155,70 @@
     { icon: 'shield-check', label: 'जागरूकता',   text: 'अपने ग्राम पंचायत की बैठकों में भाग लें — यह आपका अधिकार और कर्तव्य है।', link: '' },
   ];
 
-  // All free RSS sources (rss2json converts any RSS to JSON for free)
-  const NEWS_SOURCES = [
-    'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.amarujala.com%2Frss%2Futtar-pradesh.xml',
-    'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.jagran.com%2Frss%2Futtar-pradesh.xml',
-    'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Findiapress.org%2Ffeed%2F',
+  // CORS-proxied RSS feeds — multiple strategies for maximum reliability
+  const RSS_FEEDS = [
+    'https://www.amarujala.com/rss/uttar-pradesh.xml',
+    'https://www.jagran.com/rss/uttar-pradesh.xml',
+    'https://www.livehindustan.com/rss/uttar-pradesh.xml',
+    'https://navbharattimes.indiatimes.com/rssfeedsdefault.cms',
   ];
+
+  // Two free CORS proxy strategies
+  const CORS_PROXIES = [
+    (url) => `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`,
+    (url) => `https://corsproxy.io/?${encodeURIComponent(url)}`,
+  ];
+
+  function parseRSSXML(xmlText) {
+    try {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(xmlText, 'text/xml');
+      const items = Array.from(doc.querySelectorAll('item')).slice(0, 6);
+      return items.map(item => ({
+        icon: 'zap',
+        label: 'ताज़ा खबर',
+        text: (item.querySelector('title')?.textContent || '').replace(/<!\[CDATA\[|\]\]>/g, '').trim(),
+        link: item.querySelector('link')?.textContent?.trim() || '',
+      })).filter(item => item.text.length > 5);
+    } catch (e) {
+      return null;
+    }
+  }
+
+  async function fetchNewsFromSources() {
+    for (const feed of RSS_FEEDS) {
+      for (const proxyFn of CORS_PROXIES) {
+        try {
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 7000);
+          const proxyUrl = proxyFn(feed);
+          const response = await fetch(proxyUrl, { signal: controller.signal });
+          clearTimeout(timeoutId);
+          if (!response.ok) continue;
+
+          // allorigins wraps content in {contents: "..."}, corsproxy returns raw
+          let xmlText;
+          const contentType = response.headers.get('content-type') || '';
+          if (contentType.includes('json')) {
+            const json = await response.json();
+            xmlText = json.contents || json.data || '';
+          } else {
+            xmlText = await response.text();
+          }
+
+          if (!xmlText) continue;
+          const items = parseRSSXML(xmlText);
+          if (items && items.length > 0) {
+            console.log(`✅ News loaded from: ${feed} via proxy`);
+            return items;
+          }
+        } catch (e) {
+          console.warn(`❌ Failed: ${feed}`, e.message);
+        }
+      }
+    }
+    return null; // All sources failed
+  }
 
   let tickerItems = [];
   let tickerIndex = 0;
