@@ -144,12 +144,58 @@
   }
 
   // ── Init all ─────────────────────────────────────────────────────────
+
+  // ── Dynamic News Ticker (with Offline Fallback) ────────────────────────
+  async function initNewsTicker() {
+    const tickerContent = document.querySelector('.notice-ticker__content');
+    if (!tickerContent) return;
+
+    // Save the built-in educational facts as fallback
+    const fallbackHTML = tickerContent.innerHTML;
+
+    try {
+      // Free RSS to JSON API for UP Local News (Amar Ujala UP RSS)
+      const rssUrl = encodeURIComponent('https://www.amarujala.com/rss/uttar-pradesh.xml');
+      const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${rssUrl}`;
+      
+      // Timeout fetch after 5 seconds so it doesn't hang forever
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 5000);
+      
+      const response = await fetch(apiUrl, { signal: controller.signal });
+      clearTimeout(timeoutId);
+      
+      if (!response.ok) throw new Error('API request failed');
+      const data = await response.json();
+      
+      if (data.status === 'ok' && data.items && data.items.length > 0) {
+        let newHtml = '';
+        // Inject top 4 breaking news items
+        const items = data.items.slice(0, 4);
+        items.forEach(item => {
+          let title = item.title.trim();
+          newHtml += `<span><i data-lucide="zap" class="inline-icon" style="color:#eab308;"></i> <strong>ताज़ा खबर:</strong> ${title} <a href="${item.link}" target="_blank" rel="noopener noreferrer" style="color:var(--color-primary);text-decoration:underline;margin-left:4px;">पूरा पढ़ें</a></span>`;
+        });
+        
+        tickerContent.innerHTML = newHtml;
+        if (window.lucide) window.lucide.createIcons();
+      } else {
+        throw new Error('No news items found');
+      }
+    } catch (error) {
+      console.warn("Live news fetch failed (offline or API down). Showing built-in civic facts.", error.message);
+      tickerContent.innerHTML = fallbackHTML; // Fallback to safe local content
+      if (window.lucide) window.lucide.createIcons();
+    }
+  }
+
   function init() {
     setActiveNavLink();
     updateFooterYear();
     initSmoothScroll();
     initStickyHeader();
     initMobileNav();
+      initNewsTicker();
   }
 
   if (document.readyState === "loading") {
