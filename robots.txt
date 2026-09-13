@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://abinavshukl.github.io/jaano-apne-adhikar/sitemap.xml
