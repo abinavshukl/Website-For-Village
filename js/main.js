@@ -155,18 +155,18 @@
     { icon: 'shield-check', label: 'जागरूकता',   text: 'अपने ग्राम पंचायत की बैठकों में भाग लें — यह आपका अधिकार और कर्तव्य है।', link: '' },
   ];
 
-  // CORS-proxied RSS feeds — multiple strategies for maximum reliability
+  // CORS-friendly Hindi RSS feeds (international/govt sources that allow proxying)
   const RSS_FEEDS = [
-    'https://www.amarujala.com/rss/uttar-pradesh.xml',
-    'https://www.jagran.com/rss/uttar-pradesh.xml',
-    'https://www.livehindustan.com/rss/uttar-pradesh.xml',
-    'https://navbharattimes.indiatimes.com/rssfeedsdefault.cms',
+    'https://feeds.bbci.co.uk/hindi/rss.xml',                // BBC Hindi ✅ CORS-friendly
+    'https://rss.dw.com/rdf/rss-hin-all',                    // Deutsche Welle Hindi ✅
+    'https://hindi.thewire.in/feed/',                        // The Wire Hindi ✅
+    'https://www.indiatimes.com/topics/uttar-pradesh/feed',  // India Times UP ✅
   ];
 
-  // Two free CORS proxy strategies
+  // CORS proxies — allorigins first (returns JSON), raw as fallback
   const CORS_PROXIES = [
     (url) => `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`,
-    (url) => `https://corsproxy.io/?${encodeURIComponent(url)}`,
+    (url) => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
   ];
 
   function parseRSSXML(xmlText) {
@@ -190,7 +190,7 @@
       for (const proxyFn of CORS_PROXIES) {
         try {
           const controller = new AbortController();
-          const timeoutId = setTimeout(() => controller.abort(), 7000);
+          const timeoutId = setTimeout(() => controller.abort(), 12000);
           const proxyUrl = proxyFn(feed);
           const response = await fetch(proxyUrl, { signal: controller.signal });
           clearTimeout(timeoutId);
