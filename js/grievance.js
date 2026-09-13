@@ -66,6 +66,10 @@
       referenceNo: (document.getElementById('referenceNo')?.value      || '').trim(),
       category:    document.getElementById('issueCategory')?.value     || '',
       description: (document.getElementById('issueDescription')?.value || '').trim(),
+      district:    (document.getElementById('jurisdictionDistrict')?.value || '113-हरदोई').trim(),
+      tehsil:      (document.getElementById('jurisdictionTehsil')?.value || 'संडीला').trim(),
+      block:       (document.getElementById('jurisdictionBlock')?.value || '19-बेंहदर').trim(),
+      gp:          (document.getElementById('jurisdictionGP')?.value || '29-बड़ागांव').trim(),
     };
   }
 
@@ -95,10 +99,10 @@
     }
 
     draft += `\nप्रशासनिक क्षेत्र:\n`;
-    draft += `ग्राम पंचायत: 29-बड़ागांव\n`;
-    draft += `विकास खण्ड: 19-बेंहदर\n`;
-    draft += `तहसील: संडीला\n`;
-    draft += `जनपद: 113-हरदोई\n`;
+    draft += `ग्राम पंचायत: ${data.gp}\n`;
+    draft += `विकास खण्ड: ${data.block}\n`;
+    draft += `तहसील: ${data.tehsil}\n`;
+    draft += `जनपद: ${data.district}\n`;
 
     draft += `\nशिकायत का तथ्यात्मक विवरण:\n`;
     draft += `${data.description}\n`;
