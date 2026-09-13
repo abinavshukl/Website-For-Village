@@ -1,6 +1,6 @@
 /**
  * js/config.js — Global Application Constants
- * Gram Panchayat 29-Badagaon, Block Behendar, District Hardoi, UP
+ * Hardoi, Uttar Pradesh (A Private Initiative)
  *
  * UPDATE THESE VALUES before deployment:
  *  - WHATSAPP_NUMBER: The 10-digit Indian mobile number for grievance dispatch
@@ -10,8 +10,8 @@
 const CONFIG = {
   // ── Panchayat Identity ──────────────────────────────────────────────
   gpName: "29-बड़ागांव",
-  gpNameEn: "29-Badagaon",
-  block: "19-बेंहदर",
+  gpNameEn: "Hardoi",
+  block: "संडीला",
   district: "113-हरदोई",
   state: "उत्तर प्रदेश",
 

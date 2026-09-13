@@ -110,7 +110,7 @@
       category: categoryLabel,
       message: data.epicNo ? `मतदाता EPIC: ${data.epicNo}\n\n${data.description}` : data.description,
       epic_no: data.epicNo || "",
-      from_name: "GP Badagaon Portal"
+      from_name: "Citizen Awareness Portal"
     };
 
     try {
