@@ -576,7 +576,21 @@
           <!-- RIGHT COLUMN: Information & Disclaimers -->
           <div class="grievance-info-sidebar" style="flex: 1; min-width:300px; display:flex; flex-direction:column; gap:24px;">
             
-            <!-- Jansunwai Step-by-step Guide -->
+            <!-- 1. Jansunwai Disclaimer Banner (Red) -->
+            <div style="background-color: #fef2f2; border: 1px solid #f87171; border-radius: 8px; padding: 20px; box-shadow: var(--shadow-sm);">
+              <div style="display:flex; align-items:flex-start; gap:8px; color:#b91c1c; font-weight:800; font-size:1.1rem; margin-bottom:16px; line-height: 1.4;">
+                <i data-lucide="alert-triangle" class="inline-icon" style="margin-top:2px;"></i> 
+                ध्यान दें: जनसुनवाई पर निम्न शिकायतें स्वीकार नहीं होंगी
+              </div>
+              <ol style="margin: 0; padding-left: 20px; color: #7f1d1d; font-size: 0.95rem; line-height: 1.6; display:flex; flex-direction:column; gap:8px;">
+                <li>सूचना का अधिकार (RTI) मामले।</li>
+                <li>माननीय न्यायालय में विचाराधीन (Sub-judice) प्रकरण।</li>
+                <li>सुझाव (Suggestions) या आर्थिक सहायता / नौकरी की मांग।</li>
+                <li>सरकारी सेवकों के सेवा संबंधी विवाद।</li>
+              </ol>
+            </div>
+
+            <!-- 2. Jansunwai Step-by-step Guide (Green) -->
             <div style="background-color: #f0fdf4; border: 1px solid #86efac; border-radius: 8px; padding: 20px; box-shadow: var(--shadow-sm);">
               <div style="display:flex; align-items:center; gap:8px; color:#166534; font-weight:800; font-size:1.1rem; margin-bottom:16px;">
                 <i data-lucide="info" class="inline-icon"></i> 
@@ -590,21 +604,7 @@
               </ol>
             </div>
 
-            <!-- Jansunwai Disclaimer Banner -->
-            <div style="background-color: #fef2f2; border: 1px solid #f87171; border-radius: 8px; padding: 20px; box-shadow: var(--shadow-sm);">
-              <div style="display:flex; align-items:flex-start; gap:8px; color:#b91c1c; font-weight:800; font-size:1.1rem; margin-bottom:16px; line-height: 1.4;">
-                <i data-lucide="alert-triangle" class="inline-icon" style="margin-top:2px;"></i> 
-                ध्यान दें: जनसुनवाई पर निम्न शिकायतें स्वीकार नहीं होंगी
-              </div>
-              <ul style="margin: 0; padding-left: 20px; color: #7f1d1d; font-size: 0.95rem; line-height: 1.6; display:flex; flex-direction:column; gap:8px;">
-                <li>सूचना का अधिकार (RTI) मामले।</li>
-                <li>माननीय न्यायालय में विचाराधीन (Sub-judice) प्रकरण।</li>
-                <li>सुझाव (Suggestions) या आर्थिक सहायता / नौकरी की मांग।</li>
-                <li>सरकारी सेवकों के सेवा संबंधी विवाद।</li>
-              </ul>
-            </div>
-
-            <!-- Zero Data Liability Banner -->
+            <!-- 3. Zero Data Liability Banner (Other) -->
             <div style="padding:20px; background:#f8fafc; border-radius:8px; border:1px solid #cbd5e1; display:flex; align-items:start; gap:12px; box-shadow: var(--shadow-sm);">
               <i data-lucide="shield-check" class="inline-icon" style="color:#10b981; flex-shrink:0; width:24px; height:24px; margin-top:2px;"></i>
               <div style="font-size:0.9rem; color:#4b5563; line-height:1.5;">
@@ -615,6 +615,7 @@
 
           </div>
         </div>
+      
       </div>
       </div>
 </section>
