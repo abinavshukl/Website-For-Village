@@ -1,11 +1,11 @@
 [
   {
-    "scenario": "A local police officer at Sandila Thana demands a bribe to register an FIR for a theft in Gram Panchayat Badagaon.",
+    "scenario": "A local police officer at Sandila Thana demands a bribe to register an FIR for a theft in A Private Initiative.",
     "violation": "Extortion under Bharatiya Nyaya Sanhita (BNS) & violation of the Prevention of Corruption Act.",
     "protection": "Do not pay the bribe. Record evidence if safely possible. Report the corrupt officer directly to the Anti-Corruption Organization (ACO) UP by dialing 1064, or send a written complaint via registered post to the Superintendent of Police (SP) Hardoi."
   },
   {
-    "scenario": "The police from Kasimpur Thana pick up a young villager from Badagaon and keep him locked up overnight without showing any official paperwork or telling his family.",
+    "scenario": "The police from Kasimpur Thana pick up a young villager from a village and keep him locked up overnight without showing any official paperwork or telling his family.",
     "violation": "Illegal Confinement. Violation of Article 22 (Protection against arbitrary arrest) and Bharatiya Nagarik Suraksha Sanhita (BNSS) rules regarding the 24-Hour limit and duty to inform relatives.",
     "protection": "The family must immediately send a telegraph or registered letter to the Chief Judicial Magistrate (CJM) Hardoi and the SP Hardoi regarding the illegal detention. They can also file a Habeas Corpus petition in the Allahabad High Court (Lucknow Bench) or seek free help from the District Legal Services Authority (DLSA) at the Hardoi District Court."
   },
@@ -20,7 +20,7 @@
     "protection": "When produced before the Magistrate, immediately lift your shirt/clothes to show the injuries to the judge and demand an immediate medical examination by a government doctor at CHC or District Hospital Hardoi. Later, file a formal complaint with the UP State Human Rights Commission (SHRC) or National Human Rights Commission (NHRC) online."
   },
   {
-    "scenario": "A crime happens in Badagaon, but the Kasimpur police say 'this area does not fall under our jurisdiction' and refuse to write the FIR.",
+    "scenario": "A crime happens in a village, but the Kasimpur police say 'this area does not fall under our jurisdiction' and refuse to write the FIR.",
     "violation": "Refusal of Zero FIR. Under the BNSS, police cannot refuse an FIR based on territorial jurisdiction.",
     "protection": "Tell the Station House Officer (SHO) that under the new BNSS, they are legally bound to register a 'Zero FIR' and transfer it to the correct station later. If they still refuse, submit the complaint online via the UP Police Citizen Portal (CCTNS) or send it in writing to the SP Hardoi via registered post."
   },
@@ -30,12 +30,12 @@
     "protection": "Under the BNSS, the informant is legally entitled to a free copy of the FIR immediately upon registration. Demand the copy citing the law. If denied, file a grievance on the CM Jansunwai Portal (1076) against the SHO."
   },
   {
-    "scenario": "Local police consistently harass a marginalized family in Badagaon, conducting illegal searches and using casteist slurs.",
+    "scenario": "Local police consistently harass a marginalized family in a village, conducting illegal searches and using casteist slurs.",
     "violation": "Violation of Article 15 (Right against Discrimination), SC/ST (Prevention of Atrocities) Act, and BNS.",
     "protection": "File a detailed complaint with the UP State Police Complaints Authority (PCA) which investigates serious police misconduct. Seek assistance from the District Legal Services Authority (DLSA) in Hardoi to get a free government lawyer to file a private complaint (under BNSS) directly before the local Magistrate in Hardoi."
   },
   {
-    "scenario": "A woman in Badagaon is subjected to cruelty and harassment by her husband and in-laws for dowry.",
+    "scenario": "A woman in a village is subjected to cruelty and harassment by her husband and in-laws for dowry.",
     "violation": "Cruelty by husband or relatives. This falls under Section 85 of the Bharatiya Nyaya Sanhita (BNS), which replaces the old IPC Section 498A.",
     "protection": "She should call the Women Power Line (1090) immediately. She can also file an FIR under Section 85 BNS at the Sandila Thana, and approach the District Legal Services Authority (DLSA) Hardoi for a free lawyer to seek a Protection Order from the Magistrate."
   },
