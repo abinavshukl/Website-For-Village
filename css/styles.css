@@ -1006,7 +1006,9 @@ select, input, textarea {
   transform: translateY(20px);
   transition: opacity var(--transition-base), transform var(--transition-base);
   pointer-events: none;
-  white-space: nowrap;
+  white-space: normal;
+  max-width: 90vw;
+  text-align: center;
 }
 .toast--visible {
   opacity: 1;
@@ -1389,7 +1391,7 @@ select, input, textarea {
 
   .schemes-grid { grid-template-columns: 1fr; }
   .contacts-grid { grid-template-columns: 1fr; }
-  .emergency-numbers { grid-template-columns: repeat(3, 1fr); }
+  .emergency-numbers { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* ════════════════════════════════════════════════════════════════
@@ -1727,6 +1729,6 @@ details:not([open]) > summary i {
 /* Featured Rights Section */
 .featured-rights { padding: 80px 0; background: #f8fafc; }
 .section-header { text-align: center; margin-bottom: 48px; }
-.section-header__title { font-size: 2.2rem; font-weight: 800; color: var(--color-neutral); margin-bottom: 12px; }
+.section-header__title { font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 800; color: var(--color-neutral); margin-bottom: 12px; }
 .section-header__sub { font-size: 1.1rem; color: var(--color-neutral-mid); max-width: 600px; margin: 0 auto; }
-.featured-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.featured-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 30px; }
