@@ -326,18 +326,15 @@
   function initDistrictSelector() {
     const selector = document.getElementById('districtSelector');
     if (!selector) return;
-    selector.addEventListener('change', () => {
-      const selected = selector.value;
-      if (!selected) return;
-      const basePath = selector.getAttribute('data-basepath') || '.';
-      
-      let targetPath = '';
-      if (selected === 'hardoi') {
-         targetPath = `${basePath}/index.html`;
-      } else {
-         targetPath = `${basePath}/${selected}/index.html`;
-      }
-      window.location.href = targetPath;
+    const savedLocation = localStorage.getItem('selectedNewsLocation');
+    if (savedLocation) selector.value = savedLocation;
+    
+    selector.addEventListener('change', async () => {
+      localStorage.setItem('selectedNewsLocation', selector.value);
+      tickerItems = [...CIVIC_FALLBACK];
+      renderMarquee();
+      tickerItems = await fetchNewsFromSources();
+      renderMarquee();
     });
   }
 
