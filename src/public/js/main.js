@@ -341,6 +341,32 @@
     });
   }
 
+
+  async function fetchImpactStats() {
+    try {
+      let citizensCount = 1200;
+      if (!sessionStorage.getItem('jaano_visited')) {
+        sessionStorage.setItem('jaano_visited', 'true');
+        const res = await fetch('https://countapi.mileshilliard.com/api/v1/hit/jaano_citizens_v1');
+        const data = await res.json();
+        citizensCount = data.value;
+      } else {
+        const res = await fetch('https://countapi.mileshilliard.com/api/v1/get/jaano_citizens_v1');
+        const data = await res.json();
+        citizensCount = data.value;
+      }
+      const complaintsRes = await fetch('https://countapi.mileshilliard.com/api/v1/get/jaano_complaints_v1');
+      const complaintsData = await complaintsRes.json();
+      
+      const citizensEl = document.getElementById('stat-citizens');
+      const complaintsEl = document.getElementById('stat-complaints');
+      if (citizensEl) citizensEl.setAttribute('data-target', citizensCount);
+      if (complaintsEl) complaintsEl.setAttribute('data-target', complaintsData.value);
+    } catch (e) {
+      console.warn("Counter API unavailable", e);
+    }
+  }
+
   function initImpactStats() {
     const statCards = document.querySelectorAll('.impact-stat-card__number');
     if (statCards.length === 0) return;

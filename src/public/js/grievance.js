@@ -333,6 +333,7 @@
     if (btnPrint) {
       btnPrint.addEventListener("click", function () {
         window.print();
+      trackComplaint();
       });
     }
 
