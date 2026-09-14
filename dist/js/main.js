@@ -323,17 +323,21 @@
     }, 10 * 1000);
   }
 
-  function initNewsLocation() {
-    const selector = document.getElementById('newsLocation');
+  function initDistrictSelector() {
+    const selector = document.getElementById('districtSelector');
     if (!selector) return;
-    const savedLocation = localStorage.getItem(NEWS_LOCATION_STORAGE_KEY);
-    if (savedLocation && NEWS_LOCATIONS[savedLocation]) selector.value = savedLocation;
-    selector.addEventListener('change', async () => {
-      localStorage.setItem(NEWS_LOCATION_STORAGE_KEY, selector.value);
-      tickerItems = [...CIVIC_FALLBACK];
-      renderMarquee();
-      tickerItems = await fetchNewsFromSources();
-      renderMarquee();
+    selector.addEventListener('change', () => {
+      const selected = selector.value;
+      if (!selected) return;
+      const basePath = selector.getAttribute('data-basepath') || '.';
+      
+      let targetPath = '';
+      if (selected === 'hardoi') {
+         targetPath = `${basePath}/index.html`;
+      } else {
+         targetPath = `${basePath}/${selected}/index.html`;
+      }
+      window.location.href = targetPath;
     });
   }
 
@@ -378,7 +382,7 @@
     initSmoothScroll();
     initStickyHeader();
     initMobileNav();
-    initNewsLocation();
+    initDistrictSelector();
     initNewsTicker();
     initImpactStats();
   }

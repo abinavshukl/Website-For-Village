@@ -116,23 +116,26 @@
   <div class="notice-ticker" role="marquee" aria-label="नवीनतम अपडेट">
     <div class="container" style="display: flex; align-items: center; width: 100%;">
       <div class="notice-ticker__label"><i data-lucide="newspaper" class="inline-icon" aria-hidden="true"></i><span>खबरें</span></div>
-      <label class="notice-ticker__location" for="newsLocation">
-        <span>News for</span>
-        <select id="newsLocation" aria-label="Choose news location">
-          <option value="hardoi-up">Sitapur, Uttar Pradesh</option>
-          <option value="up-state">All Uttar Pradesh</option>
-          <option value="lucknow-up">Lucknow, Uttar Pradesh</option>
-          <option value="kanpur-up">Kanpur, Uttar Pradesh</option>
-          <option value="varanasi-up">Varanasi, Uttar Pradesh</option>
-          <option value="prayagraj-up">Prayagraj, Uttar Pradesh</option>
-          <option value="sitapur-up">Sitapur, Uttar Pradesh</option>
-          <option value="unnao-up">Unnao, Uttar Pradesh</option>
-          <option value="ayodhya-up">Ayodhya, Uttar Pradesh</option>
-          <option value="gorakhpur-up">Gorakhpur, Uttar Pradesh</option>
-          <option value="bareilly-up">Bareilly, Uttar Pradesh</option>
-          <option value="meerut-up">Meerut, Uttar Pradesh</option>
-          <option value="agra-up">Agra, Uttar Pradesh</option>
-          <option value="other-up">Other Uttar Pradesh district</option>
+      <label class="notice-ticker__location" for="districtSelector">
+        <span>अपना जिला चुनें / District:</span>
+        <select id="districtSelector" aria-label="अपना जिला चुनें" data-basepath=".." style="font-weight: 700; color: #0d5c50; border: none; background: transparent; cursor: pointer;">
+          <option value="">सीतापुर (Sitapur)</option>
+          <option value="hardoi">हरदोई (Hardoi)</option>
+          <option value="lucknow">लखनऊ (Lucknow)</option>
+          <option value="kanpur">कानपुर (Kanpur)</option>
+          <option value="varanasi">वाराणसी (Varanasi)</option>
+          <option value="prayagraj">प्रयागराज (Prayagraj)</option>
+          <option value="sitapur">सीतापुर (Sitapur)</option>
+          <option value="unnao">उन्नाव (Unnao)</option>
+          <option value="ayodhya">अयोध्या (Ayodhya)</option>
+          <option value="gorakhpur">गोरखपुर (Gorakhpur)</option>
+          <option value="bareilly">बरेली (Bareilly)</option>
+          <option value="meerut">मेरठ (Meerut)</option>
+          <option value="agra">आगरा (Agra)</option>
+          <option value="aligarh">अलीगढ़ (Aligarh)</option>
+          <option value="moradabad">मुरादाबाद (Moradabad)</option>
+          <option value="saharanpur">सहारनपुर (Saharanpur)</option>
+          <option value="ghaziabad">गाज़ियाबाद (Ghaziabad)</option>
         </select>
       </label>
       <div style="overflow: hidden; flex-grow: 1;">
