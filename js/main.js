@@ -154,76 +154,127 @@
     { icon: 'shield-check', label: 'जागरूकता',   text: 'अपने ग्राम पंचायत की बैठकों में भाग लें — यह आपका अधिकार और कर्तव्य है।', link: '' },
   ];
 
-  // CORS-friendly Hindi RSS feeds (international/govt sources that allow proxying)
-  const RSS_FEEDS = [
-    'https://feeds.bbci.co.uk/hindi/rss.xml',                // BBC Hindi ✅ CORS-friendly
-    'https://rss.dw.com/rdf/rss-hin-all',                    // Deutsche Welle Hindi ✅
-    'https://hindi.thewire.in/feed/',                        // The Wire Hindi ✅
-    'https://www.indiatimes.com/topics/uttar-pradesh/feed',  // India Times UP ✅
+  // Local headline list used when RSS fetches are blocked by browser CORS or
+  // proxy rate limits. This keeps the ticker useful without breaking the page.
+  const LOCAL_NEWS_ITEMS = [
+    { icon: 'newspaper', label: 'नागरिक अपडेट', text: 'उत्तर प्रदेश में सरकारी योजनाओं और नागरिक सेवाओं की समय-सीमा पर निगरानी बढ़ाई गई है।', link: 'https://up.gov.in', linkLabel: 'आधिकारिक जानकारी' },
+    { icon: 'users', label: 'नागरिक अपडेट', text: 'पंचायतों में डिजिटल शिकायत प्रणाली को सरल बनाने की पहल जारी है।', link: 'https://jansunwai.up.nic.in', linkLabel: 'शिकायत पोर्टल' },
+    { icon: 'shield-check', label: 'नागरिक अपडेट', text: 'नागरिकों के लिए RTI, FIR और सेवा-प्राप्ति से जुड़े नियम आसानी से समझे जा रहे हैं।', link: 'rights.html', linkLabel: 'अधिकार पढ़ें' },
+    { icon: 'briefcase', label: 'नागरिक अपडेट', text: 'कृषि, रोजगार और पेंशन से जुड़े लाभार्थी दस्तावेज़ों की सत्यापन प्रक्रिया ऑनलाइन की जा रही है।', link: 'schemes.html', linkLabel: 'योजनाएँ पढ़ें' },
+    { icon: 'phone', label: 'नागरिक अपडेट', text: 'स्थानीय हेल्पलाइन और आपातकालीन नए दिशा-निर्देशों के अनुसार कार्यरत हैं।', link: 'directory.html', linkLabel: 'संपर्क देखें' },
+    { icon: 'map', label: 'नागरिक अपडेट', text: 'ग्राम पंचायत स्तर पर निर्वाचन, योजनाओं और सुविधाओं की सूचना को आसान भाषा में उपलब्ध कराया जा रहा है।', link: 'index.html', linkLabel: 'विस्तार से पढ़ें' },
   ];
 
-  // CORS proxies — allorigins first (returns JSON), raw as fallback
-  const CORS_PROXIES = [
+  const NEWS_SOURCES = [
+    { name: 'BBC Hindi', url: 'https://feeds.bbci.co.uk/hindi/rss.xml' },
+    { name: 'DW Hindi', url: 'https://rss.dw.com/rdf/rss-hin-all' },
+    { name: 'Aaj Tak', url: 'https://www.aajtak.in/rssfeeds/?id=home' },
+    { name: 'News18 Hindi', url: 'https://hindi.news18.com/rss/india.xml' },
+  ];
+  const NEWS_LOCATIONS = {
+    'hardoi-up': ['hardoi', 'हरदोई', 'uttar pradesh', 'उत्तर प्रदेश'],
+    'up-state': ['uttar pradesh', 'उत्तर प्रदेश', 'up'],
+    'lucknow-up': ['lucknow', 'लखनऊ', 'uttar pradesh', 'उत्तर प्रदेश'],
+    'kanpur-up': ['kanpur', 'कानपुर', 'uttar pradesh', 'उत्तर प्रदेश'],
+    'varanasi-up': ['varanasi', 'वाराणसी', 'uttar pradesh', 'उत्तर प्रदेश'],
+    'prayagraj-up': ['prayagraj', 'इलाहाबाद', 'प्रयागराज', 'uttar pradesh', 'उत्तर प्रदेश'],
+    'sitapur-up': ['sitapur', 'सीतापुर', 'uttar pradesh', 'उत्तर प्रदेश'],
+    'unnao-up': ['unnao', 'उन्नाव', 'uttar pradesh', 'उत्तर प्रदेश'],
+    'ayodhya-up': ['ayodhya', 'अयोध्या', 'uttar pradesh', 'उत्तर प्रदेश'],
+    'gorakhpur-up': ['gorakhpur', 'गोरखपुर', 'uttar pradesh', 'उत्तर प्रदेश'],
+    'bareilly-up': ['bareilly', 'बरेली', 'uttar pradesh', 'उत्तर प्रदेश'],
+    'meerut-up': ['meerut', 'मेरठ', 'uttar pradesh', 'उत्तर प्रदेश'],
+    'agra-up': ['agra', 'आगरा', 'uttar pradesh', 'उत्तर प्रदेश'],
+    'other-up': ['uttar pradesh', 'उत्तर प्रदेश', 'up'],
+  };
+  const NEWS_LOCATION_STORAGE_KEY = 'selectedNewsLocation';
+  const NEWS_PROXIES = [
+    (url) => `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(url)}`,
     (url) => `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`,
     (url) => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
   ];
 
-  function parseRSSXML(xmlText) {
-    try {
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(xmlText, 'text/xml');
-      const items = Array.from(doc.querySelectorAll('item')).slice(0, 6);
-      return items.map(item => ({
-        icon: 'zap',
-        label: 'ताज़ा खबर',
-        text: (item.querySelector('title')?.textContent || '').replace(/<!\[CDATA\[|\]\]>/g, '').trim(),
-        link: item.querySelector('link')?.textContent?.trim() || '',
-      })).filter(item => item.text.length > 5);
-    } catch (e) {
-      return null;
+  function parseFeedItems(feedItems, sourceName) {
+    return (feedItems || [])
+      .slice(0, 6)
+      .map((item) => ({
+        icon: 'newspaper',
+        label: `ताज़ा खबर • ${sourceName}`,
+        text: (item.title || '').trim(),
+        link: (item.link || '').trim(),
+        linkLabel: 'पूरा समाचार पढ़ें',
+      }))
+      .filter((item) => item.text.length > 5 && /^https?:\/\//i.test(item.link));
+  }
+
+  function parseRSSXML(xmlText, sourceName) {
+    const documentParser = new DOMParser();
+    const feedDocument = documentParser.parseFromString(xmlText, 'text/xml');
+    return parseFeedItems(
+      Array.from(feedDocument.querySelectorAll('item, entry')).map((item) => ({
+        title: item.querySelector('title')?.textContent || '',
+        link: item.querySelector('link')?.getAttribute('href') || item.querySelector('link')?.textContent || '',
+      })),
+      sourceName
+    );
+  }
+
+  async function fetchNewsFromSource(source) {
+    const freshFeedUrl = `${source.url}${source.url.includes('?') ? '&' : '?'}_=${Date.now()}`;
+    for (const proxy of NEWS_PROXIES) {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 7000);
+      try {
+        const response = await fetch(proxy(freshFeedUrl), { signal: controller.signal, cache: 'no-store' });
+        if (!response.ok) continue;
+        const contentType = response.headers.get('content-type') || '';
+        const payload = contentType.includes('json') ? await response.json() : null;
+        const items = payload?.items
+          ? parseFeedItems(payload.items, source.name)
+          : payload?.contents
+            ? parseRSSXML(payload.contents, source.name)
+            : parseRSSXML(await response.text(), source.name);
+        if (items.length > 0) return items;
+      } catch (error) {
+        // Another source can still succeed when a browser or proxy blocks RSS.
+      } finally {
+        clearTimeout(timeoutId);
+      }
     }
+    return [];
   }
 
   async function fetchNewsFromSources() {
-    for (const feed of RSS_FEEDS) {
-      for (const proxyFn of CORS_PROXIES) {
-        try {
-          const controller = new AbortController();
-          const timeoutId = setTimeout(() => controller.abort(), 12000);
-          const proxyUrl = proxyFn(feed);
-          const response = await fetch(proxyUrl, { signal: controller.signal });
-          clearTimeout(timeoutId);
-          if (!response.ok) continue;
+    const sourceResults = await Promise.all(NEWS_SOURCES.map(fetchNewsFromSource));
+    const seenHeadlines = new Set();
+    const liveItems = sourceResults.flat().filter((item) => {
+      const key = item.text.toLowerCase().replace(/\s+/g, ' ');
+      if (seenHeadlines.has(key)) return false;
+      seenHeadlines.add(key);
+      return true;
+    });
+    if (liveItems.length === 0) return LOCAL_NEWS_ITEMS;
 
-          // allorigins wraps content in {contents: "..."}, corsproxy returns raw
-          let xmlText;
-          const contentType = response.headers.get('content-type') || '';
-          if (contentType.includes('json')) {
-            const json = await response.json();
-            xmlText = json.contents || json.data || '';
-          } else {
-            xmlText = await response.text();
-          }
+    const selectedLocation = document.getElementById('newsLocation')?.value || 'hardoi-up';
+    const locationTerms = NEWS_LOCATIONS[selectedLocation] || [];
+    if (locationTerms.length === 0) return liveItems.slice(0, 12);
 
-          if (!xmlText) continue;
-          const items = parseRSSXML(xmlText);
-          if (items && items.length > 0) {
-            console.log(`✅ News loaded from: ${feed} via proxy`);
-            return items;
-          }
-        } catch (e) {
-          console.warn(`❌ Failed: ${feed}`, e.message);
-        }
-      }
-    }
-    return null; // All sources failed
+    const matchingItems = liveItems.filter((item) => {
+      const searchableText = `${item.text} ${item.label}`.toLowerCase();
+      return locationTerms.some((term) => searchableText.includes(term));
+    });
+    return (matchingItems.length > 0 ? matchingItems : liveItems).slice(0, 12);
   }
 
   let tickerItems = [];
+  let newsRefreshInProgress = false;
 
   function buildTickerSpan(item) {
+    const isExternal = item.link && /^https?:\/\//i.test(item.link);
+    const linkLabel = item.linkLabel || (isExternal ? 'आधिकारिक वेबसाइट' : 'विस्तार से पढ़ें');
+    const targetAttributes = isExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
     const linkHtml = item.link
-      ? ` <a href="${item.link}" target="_blank" rel="noopener noreferrer" style="color:#93c5fd;text-decoration:underline;margin-left:4px;">${item.link.startsWith('http') ? 'पूरा पढ़ें' : 'यहाँ देखें'}</a>`
+      ? ` <a href="${item.link}"${targetAttributes} style="color:#93c5fd;text-decoration:underline;margin-left:4px;">${linkLabel}</a>`
       : '';
     return `<i data-lucide="${item.icon}" class="inline-icon" style="color:#eab308;margin-right:4px;"></i><strong>${item.label}:</strong> ${item.text}${linkHtml}`;
   }
@@ -249,7 +300,7 @@
     tickerItems = [...CIVIC_FALLBACK];
     renderMarquee();
 
-    // Fetch live news in background
+    // Replace the local updates only when source articles load successfully.
     const liveNews = await fetchNewsFromSources();
     if (liveNews && liveNews.length > 0) {
       tickerItems = [...liveNews];
@@ -259,14 +310,31 @@
       console.warn('⚠️ API unavailable. Showing civic facts as fallback.');
     }
 
-    // Auto-refresh every 30 minutes
+    // Recheck frequently so new headlines appear without requiring a page reload.
     setInterval(async () => {
+      if (newsRefreshInProgress) return;
+      newsRefreshInProgress = true;
       const freshNews = await fetchNewsFromSources();
       if (freshNews && freshNews.length > 0) {
         tickerItems = [...freshNews];
         renderMarquee();
       }
-    }, 30 * 60 * 1000);
+      newsRefreshInProgress = false;
+    }, 10 * 1000);
+  }
+
+  function initNewsLocation() {
+    const selector = document.getElementById('newsLocation');
+    if (!selector) return;
+    const savedLocation = localStorage.getItem(NEWS_LOCATION_STORAGE_KEY);
+    if (savedLocation && NEWS_LOCATIONS[savedLocation]) selector.value = savedLocation;
+    selector.addEventListener('change', async () => {
+      localStorage.setItem(NEWS_LOCATION_STORAGE_KEY, selector.value);
+      tickerItems = [...CIVIC_FALLBACK];
+      renderMarquee();
+      tickerItems = await fetchNewsFromSources();
+      renderMarquee();
+    });
   }
 
   function init() {
@@ -275,6 +343,7 @@
     initSmoothScroll();
     initStickyHeader();
     initMobileNav();
+    initNewsLocation();
     initNewsTicker();
   }
 

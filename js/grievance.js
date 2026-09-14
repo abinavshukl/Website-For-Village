@@ -51,6 +51,61 @@
     document.querySelectorAll(".field-error-msg").forEach((el) => el.remove());
   }
 
+  function resetComplaintForm() {
+    const form = document.getElementById("complaintForm");
+    if (form) {
+      form.reset();
+    }
+
+    const district = document.getElementById("jurisdictionDistrict");
+    const tehsil = document.getElementById("jurisdictionTehsil");
+    const block = document.getElementById("jurisdictionBlock");
+    const gp = document.getElementById("jurisdictionGP");
+    if (district) district.value = "113-हरदोई";
+    if (tehsil) tehsil.value = "संडीला";
+    if (block) block.value = "19-बेंहदर";
+    if (gp) gp.value = "29-बड़ागांव";
+
+    const defaultRadio = document.querySelector('input[name="jurisdictionType"][value="default"]');
+    if (defaultRadio) {
+      defaultRadio.checked = true;
+      if (typeof window.toggleJurisdiction === "function") {
+        window.toggleJurisdiction(defaultRadio);
+      }
+    }
+
+    const issueCategory = document.getElementById("issueCategory");
+    if (issueCategory) issueCategory.value = "";
+
+    const outputBox = document.getElementById("draftOutputBox");
+    if (outputBox) outputBox.style.display = "none";
+
+    const outputText = document.getElementById("draftOutputText");
+    if (outputText) outputText.value = "";
+
+    const transToggle = document.getElementById("enableTransliteration");
+    if (transToggle) transToggle.checked = false;
+
+    const micBtn = document.getElementById("micBtn");
+    const micText = document.getElementById("micText");
+    if (micBtn) {
+      micBtn.style.background = "#ef4444";
+      micBtn.style.animation = "none";
+    }
+    if (micText) micText.textContent = "बोलकर लिखें";
+
+    clearFieldErrors();
+    const errorBox = document.getElementById("formErrorBox");
+    if (errorBox) {
+      errorBox.innerHTML = "";
+      errorBox.style.display = "none";
+    }
+
+    if (typeof window.showToast === "function") {
+      window.showToast("फॉर्म रीसेट हो गया।");
+    }
+  }
+
   function highlightErrors(data) {
     if (!data.name.trim()) showFieldError("complainantName", "नाम अनिवार्य है।");
     if (!data.guardian.trim()) showFieldError("complainantGuardian", "पिता/पति का नाम अनिवार्य है।");
@@ -228,10 +283,15 @@
 
     const btnGenerate = document.getElementById("generateDraftBtn");
     const btnCopy = document.getElementById("copyDraftBtnInner");
+    const btnReset = document.getElementById("resetDraftBtn");
     const outputBox = document.getElementById("draftOutputBox");
     const outputText = document.getElementById("draftOutputText");
     const jansunwaiActions = document.getElementById("jansunwaiActions");
     const errorBox = document.getElementById("formErrorBox");
+
+    if (btnReset) {
+      btnReset.addEventListener("click", resetComplaintForm);
+    }
 
     if (btnGenerate) {
       btnGenerate.addEventListener("click", function () {

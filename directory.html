@@ -9,7 +9,7 @@
   <title>संपर्क निर्देशिका (Contact Directory) — Hardoi, UP</title>
   <meta property="og:title" content="संपर्क निर्देशिका (Contact Directory) — Hardoi, UP">
   <meta property="og:description" content="तहसील संडीला और जिला हरदोई के उपयोगी संपर्क और हेल्पलाइन नंबर। Public contact list for Sandila Tehsil and Hardoi District services.">
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/styles.css?v=20260914-ux7" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 
   <link rel="canonical" href="https://abinavshukl.github.io/jaano-apne-adhikar/directory.html" />
@@ -29,14 +29,14 @@
 
   <!-- ════ SITE HEADER ════ -->
   <header class="site-header" role="banner">
-  <div style="background-color: #fef2f2; color: #991b1b; text-align: center; padding: 8px 16px; font-size: 0.85rem; font-weight: 600; border-bottom: 1px solid #fca5a5; margin-bottom: 16px;">
+  <div class="site-disclaimer" style="background-color: #fef2f2; color: #991b1b; text-align: center; padding: 8px 16px; font-size: 0.85rem; font-weight: 600; border-bottom: 1px solid #fca5a5; margin-bottom: 16px;">
     विधिक अस्वीकरण (Legal Disclaimer): यह वेबसाइट स्वतंत्र, गैर-सरकारी जन-जागरूकता पहल है। यह कानूनी सलाह, सरकारी आदेश या सेवा की गारंटी नहीं है।
   </div>
     <div class="container">
       <div class="header-inner">
         <a href="index.html" class="site-logo" aria-label="एक निजी पहल — होम पेज">
           <div class="site-logo__emblem" aria-hidden="true"><i data-lucide="landmark" class="inline-icon"></i></div>
-          
+          <span class="site-logo__text"><span class="site-logo__name">जानो अपने अधिकार</span><span class="site-logo__sub">नागरिक जानकारी • हरदोई</span></span>
         </a>
 
         <!-- Hamburger Button -->
@@ -161,6 +161,13 @@
 
   </main>
 
+  <nav class="mobile-bottom-nav" aria-label="त्वरित नेविगेशन">
+    <a href="index.html"><i data-lucide="home" class="inline-icon"></i><span>होम</span></a>
+    <a href="rights.html"><i data-lucide="scale" class="inline-icon"></i><span>अधिकार</span></a>
+    <a href="schemes.html"><i data-lucide="clipboard-list" class="inline-icon"></i><span>योजनाएँ</span></a>
+    <a class="mobile-bottom-nav__active" href="directory.html" aria-current="page"><i data-lucide="phone" class="inline-icon"></i><span>संपर्क</span></a>
+  </nav>
+
   <!-- ════ SITE FOOTER ════ -->
   <footer class="site-footer" role="contentinfo">
     <div class="container">
@@ -169,81 +176,25 @@
         <div class="footer-brand">
           <div class="footer-brand__name"><i data-lucide="landmark" class="inline-icon"></i> जानो अपने अधिकार</div>
           <p class="footer-brand__desc" style="margin-top: 12px; line-height: 1.6;">
-            <strong>प्रकृति:</strong> एक निजी जागरूकता पहल<br/>
-            <strong>राज्य:</strong> उत्तर प्रदेश (U.P.)<br/>
-            <strong>उद्देश्य:</strong> विधिक साक्षरता और सशक्तिकरण
+            स्वतंत्र नागरिक-जागरूकता पहल<br/>
+            उत्तर प्रदेश • विधिक साक्षरता और नागरिक सशक्तिकरण
           </p>
-          <p style="margin-top:16px; font-size:0.82rem; color:rgba(255,255,255,0.5); line-height:1.5;">
-            नागरिकों को जागरूक और सशक्त बनाने की एक डिजिटल पहल।<br/>
-            <em>A digital initiative to empower citizens.</em>
-          </p>
+          <p class="footer-brand__creator">निर्माता / Created by <a href="https://abinavshukl.github.io/Abhinav-s-Portfolio/" target="_blank" rel="noopener noreferrer">Abhinav Kumar</a></p>
         </div>
 
-        <!-- Column 2: Quick Links -->
-        <div class="footer-links">
-          <div class="footer-links__title">पोर्टल / Quick Links</div>
-          <ul class="footer-links__list" role="list">
-            <li><a href="index.html"><i data-lucide="home" class="inline-icon"></i> होम / Home</a></li>
-            <li><a href="rights.html"><i data-lucide="scale" class="inline-icon"></i> अधिकार / Rights</a></li>
-            <li><a href="schemes.html"><i data-lucide="clipboard-list" class="inline-icon"></i> योजनाएँ / Schemes</a></li>
-            <li><a href="directory.html"><i data-lucide="phone" class="inline-icon"></i> संपर्क / Contacts</a></li>
-          </ul>
-        </div>
-
-        <!-- Column 3: Important Services -->
-        <div class="footer-links">
-          <div class="footer-links__title">महत्वपूर्ण सेवाएँ / Services</div>
-          <ul class="footer-links__list" role="list">
-            <li><a href="https://jansunwai.up.nic.in" target="_blank" rel="noopener noreferrer">🌐 जनसुनवाई (Jansunwai)</a></li>
-            <li><a href="https://electoralsearch.eci.gov.in" target="_blank" rel="noopener noreferrer"><i data-lucide="box" class="inline-icon"></i> मतदाता खोज (Voter Search)</a></li>
-            <li><a href="https://uppolice.gov.in" target="_blank" rel="noopener noreferrer">🚔 यूपी पुलिस (UP Police)</a></li>
-          </ul>
-        </div>
-
-        <!-- Column 4: Emergency -->
-        <div class="footer-links">
-          <div class="footer-links__title">आपातकालीन / Emergency</div>
-          <ul class="footer-links__list" role="list">
-            <li><a href="tel:112"><i data-lucide="alert-triangle" class="inline-icon"></i> पुलिस (Police) — 112</a></li>
-            <li><a href="tel:1076"><i data-lucide="phone" class="inline-icon"></i> CM हेल्पलाइन — 1076</a></li>
-            <li><a href="tel:1090"><i data-lucide="user" class="inline-icon"></i> महिला (Women) — 1090</a></li>
-            <li><a href="tel:1930"><i data-lucide="laptop" class="inline-icon"></i> साइबर (Cyber) — 1930</a></li>
-          </ul>
-        </div>
       </div>
 
       <hr class="footer-divider" style="margin: 40px 0 24px;" />
 
-      <div style="background: rgba(255,255,255,0.05); padding: 16px; border-radius: 8px; margin-bottom: 18px; font-size: 0.8rem; color: rgba(255,255,255,0.6); text-align: justify; line-height: 1.6; border: 1px solid rgba(255,255,255,0.1);">
-        <strong>विधिक सूचना (Legal Notice):</strong> यह वेबसाइट एक स्वतंत्र नागरिक-जागरूकता पहल है। यह सरकारी पोर्टल, विभागीय सेवा, कानूनी सलाह, या आधिकारिक फाइलिंग मंच नहीं है। यहाँ दी गई जानकारी सामान्य शैक्षिक उद्देश्य के लिए है और उसे किसी भी स्थिति में कानूनी सलाह के रूप में नहीं माना जाना चाहिए। सभी योजनाएँ, अधिकार, प्रक्रिया, और संपर्क विवरण की पुष्टि संबंधित आधिकारिक सरकारी पोर्टल, विभाग, या योग्य विधिक सहायता से अवश्य करें।
-      </div>
-      <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-bottom: 18px;">
-        <a href="legal.html" class="btn btn--outline btn--sm" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.15); color:#fff;">Privacy Policy & Terms</a>
-      </div>
-      <!-- Developer Credit Bottom Strip -->
-      <div style="margin-bottom:16px; font-size:0.8rem; color:#fca5a5; text-align:center;"><i data-lucide="check-circle" class="inline-icon" style="height:12px;width:12px;"></i> जानकारी अंतिम बार जांची गई (Last Verified): <strong>सितंबर 2026 (Sept 2026)</strong></div>
-        <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap: 20px;">
-        <div style="font-size: 0.85rem; color: rgba(255,255,255,0.5);">
-          © <span id="footerYear">2025</span> जानो अपने अधिकार — एक निजी पहल।
-        </div>
-        
-        <div style="display:flex; align-items:center; gap: 16px; background: rgba(255,255,255,0.05); padding: 8px 16px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.1);">
-          <div style="font-size: 0.75rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.05em;">Developed By</div>
-          <div style="font-size: 0.95rem; font-weight: 700; color: #fff;">Abhinav Kumar</div>
-          <div style="display:flex; gap: 12px; margin-left: 8px; border-left: 1px solid rgba(255,255,255,0.2); padding-left: 12px;">
-            <a href="https://abinavshukl.github.io/Abhinav-s-Portfolio/" target="_blank" rel="noopener noreferrer" aria-label="Portfolio" style="color: #fff; text-decoration: none; font-size: 1.1rem; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">🌐</a>
-            <a href="https://github.com/abinavshukl" target="_blank" rel="noopener noreferrer" aria-label="GitHub" style="color: #fff; text-decoration: none; font-size: 1.1rem; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'"><i data-lucide="laptop" class="inline-icon"></i></a>
-            <a href="mailto:abhinavshukla1000@gmail.com" aria-label="Email" style="color: #fff; text-decoration: none; font-size: 1.1rem; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">✉️</a>
-          </div>
-        </div>
-      </div>
+      <p class="footer-legal"><strong>विधिक सूचना:</strong> यह सरकारी पोर्टल या कानूनी सलाह नहीं है। कार्रवाई से पहले आधिकारिक स्रोत से पुष्टि करें। <a href="legal.html">पूरी नीति पढ़ें</a></p>
+      <div class="footer-meta">© <span id="footerYear">2025</span> जानो अपने अधिकार — एक निजी पहल।</div>
     </div>
   </footer>
 
 
 
   <script src="js/config.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=20260914-ux4"></script>
   <script>
     // ── Load and render directory from data/directory.json ──────────────
     (function () {

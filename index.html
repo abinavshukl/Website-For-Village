@@ -10,7 +10,7 @@
   <meta property="og:title" content="एक निजी पहल — नागरिक पोर्टल" />
   <meta property="og:description" content="नागरिकों के लिए एक निजी जागरूकता पोर्टल (A Private Initiative) — बूथ खोजें, शिकायत दर्ज करें।" />
     <title>जानो अपने अधिकार (Know Your Rights) — Hardoi, UP (A Private Initiative)</title>
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/styles.css?v=20260914-ux7" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 
   <link rel="canonical" href="https://abinavshukl.github.io/jaano-apne-adhikar/" />
@@ -79,14 +79,14 @@
 
   <!-- ════ SITE HEADER ════ -->
   <header class="site-header" role="banner">
-  <div style="background-color: #fef2f2; color: #991b1b; text-align: center; padding: 8px 16px; font-size: 0.85rem; font-weight: 600; border-bottom: 1px solid #fca5a5; margin-bottom: 16px;">
+  <div class="site-disclaimer" style="background-color: #fef2f2; color: #991b1b; text-align: center; padding: 8px 16px; font-size: 0.85rem; font-weight: 600; border-bottom: 1px solid #fca5a5; margin-bottom: 16px;">
     विधिक अस्वीकरण (Legal Disclaimer): यह वेबसाइट स्वतंत्र, गैर-सरकारी जन-जागरूकता पहल है। यह कानूनी सलाह, सरकारी आदेश या सेवा की गारंटी नहीं है।
   </div>
     <div class="container">
       <div class="header-inner">
         <a href="index.html" class="site-logo" aria-label="एक निजी पहल — होम पेज">
           <div class="site-logo__emblem" aria-hidden="true"><i data-lucide="landmark" class="inline-icon"></i></div>
-          
+          <span class="site-logo__text"><span class="site-logo__name">जानो अपने अधिकार</span><span class="site-logo__sub">नागरिक जानकारी • हरदोई</span></span>
         </a>
 
         <!-- Hamburger Button -->
@@ -114,7 +114,26 @@
   <!-- ════ NOTICE TICKER ════ -->
   <div class="notice-ticker" role="marquee" aria-label="नवीनतम अपडेट">
     <div class="container" style="display: flex; align-items: center; width: 100%;">
-      <div class="notice-ticker__label">अपडेट</div>
+      <div class="notice-ticker__label"><i data-lucide="newspaper" class="inline-icon" aria-hidden="true"></i><span>खबरें</span></div>
+      <label class="notice-ticker__location" for="newsLocation">
+        <span>News for</span>
+        <select id="newsLocation" aria-label="Choose news location">
+          <option value="hardoi-up">Hardoi, Uttar Pradesh</option>
+          <option value="up-state">All Uttar Pradesh</option>
+          <option value="lucknow-up">Lucknow, Uttar Pradesh</option>
+          <option value="kanpur-up">Kanpur, Uttar Pradesh</option>
+          <option value="varanasi-up">Varanasi, Uttar Pradesh</option>
+          <option value="prayagraj-up">Prayagraj, Uttar Pradesh</option>
+          <option value="sitapur-up">Sitapur, Uttar Pradesh</option>
+          <option value="unnao-up">Unnao, Uttar Pradesh</option>
+          <option value="ayodhya-up">Ayodhya, Uttar Pradesh</option>
+          <option value="gorakhpur-up">Gorakhpur, Uttar Pradesh</option>
+          <option value="bareilly-up">Bareilly, Uttar Pradesh</option>
+          <option value="meerut-up">Meerut, Uttar Pradesh</option>
+          <option value="agra-up">Agra, Uttar Pradesh</option>
+          <option value="other-up">Other Uttar Pradesh district</option>
+        </select>
+      </label>
       <div style="overflow: hidden; flex-grow: 1;">
         <div class="notice-ticker__content">
           <span><i data-lucide="home" class="inline-icon"></i> <strong>आवास योजना:</strong> क्या आप जानते हैं? पीएम आवास योजना (ग्रामीण) के तहत पक्का घर बनाने के लिए ₹1.20 लाख की सहायता मिलती है।</span>
@@ -165,26 +184,135 @@
       </div>
     </section>
 
-    <!-- ════ QUICK STATS ════ -->
-    <div class="container">
-      <div class="quick-stats">
-        <div class="glass-panel stat-box">
-          <span class="stat-box__number">15+</span>
-          <span class="stat-box__label">विधिक अधिकार सूचीबद्ध</span>
+    <!-- ════ CITIZEN ACTION DASHBOARD ════ -->
+    <section class="action-dashboard" aria-labelledby="actionDashboardTitle">
+      <div class="container">
+        <div class="action-dashboard__intro">
+          <div>
+            <div class="section__kicker">त्वरित सहायता / Quick Actions</div>
+            <h2 id="actionDashboardTitle">आपको किस जानकारी की जरूरत है?</h2>
+            <p>अपना काम चुनें और सीधे सही जानकारी या आधिकारिक पोर्टल तक जाएँ।</p>
+          </div>
+          <span class="action-dashboard__hint">6 नागरिक सेवाएँ</span>
         </div>
-        <div class="glass-panel stat-box">
-          <span class="stat-box__number">6</span>
-          <span class="stat-box__label">प्रकाशित योजनाएँ</span>
-        </div>
-        <div class="glass-panel stat-box">
-          <span class="stat-box__number" style="font-size: 1.8rem; margin-top: 10px;">BNS 2023</span>
-          <span class="stat-box__label">नए कानूनों पर आधारित</span>
+        <div class="action-dashboard__grid">
+          <a class="action-tile action-tile--green" href="#voterSearchSection">
+            <span class="action-tile__icon"><i data-lucide="search" class="inline-icon"></i></span>
+            <span class="action-tile__text"><strong>मतदाता नाम खोजें</strong><small>Voter name search</small></span>
+            <i data-lucide="arrow-up-right" class="action-tile__arrow"></i>
+          </a>
+          <a class="action-tile action-tile--gold" href="#voterSearchSection">
+            <span class="action-tile__icon"><i data-lucide="map-pin" class="inline-icon"></i></span>
+            <span class="action-tile__text"><strong>बूथ खोजें</strong><small>Find polling booth</small></span>
+            <i data-lucide="arrow-up-right" class="action-tile__arrow"></i>
+          </a>
+          <a class="action-tile action-tile--blue" href="rights.html">
+            <span class="action-tile__icon"><i data-lucide="scale" class="inline-icon"></i></span>
+            <span class="action-tile__text"><strong>अपने अधिकार जानें</strong><small>Know your rights</small></span>
+            <i data-lucide="arrow-up-right" class="action-tile__arrow"></i>
+          </a>
+          <a class="action-tile action-tile--orange" href="schemes.html">
+            <span class="action-tile__icon"><i data-lucide="clipboard-list" class="inline-icon"></i></span>
+            <span class="action-tile__text"><strong>योजना देखें</strong><small>Explore schemes</small></span>
+            <i data-lucide="arrow-up-right" class="action-tile__arrow"></i>
+          </a>
+          <a class="action-tile action-tile--red" href="#grievanceSection">
+            <span class="action-tile__icon"><i data-lucide="file-edit" class="inline-icon"></i></span>
+            <span class="action-tile__text"><strong>शिकायत का मसौदा</strong><small>Prepare a complaint</small></span>
+            <i data-lucide="arrow-up-right" class="action-tile__arrow"></i>
+          </a>
+          <a class="action-tile action-tile--slate" href="directory.html">
+            <span class="action-tile__icon"><i data-lucide="phone" class="inline-icon"></i></span>
+            <span class="action-tile__text"><strong>संपर्क और हेल्पलाइन</strong><small>Contacts & helplines</small></span>
+            <i data-lucide="arrow-up-right" class="action-tile__arrow"></i>
+          </a>
         </div>
       </div>
-    </div>
+    </section>
+
+    <!-- ════ OFFICIAL SOURCE LINKS ════ -->
+    <section class="section" aria-labelledby="officialSourcesTitle">
+      <div class="container">
+        <div class="section__header">
+          <div class="section__kicker">सत्यापन / Verified Sources</div>
+          <h2 class="section__title" id="officialSourcesTitle">
+            <span class="hi">आधिकारिक पोर्टल्स</span>
+            <span class="en">Official Portals</span>
+          </h2>
+          <p class="section__subtitle">अंतिम कार्रवाई से पहले हमेशा आधिकारिक पोर्टल पर सत्यापन करें।</p>
+        </div>
+
+        <div class="pillars-grid">
+          <a href="https://pmkisan.gov.in" target="_blank" rel="noopener noreferrer" class="pillar-card" style="text-decoration:none;color:inherit;border-color:#d1fae5;">
+            <span class="pillar-card__icon"><i data-lucide="tractor" class="inline-icon"></i></span>
+            <div class="pillar-card__title">PM किसान</div>
+            <div class="pillar-card__en">PM-Kisan</div>
+            <p class="pillar-card__desc">किसानों के लिए किस्त, e-KYC और पात्रता स्थिति की आधिकारिक जाँच करें।</p>
+          </a>
+
+          <a href="https://pmayg.nic.in" target="_blank" rel="noopener noreferrer" class="pillar-card" style="text-decoration:none;color:inherit;border-color:#d1fae5;">
+            <span class="pillar-card__icon"><i data-lucide="home" class="inline-icon"></i></span>
+            <div class="pillar-card__title">PM आवास</div>
+            <div class="pillar-card__en">PMAY-G</div>
+            <p class="pillar-card__desc">घरेलू आवास, लाभार्थी सूची और पात्रता शर्तों की पुष्टि करें।</p>
+          </a>
+
+          <a href="https://beneficiary.nha.gov.in" target="_blank" rel="noopener noreferrer" class="pillar-card" style="text-decoration:none;color:inherit;border-color:#d1fae5;">
+            <span class="pillar-card__icon"><i data-lucide="shield-check" class="inline-icon"></i></span>
+            <div class="pillar-card__title">आयुष्मान</div>
+            <div class="pillar-card__en">Ayushman Bharat</div>
+            <p class="pillar-card__desc">कार्ड स्थिति, लाभ और अस्पताल सूची की आधिकारिक जानकारी देखें।</p>
+          </a>
+
+          <a href="https://jansunwai.up.nic.in" target="_blank" rel="noopener noreferrer" class="pillar-card" style="text-decoration:none;color:inherit;border-color:#d1fae5;">
+            <span class="pillar-card__icon"><i data-lucide="file-text" class="inline-icon"></i></span>
+            <div class="pillar-card__title">जनसुनवाई</div>
+            <div class="pillar-card__en">Jansunwai</div>
+            <p class="pillar-card__desc">शिकायत दर्ज करने से पहले आधिकारिक पोर्टल पर नियम और प्रक्रिया देखें।</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════ VERIFY BEFORE ACTION ════ -->
+    <section class="section section--alt homepage-verify-section" aria-labelledby="verifyBeforeActionTitle">
+      <div class="container">
+        <div class="section__header">
+          <div class="section__kicker">सत्यापन / Verify Before Acting</div>
+          <h2 class="section__title" id="verifyBeforeActionTitle">
+            <span class="hi">कृपया इन 3 बातों की पुष्टि करें</span>
+            <span class="en">Please verify these 3 things</span>
+          </h2>
+          <p class="section__subtitle">किसी भी सेवा, योजना, या शिकायत से पहले यह जाँच करें ताकि गलत जानकारी से बचा जा सके।</p>
+        </div>
+
+        <div class="pillars-grid">
+          <article class="pillar-card">
+            <span class="pillar-card__icon"><i data-lucide="check-circle" class="inline-icon"></i></span>
+            <div class="pillar-card__title">पात्रता</div>
+            <div class="pillar-card__en">Eligibility</div>
+            <p class="pillar-card__desc">योजना के लिए आय, दस्तावेज़, परिवार और ग्रामीण/शहरी स्थिति की आधिकारिक सूची देखें।</p>
+          </article>
+
+          <article class="pillar-card">
+            <span class="pillar-card__icon"><i data-lucide="phone" class="inline-icon"></i></span>
+            <div class="pillar-card__title">संपर्क</div>
+            <div class="pillar-card__en">Contact Details</div>
+            <p class="pillar-card__desc">किसी भी हेल्पलाइन या अधिकारी के नंबर को सही और हाल की जानकारी के साथ मिलान करें।</p>
+          </article>
+
+          <article class="pillar-card">
+            <span class="pillar-card__icon"><i data-lucide="scale" class="inline-icon"></i></span>
+            <div class="pillar-card__title">विवरण</div>
+            <div class="pillar-card__en">Legal Details</div>
+            <p class="pillar-card__desc">FIR, RTI, शिकायत या कानूनी कानूनी अवधारणा के लिए आधिकारिक नियम देखें।</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
     <!-- ════ FEATURED RIGHTS ════ -->
-    <section class="featured-rights">
+    <section class="featured-rights homepage-featured-rights">
       <div class="container">
         <div class="section-header">
           <h2 class="section-header__title">प्रमुख वैधानिक अधिकार</h2>
@@ -244,19 +372,15 @@
           <div class="booth-finder glass-card" role="search" aria-label="मतदाता खोजें" style="margin: 0; max-width: none; background: var(--color-surface); box-shadow: var(--shadow-md);">
             <div class="booth-finder__icon" aria-hidden="true"><i data-lucide="users" class="inline-icon"></i></div>
             <div class="booth-finder__title" style="margin-bottom: 16px;">मतदाता सूची में नाम खोजें</div>
-            <div class="ward-select-group" style="grid-template-columns: 1fr auto;">
-            <div class="select-wrapper">
-              <label for="voterSearchInput" class="select-label">नाम या EPIC नंबर दर्ज करें / Enter Name or EPIC</label>
-              <input type="text" id="voterSearchInput" class="form-select" placeholder="Enter Name or EPIC" style="height:48px;" />
-            </div>
-            <button id="findVoterBtn" class="btn btn--primary" aria-label="मतदाता खोजें">
+            <div style="text-align:center;">
+            <button id="findVoterBtn" class="btn btn--primary btn--full" aria-label="आधिकारिक मतदाता खोज खोलें">
               <i data-lucide="search" class="inline-icon"></i> खोजें
             </button>
           </div>
           
           <div style="margin-top:12px;text-align:center;">
-            <a href="https://electoralsearch.eci.gov.in/" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;color:var(--color-primary-dark);text-decoration:underline;font-weight:700;">
-              🌐 राष्ट्रीय मतदाता सेवा पोर्टल (NVSP) पर खोजें
+            <a href="https://sec.up.nic.in/site/PRIVoters.aspx" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;color:var(--color-primary-dark);text-decoration:underline;font-weight:700;">
+              🌐 सरकारी वेबसाइट पर पंचायत मतदाता खोज खोलें
             </a>
           </div>
 
@@ -347,7 +471,7 @@
     </section>
 
     <!-- ════ QUICK LINKS to other pages ════ -->
-    <section class="section" aria-labelledby="quickLinksTitle">
+    <section class="section quick-links-section" aria-labelledby="quickLinksTitle">
       <div class="container">
         <div class="section__header">
           <div class="section__kicker">पोर्टल / Portal</div>
@@ -542,6 +666,9 @@
                 <button type="button" id="generateDraftBtn" class="btn btn--primary btn--lg" style="width:100%; justify-content:center; white-space: normal; height: auto; padding-top: 12px; padding-bottom: 12px; line-height: 1.4;">
                   📝 शिकायत का प्रारूप तैयार करें (Generate Draft)
                 </button>
+                <button type="button" id="resetDraftBtn" class="btn btn--secondary btn--lg" style="width:100%; justify-content:center; white-space: normal; height: auto; padding-top: 12px; padding-bottom: 12px; line-height: 1.4; border-color:#cbd5e1; background:#ffffff; color:#1f2937;">
+                  ↺ फॉर्म रीसेट करें / Reset Form
+                </button>
                 
                 <div id="jansunwaiActions" style="display:flex; flex-direction:column; gap:12px;">
                   <a href="https://jansunwai.up.nic.in/onlineComplaint" target="_blank" rel="noopener noreferrer" class="btn btn--lg" style="background:#16a34a; color:#fff; border-color:#16a34a; width:100%; justify-content:center; white-space: normal; height: auto; text-align: center; line-height: 1.4; padding-top: 12px; padding-bottom: 12px; text-decoration:none;">
@@ -606,6 +733,13 @@
 
   </main>
 
+  <nav class="mobile-bottom-nav" aria-label="त्वरित नेविगेशन">
+    <a class="mobile-bottom-nav__active" href="index.html" aria-current="page"><i data-lucide="home" class="inline-icon"></i><span>होम</span></a>
+    <a href="rights.html"><i data-lucide="scale" class="inline-icon"></i><span>अधिकार</span></a>
+    <a href="schemes.html"><i data-lucide="clipboard-list" class="inline-icon"></i><span>योजनाएँ</span></a>
+    <a href="directory.html"><i data-lucide="phone" class="inline-icon"></i><span>संपर्क</span></a>
+  </nav>
+
   <!-- ════ SITE FOOTER ════ -->
   <footer class="site-footer" role="contentinfo">
     <div class="container">
@@ -614,74 +748,18 @@
         <div class="footer-brand">
           <div class="footer-brand__name"><i data-lucide="landmark" class="inline-icon"></i> जानो अपने अधिकार</div>
           <p class="footer-brand__desc" style="margin-top: 12px; line-height: 1.6;">
-            <strong>प्रकृति:</strong> एक निजी जागरूकता पहल<br/>
-            <strong>राज्य:</strong> उत्तर प्रदेश (U.P.)<br/>
-            <strong>उद्देश्य:</strong> विधिक साक्षरता और सशक्तिकरण
+            स्वतंत्र नागरिक-जागरूकता पहल<br/>
+            उत्तर प्रदेश • विधिक साक्षरता और नागरिक सशक्तिकरण
           </p>
-          <p style="margin-top:16px; font-size:0.82rem; color:rgba(255,255,255,0.5); line-height:1.5;">
-            नागरिकों को जागरूक और सशक्त बनाने की एक डिजिटल पहल।<br/>
-            <em>A digital initiative to empower citizens.</em>
-          </p>
+          <p class="footer-brand__creator">निर्माता / Created by <a href="https://abinavshukl.github.io/Abhinav-s-Portfolio/" target="_blank" rel="noopener noreferrer">Abhinav Kumar</a></p>
         </div>
 
-        <!-- Column 2: Quick Links -->
-        <div class="footer-links">
-          <div class="footer-links__title">पोर्टल / Quick Links</div>
-          <ul class="footer-links__list" role="list">
-            <li><a href="index.html"><i data-lucide="home" class="inline-icon"></i> होम / Home</a></li>
-            <li><a href="rights.html"><i data-lucide="scale" class="inline-icon"></i> अधिकार / Rights</a></li>
-            <li><a href="schemes.html"><i data-lucide="clipboard-list" class="inline-icon"></i> योजनाएँ / Schemes</a></li>
-            <li><a href="directory.html"><i data-lucide="phone" class="inline-icon"></i> संपर्क / Contacts</a></li>
-          </ul>
-        </div>
-
-        <!-- Column 3: Important Services -->
-        <div class="footer-links">
-          <div class="footer-links__title">महत्वपूर्ण सेवाएँ / Services</div>
-          <ul class="footer-links__list" role="list">
-            <li><a href="https://jansunwai.up.nic.in" target="_blank" rel="noopener noreferrer">🌐 जनसुनवाई (Jansunwai)</a></li>
-            <li><a href="https://electoralsearch.eci.gov.in" target="_blank" rel="noopener noreferrer"><i data-lucide="box" class="inline-icon"></i> मतदाता खोज (Voter Search)</a></li>
-            <li><a href="https://uppolice.gov.in" target="_blank" rel="noopener noreferrer">🚔 यूपी पुलिस (UP Police)</a></li>
-          </ul>
-        </div>
-
-        <!-- Column 4: Emergency -->
-        <div class="footer-links">
-          <div class="footer-links__title">आपातकालीन / Emergency</div>
-          <ul class="footer-links__list" role="list">
-            <li><a href="tel:112"><i data-lucide="alert-triangle" class="inline-icon"></i> पुलिस (Police) — 112</a></li>
-            <li><a href="tel:1076"><i data-lucide="phone" class="inline-icon"></i> CM हेल्पलाइन — 1076</a></li>
-            <li><a href="tel:1090"><i data-lucide="user" class="inline-icon"></i> महिला (Women) — 1090</a></li>
-            <li><a href="tel:1930"><i data-lucide="laptop" class="inline-icon"></i> साइबर (Cyber) — 1930</a></li>
-          </ul>
-        </div>
       </div>
 
       <hr class="footer-divider" style="margin: 40px 0 24px;" />
 
-      <div style="background: rgba(255,255,255,0.05); padding: 16px; border-radius: 8px; margin-bottom: 18px; font-size: 0.8rem; color: rgba(255,255,255,0.6); text-align: justify; line-height: 1.6; border: 1px solid rgba(255,255,255,0.1);">
-        <strong>विधिक सूचना (Legal Notice):</strong> यह वेबसाइट एक स्वतंत्र नागरिक-जागरूकता पहल है। यह सरकारी पोर्टल, विभागीय सेवा, कानूनी सलाह, या आधिकारिक फाइलिंग मंच नहीं है। यहाँ दी गई जानकारी सामान्य शैक्षिक उद्देश्य के लिए है और उसे किसी भी स्थिति में कानूनी सलाह के रूप में नहीं माना जाना चाहिए। सभी योजनाएँ, अधिकार, प्रक्रिया, और संपर्क विवरण की पुष्टि संबंधित आधिकारिक सरकारी पोर्टल, विभाग, या योग्य विधिक सहायता से अवश्य करें।
-      </div>
-      <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-bottom: 18px;">
-        <a href="legal.html" class="btn btn--outline btn--sm" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.15); color:#fff;">Privacy Policy & Terms</a>
-      </div>
-      <!-- Developer Credit Bottom Strip -->
-      <div style="margin-bottom:16px; font-size:0.8rem; color:#fca5a5; text-align:center;"><i data-lucide="check-circle" class="inline-icon" style="height:12px;width:12px;"></i> जानकारी अंतिम बार जांची गई (Last Verified): <strong>सितंबर 2026 (Sept 2026)</strong></div>
-        <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap: 20px;">
-        <div style="font-size: 0.85rem; color: rgba(255,255,255,0.5);">
-          © <span id="footerYear">2025</span> जानो अपने अधिकार — एक निजी पहल।
-        </div>
-        
-        <div style="display:flex; align-items:center; gap: 16px; background: rgba(255,255,255,0.05); padding: 8px 16px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.1);">
-          <div style="font-size: 0.75rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.05em;">Developed By</div>
-          <div style="font-size: 0.95rem; font-weight: 700; color: #fff;">Abhinav Kumar</div>
-          <div style="display:flex; gap: 12px; margin-left: 8px; border-left: 1px solid rgba(255,255,255,0.2); padding-left: 12px;">
-            <a href="https://abinavshukl.github.io/Abhinav-s-Portfolio/" target="_blank" rel="noopener noreferrer" aria-label="Portfolio" style="color: #fff; text-decoration: none; font-size: 1.1rem; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">🌐</a>
-            <a href="https://github.com/abinavshukl" target="_blank" rel="noopener noreferrer" aria-label="GitHub" style="color: #fff; text-decoration: none; font-size: 1.1rem; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'"><i data-lucide="laptop" class="inline-icon"></i></a>
-            <a href="mailto:abhinavshukla1000@gmail.com" aria-label="Email" style="color: #fff; text-decoration: none; font-size: 1.1rem; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">✉️</a>
-          </div>
-        </div>
-      </div>
+      <p class="footer-legal"><strong>विधिक सूचना:</strong> यह सरकारी पोर्टल या कानूनी सलाह नहीं है। कार्रवाई से पहले आधिकारिक स्रोत से पुष्टि करें। <a href="legal.html">पूरी नीति पढ़ें</a></p>
+      <div class="footer-meta">© <span id="footerYear">2025</span> जानो अपने अधिकार — एक निजी पहल।</div>
     </div>
   </footer>
 
@@ -689,7 +767,7 @@
 
   <!-- ── Scripts ── -->
   <script src="js/config.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=20260914-ux4"></script>
   <script src="js/booth-finder.js"></script>
   <script src="js/voter-search.js?v=2"></script>
   <script src="js/grievance.js"></script>

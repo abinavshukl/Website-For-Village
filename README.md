@@ -63,10 +63,12 @@ The current state is consistent with the project’s public-interest model: gene
 - Hero, legal disclaimer overlay (sessionStorage), header disclaimer strip
 - Live/civic **notice ticker**
 - Featured rights (RTI, FIR/BNSS, women’s rights) linking into `rights.html`
-- **Elections:** NVSP redirect for voter search + **booth finder** (wards 1–15)
+- **Elections:** Direct handoff to the UP State Election Commission Panchayat voter search + **booth finder** (wards 1–15)
+- **Citizen Action Dashboard:** six task-first actions immediately below the hero for voter search, booth lookup, rights, schemes, complaint drafting, and contacts
 - Service pillars (electricity, water, youth library, seniors)
 - Quick links to the other three pages
 - **Jansunwai Pre-Drafter:** name, guardian, phone, optional EPIC/reference, department, jurisdiction (GP/block/tehsil/district), description → formatted Hindi draft → copy. Nothing is posted to a server.
+- Mobile bottom navigation on all public pages, rights topic shortcuts, and searchable scheme cards
 
 ### `rights.html` — Legal rights (Hindi, educational)
 
@@ -145,7 +147,7 @@ Official portal URLs for PM-Kisan, PMAY-G, SSPY, Ayushman, FCS, Jansunwai, UP Po
 | `js/main.js` | Nav, toast, clipboard, sticky header, footer year, **RSS ticker** (BBC Hindi, DW Hindi, The Wire Hindi, India Times UP via allorigins CORS proxy; civic facts if fetch fails; refresh every 30 minutes) |
 | `js/grievance.js` | Client-side validation + Hindi draft; mic; Google Input Tools transliteration; copy. **Zero data liability** — no Web3Forms / WhatsApp send |
 | `js/booth-finder.js` | Loads `booths.json`, shows booth/room/station, print slip |
-| `js/voter-search.js` | Privacy message + opens `https://electoralsearch.eci.gov.in/` |
+| `js/voter-search.js` | Validates voter/father name fields and opens the official UP SEC Panchayat voter search |
 | `js/config.js` | GP identity, aggregates, portal URLs, issue categories |
 
 ---
