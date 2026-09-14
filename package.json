@@ -1,0 +1,24 @@
+{
+  "name": "website-for-village",
+  "version": "1.0.0",
+  "description": "**A private civic awareness portal** for rural citizens in Uttar Pradesh — focused on Gram Panchayat **29-बड़ागांव**, विकास खण्ड **19-बेंहदर**, जिला **113-हरदोई** (Sandila / Beniganj region).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abinavshukl/jaano-apne-adhikar.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/abinavshukl/jaano-apne-adhikar/issues"
+  },
+  "homepage": "https://github.com/abinavshukl/jaano-apne-adhikar#readme",
+  "devDependencies": {
+    "jsdom": "^30.0.1"
+  }
+}

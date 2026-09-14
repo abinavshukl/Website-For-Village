@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="एक निजी पहल — सरकारी योजनाएँ: PM किसान, PM आवास, UP पेंशन, आयुष्मान भारत, राशन कार्ड, जनसुनवाई।" />
+  <meta name="description" content="उत्तर प्रदेश सरकारी योजनाओं की जानकारी: PM किसान, PM आवास, पेंशन, आयुष्मान भारत, राशन और पात्रता व आवेदन प्रक्रिया।" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="theme-color" content="#065f46" />
-  <title>सरकारी योजनाएँ (Government Schemes) — A Private Initiative</title>
-  <meta property="og:title" content="सरकारी योजनाएँ (Government Schemes) — A Private Initiative">
-  <meta property="og:description" content="PM आवास योजना, राशन कार्ड, और पेंशन की जानकारी। Latest Government Schemes, PM Awas Yojana, Ration Card, and Pension details for UP citizens.">
+  <title>उत्तर प्रदेश सरकारी योजनाएँ — PM किसान, आवास और पेंशन</title>
+  <meta property="og:title" content="उत्तर प्रदेश सरकारी योजनाएँ — PM किसान, आवास और पेंशन">
+  <meta property="og:description" content="PM किसान, PM आवास, पेंशन, आयुष्मान भारत और राशन योजनाओं की पात्रता व प्रक्रिया।">
   <link rel="stylesheet" href="css/styles.css?v=20260914-ux7" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 
@@ -79,6 +79,32 @@
       <div class="container">
         <div class="section__header" style="margin-bottom:28px;">
           <h2 class="sr-only" id="schemesGridTitle">योजना सूची</h2>
+          
+          <!-- Eligibility Quiz -->
+          <div class="eligibility-quiz" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; margin-bottom: 24px; text-align: left;">
+            <h3 style="margin-top: 0; margin-bottom: 16px; font-size: 1.1rem; color: #0f172a; display: flex; align-items: center; gap: 8px;">
+              <i data-lucide="check-circle" class="inline-icon" style="color: #059669;"></i> अपनी पात्रता खोजें (Eligibility Finder)
+            </h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 16px;">
+              <label style="display: flex; align-items: center; gap: 8px; font-size: 0.95rem; cursor: pointer;">
+                <input type="checkbox" class="eligibility-checkbox" value="farmer" style="width:18px;height:18px;" />
+                मैं एक किसान हूँ (I am a farmer)
+              </label>
+              <label style="display: flex; align-items: center; gap: 8px; font-size: 0.95rem; cursor: pointer;">
+                <input type="checkbox" class="eligibility-checkbox" value="senior" style="width:18px;height:18px;" />
+                परिवार में 60+ वर्ष का सदस्य है (Family member 60+)
+              </label>
+              <label style="display: flex; align-items: center; gap: 8px; font-size: 0.95rem; cursor: pointer;">
+                <input type="checkbox" class="eligibility-checkbox" value="bpl" style="width:18px;height:18px;" />
+                राशन कार्ड / BPL परिवार (Ration Card / BPL)
+              </label>
+              <label style="display: flex; align-items: center; gap: 8px; font-size: 0.95rem; cursor: pointer;">
+                <input type="checkbox" class="eligibility-checkbox" value="homeless" style="width:18px;height:18px;" />
+                कच्चा मकान है (Kutcha house)
+              </label>
+            </div>
+          </div>
+
           <label class="scheme-search" for="schemeSearch">
             <i data-lucide="search" class="inline-icon" aria-hidden="true"></i>
             <span class="sr-only">योजना खोजें</span>
@@ -202,6 +228,7 @@
           <article
             class="scheme-card"
             data-category="${scheme.category}"
+            data-tags="${(scheme.tags || []).join(',')}"
             id="scheme-${scheme.id}"
             aria-labelledby="scheme-title-${scheme.id}"
           >
@@ -250,20 +277,33 @@
         const container  = document.getElementById('schemesContainer');
         const emptyState = document.getElementById('schemesEmpty');
         const searchInput = document.getElementById('schemeSearch');
+        const checkboxes = document.querySelectorAll('.eligibility-checkbox');
         let activeFilter = 'all';
 
         function applyFilters() {
           const query = (searchInput?.value || '').trim().toLocaleLowerCase();
+          
+          const selectedTags = Array.from(checkboxes)
+            .filter(cb => cb.checked)
+            .map(cb => cb.value);
+
           let visibleCount = 0;
           container.querySelectorAll('.scheme-card').forEach(card => {
             const matchesCategory = activeFilter === 'all' || card.getAttribute('data-category') === activeFilter;
             const matchesSearch = !query || card.textContent.toLocaleLowerCase().includes(query);
-            const visible = matchesCategory && matchesSearch;
+            
+            const cardTags = card.getAttribute('data-tags').split(',');
+            // If any tags are selected, the card must have ALL selected tags to be eligible
+            const matchesTags = selectedTags.length === 0 || selectedTags.every(tag => cardTags.includes(tag));
+
+            const visible = matchesCategory && matchesSearch && matchesTags;
             card.classList.toggle('hidden', !visible);
             if (visible) visibleCount++;
           });
           emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
         }
+
+        checkboxes.forEach(cb => cb.addEventListener('change', applyFilters));
 
         filterBtns.forEach(btn => {
           btn.addEventListener('click', function () {

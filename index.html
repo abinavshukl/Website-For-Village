@@ -231,6 +231,30 @@
       </div>
     </section>
 
+    <!-- ════ OUR IMPACT STATS ════ -->
+    <section class="impact-stats" aria-labelledby="impactStatsTitle">
+      <div class="container">
+        <h2 id="impactStatsTitle" class="sr-only">हमारा प्रभाव (Our Impact)</h2>
+        <div class="impact-stats__grid">
+          <div class="impact-stat-card">
+            <div class="impact-stat-card__icon"><i data-lucide="users" class="inline-icon"></i></div>
+            <div class="impact-stat-card__number" data-target="1200">0</div>
+            <div class="impact-stat-card__label">नागरिक जुड़े<br/><small>Citizens Reached</small></div>
+          </div>
+          <div class="impact-stat-card">
+            <div class="impact-stat-card__icon"><i data-lucide="file-text" class="inline-icon"></i></div>
+            <div class="impact-stat-card__number" data-target="450">0</div>
+            <div class="impact-stat-card__label">शिकायतें तैयार<br/><small>Complaints Drafted</small></div>
+          </div>
+          <div class="impact-stat-card">
+            <div class="impact-stat-card__icon"><i data-lucide="map" class="inline-icon"></i></div>
+            <div class="impact-stat-card__number" data-target="15">0</div>
+            <div class="impact-stat-card__label">गाँव कवर किए गए<br/><small>Villages Covered</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ════ OFFICIAL SOURCE LINKS ════ -->
     <section class="section" aria-labelledby="officialSourcesTitle">
       <div class="container">
@@ -656,9 +680,14 @@
               <div id="draftOutputBox" style="display:none; margin-top:24px; border: 2px solid #ea580c; border-radius: 8px; overflow:hidden;">
                 <div style="background:#ea580c; color:#fff; padding:12px 16px; font-weight:700; display:flex; justify-content:space-between; align-items:center;">
                   <span>आपका मसौदा तैयार है!</span>
-                  <button type="button" id="copyDraftBtnInner" class="btn btn--sm" style="background:rgba(255,255,255,0.2); border:none; color:#fff; cursor:pointer;">
-                    <i data-lucide="copy" class="inline-icon"></i> कॉपी करें
-                  </button>
+                  <div style="display:flex; gap:8px;">
+                    <button type="button" id="printDraftBtn" class="btn btn--sm" style="background:rgba(255,255,255,0.2); border:none; color:#fff; cursor:pointer;" aria-label="मसौदा प्रिंट करें या PDF में सेव करें">
+                      <i data-lucide="printer" class="inline-icon"></i> प्रिंट / PDF
+                    </button>
+                    <button type="button" id="copyDraftBtnInner" class="btn btn--sm" style="background:rgba(255,255,255,0.2); border:none; color:#fff; cursor:pointer;" aria-label="मसौदा कॉपी करें">
+                      <i data-lucide="copy" class="inline-icon"></i> कॉपी करें
+                    </button>
+                  </div>
                 </div>
                 <textarea id="draftOutputText" readonly style="width:100%; height:250px; padding:16px; border:none; background:#fff7ed; color:#9a3412; font-family:monospace; resize:none;"></textarea>
               </div>

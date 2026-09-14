@@ -337,6 +337,41 @@
     });
   }
 
+  function initImpactStats() {
+    const statCards = document.querySelectorAll('.impact-stat-card__number');
+    if (statCards.length === 0) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const target = entry.target;
+          const endValue = parseInt(target.getAttribute('data-target'), 10) || 0;
+          let startValue = 0;
+          const duration = 2000;
+          const frameRate = 30;
+          const totalFrames = Math.round((duration / 1000) * frameRate);
+          let frame = 0;
+          
+          const counter = setInterval(() => {
+            frame++;
+            const progress = frame / totalFrames;
+            const currentCount = Math.round(startValue + (endValue - startValue) * (1 - Math.pow(1 - progress, 3))); // easeOutCubic
+            target.textContent = currentCount + "+";
+            
+            if (frame === totalFrames) {
+              clearInterval(counter);
+              target.textContent = endValue + "+";
+            }
+          }, 1000 / frameRate);
+          
+          observer.unobserve(target); // Only animate once
+        }
+      });
+    }, { threshold: 0.5 });
+
+    statCards.forEach(card => observer.observe(card));
+  }
+
   function init() {
     setActiveNavLink();
     updateFooterYear();
@@ -345,6 +380,7 @@
     initMobileNav();
     initNewsLocation();
     initNewsTicker();
+    initImpactStats();
   }
 
   if (document.readyState === "loading") {

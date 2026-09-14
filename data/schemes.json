@@ -10,6 +10,7 @@
     "icon": "🌾",
     "description": "छोटे और सीमांत किसानों को प्रति वर्ष ₹6,000 की तीन समान किस्तों में सीधी आय सहायता।",
     "descriptionEn": "Direct income support of ₹6,000/year in 3 instalments to small and marginal farmers.",
+    "tags": ["farmer"],
     "eligibility": [
       "भूमि धारक किसान परिवार (2 हेक्टेयर तक)",
       "आधार कार्ड अनिवार्य",
@@ -33,6 +34,7 @@
     "icon": "🏠",
     "description": "कच्चे मकान में रहने वाले बेघर एवं ग्रामीण गरीब परिवारों को पक्का घर बनाने हेतु ₹1.20 लाख की सहायता।",
     "descriptionEn": "Financial assistance of ₹1.20 lakh to construct a pucca house for rural homeless/poor families.",
+    "tags": ["homeless", "bpl"],
     "eligibility": [
       "SECC 2011 सूची में नाम",
       "कच्चे / जर्जर मकान में निवास",
@@ -56,6 +58,7 @@
     "icon": "👴",
     "description": "वृद्धावस्था, विधवा एवं दिव्यांग पेंशन — प्रति माह ₹500 से ₹1,000 तक सीधे खाते में।",
     "descriptionEn": "Old Age, Widow & Disability pensions — ₹500 to ₹1,000/month directly to bank account.",
+    "tags": ["senior", "bpl"],
     "eligibility": [
       "वृद्धावस्था: 60 वर्ष से अधिक आयु, BPL श्रेणी",
       "विधवा पेंशन: पति की मृत्यु उपरांत, 18–60 वर्ष",
@@ -79,6 +82,7 @@
     "icon": "🏥",
     "description": "गोल्डन कार्ड धारकों को किसी भी सूचीबद्ध अस्पताल में ₹5 लाख तक का निःशुल्क इलाज।",
     "descriptionEn": "Free treatment up to ₹5 lakh at any empanelled hospital for Golden Card holders.",
+    "tags": ["bpl"],
     "eligibility": [
       "SECC 2011 / PMJAY लाभार्थी सूची में नाम",
       "राशन कार्ड (अंत्योदय / प्राथमिकता)",
@@ -102,6 +106,7 @@
     "icon": "🌾",
     "description": "NFSA के तहत पात्र परिवारों को प्रति यूनिट 5 किलो गेहूँ/चावल ₹2–3/किलो की दर पर।",
     "descriptionEn": "5 kg wheat/rice per unit at ₹2–3/kg for eligible NFSA families.",
+    "tags": ["bpl"],
     "eligibility": [
       "अंत्योदय (AAY) या प्राथमिकता (PHH) श्रेणी",
       "निवास प्रमाण पत्र अनिवार्य",
@@ -125,6 +130,7 @@
     "icon": "📋",
     "description": "जनसुनवाई पोर्टल पर शिकायत दर्ज करें और उसकी स्थिति ऑनलाइन ट्रैक करें।",
     "descriptionEn": "File complaints on the Jansunwai portal and track their status online.",
+    "tags": ["farmer", "senior", "bpl", "homeless"],
     "eligibility": [
       "कोई भी UP का नागरिक",
       "मोबाइल नंबर से OTP सत्यापन",

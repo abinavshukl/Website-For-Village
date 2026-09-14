@@ -12,6 +12,6 @@ alwaysApply: false
 
 **Booth finder (`js/booth-finder.js`):** Ward 1–15 → `data/booths.json` (booths 96–101). Not the official ECI site.
 
-**Voter search (`js/voter-search.js`):** No local roll. Redirect users to `https://electoralsearch.eci.gov.in/` with `noopener noreferrer`.
+**Voter search (`js/voter-search.js`):** No local roll and no personal-detail fields on this site. Redirect users directly to `https://sec.up.nic.in/site/PRIVoters.aspx` with `noopener noreferrer`; the official form handles location selections, voter name, father/husband name, and captcha.
 
 When changing UI, keep Hindi copy, disclaimers, and 320px layout intact.

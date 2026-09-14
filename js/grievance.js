@@ -283,6 +283,7 @@
 
     const btnGenerate = document.getElementById("generateDraftBtn");
     const btnCopy = document.getElementById("copyDraftBtnInner");
+    const btnPrint = document.getElementById("printDraftBtn");
     const btnReset = document.getElementById("resetDraftBtn");
     const outputBox = document.getElementById("draftOutputBox");
     const outputText = document.getElementById("draftOutputText");
@@ -326,6 +327,12 @@
         if (typeof window.showToast === "function") {
           window.showToast("मसौदा तैयार है! इसे कॉपी करके जनसुनवाई पोर्टल पर पेस्ट करें।");
         }
+      });
+    }
+
+    if (btnPrint) {
+      btnPrint.addEventListener("click", function () {
+        window.print();
       });
     }
 
