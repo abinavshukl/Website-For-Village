@@ -2536,3 +2536,5 @@ body { background: #f5f0e7; }
      h e a d e r ,   f o o t e r ,   n a v ,   . h e r o ,   . n o t i c e - t i c k e r ,   . a c t i o n - d a s h b o a r d ,   . m o b i l e - b o t t o m - n a v ,   . i m p a c t - s t a t s   {   d i s p l a y :   n o n e   ! i m p o r t a n t ;   }  
  }  
  
+.hero__emblem { color: #ffffff !important; }
+.hero__emblem-icon { color: #ffffff !important; }
