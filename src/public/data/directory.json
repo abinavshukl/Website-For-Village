@@ -1,0 +1,157 @@
+{
+  "administration": [
+    {
+      "title": "जिलाधिकारी (DM)",
+      "titleEn": "District Magistrate",
+      "name": "जिलाधिकारी महोदय",
+      "nameEn": "District Magistrate",
+      "office": "कलेक्ट्रेट, हरदोई",
+      "officeEn": "Collectorate, Hardoi",
+      "phone": "05852-234200",
+      "email": "dmhar@nic.in",
+      "note": "जिले के सर्वोच्च प्रशासनिक अधिकारी",
+      "noteEn": "Highest Administrative Officer",
+      "whatsapp": false
+    },
+    {
+      "title": "उप जिलाधिकारी (SDM)",
+      "titleEn": "Sub Divisional Magistrate (SDM)",
+      "name": "SDM महोदय",
+      "nameEn": "SDM Sir/Madam",
+      "office": "तहसील संडीला, हरदोई",
+      "officeEn": "Tehsil Sandila, Hardoi",
+      "phone": "9454416174",
+      "note": "तहसील स्तरीय प्रशासनिक मामले",
+      "noteEn": "Tehsil Level Administration",
+      "whatsapp": false
+    },
+    {
+      "title": "खंड विकास अधिकारी (BDO)",
+      "titleEn": "Block Development Officer",
+      "name": "BDO महोदय",
+      "nameEn": "BDO Sir/Madam",
+      "office": "विकास खण्ड बेंहदर",
+      "officeEn": "Block Behandar",
+      "phone": "9454464871",
+      "note": "ब्लॉक स्तरीय विकास योजनाएं",
+      "noteEn": "Block Level Development Schemes",
+      "whatsapp": false
+    },
+    {
+      "title": "पंचायत सचिव",
+      "titleEn": "Panchayat Secretary (Sachiv)",
+      "name": "जानकारी उपलब्ध नहीं",
+      "nameEn": "[Secretary Name]",
+      "office": "ग्राम पंचायत 29-बड़ागांव, बेंहदर",
+      "officeEn": "GP Badagaon, Behandar",
+      "phone": "",
+      "note": "ग्राम पंचायत 29-बड़ागांव के सचिव",
+      "noteEn": "Secretary, GP 29-Badagaon",
+      "whatsapp": true
+    },
+    {
+      "title": "लेखपाल",
+      "titleEn": "Lekhpal (Revenue Inspector)",
+      "name": "जानकारी उपलब्ध नहीं",
+      "nameEn": "[Lekhpal Name]",
+      "office": "तहसील संडीला",
+      "officeEn": "Tehsil Sandila",
+      "phone": "",
+      "note": "राजस्व निरीक्षक, हल्का बड़ागांव",
+      "noteEn": "Revenue Inspector, Halka Badagaon",
+      "whatsapp": true
+    }
+  ],
+  "police": [
+    {
+      "title": "थानाध्यक्ष (SHO)",
+      "titleEn": "Station House Officer (SHO)",
+      "name": "थाना प्रभारी",
+      "nameEn": "In-charge Inspector",
+      "office": "थाना कासिमपुर, हरदोई",
+      "officeEn": "Police Station Kashimpur, Hardoi",
+      "phone": "9454403612",
+      "note": "स्थानीय पुलिस स्टेशन",
+      "noteEn": "Local Police Station",
+      "whatsapp": true
+    },
+    {
+      "title": "पुलिस अधीक्षक (SP)",
+      "titleEn": "Superintendent of Police",
+      "name": "पुलिस अधीक्षक महोदय",
+      "nameEn": "Superintendent of Police",
+      "office": "पुलिस अधीक्षक कार्यालय, हरदोई",
+      "officeEn": "SP Office, Hardoi",
+      "phone": "9454400275",
+      "altPhone": "05852-234204",
+      "email": "sphar-up@nic.in",
+      "note": "जिले के सर्वोच्च पुलिस अधिकारी",
+      "noteEn": "Highest Police Officer",
+      "whatsapp": true
+    },
+    {
+      "title": "पुलिस आपातकालीन",
+      "titleEn": "Police Emergency",
+      "name": "उत्तर प्रदेश पुलिस",
+      "nameEn": "Uttar Pradesh Police",
+      "phone": "112",
+      "note": "24×7 आपातकालीन सेवा",
+      "noteEn": "24×7 Emergency Service",
+      "whatsapp": false,
+      "emergency": true
+    }
+  ],
+  "utilities": [
+    {
+      "title": "विद्युत उपकेंद्र (SDO/JE)",
+      "titleEn": "Electricity Substation",
+      "name": "अवर अभियंता (JE)",
+      "nameEn": "Junior Engineer",
+      "office": "विद्युत उपकेंद्र, कासिमपुर / बेंहदर",
+      "officeEn": "Power Substation, Kashimpur",
+      "phone": "1912",
+      "note": "बिजली खराबी / ट्रांसफार्मर शिकायत",
+      "noteEn": "Power Failure / Transformer Fault",
+      "whatsapp": false
+    },
+    {
+      "title": "नलकूप ऑपरेटर",
+      "titleEn": "Tubewell Operator",
+      "name": "जानकारी उपलब्ध नहीं",
+      "nameEn": "[Operator Name]",
+      "office": "राजकीय नलकूप, बड़ागांव",
+      "officeEn": "Govt. Tubewell, Badagaon",
+      "phone": "",
+      "note": "सिंचाई / पेयजल आपूर्ति",
+      "noteEn": "Irrigation / Drinking Water Supply",
+      "whatsapp": true
+    }
+  ],
+  "health": [
+    {
+      "title": "मुख्य चिकित्सा अधिकारी (CMO)",
+      "titleEn": "Chief Medical Officer",
+      "name": "CMO महोदय",
+      "nameEn": "CMO Sir/Madam",
+      "office": "स्वास्थ्य विभाग, हरदोई",
+      "officeEn": "Health Dept, Hardoi",
+      "phone": "05852-232145",
+      "email": "cmohardoi@gmail.com",
+      "note": "जिले के सर्वोच्च चिकित्सा अधिकारी",
+      "noteEn": "Highest Medical Officer",
+      "whatsapp": false
+    },
+    {
+      "title": "ANM / ASHA सेविका",
+      "titleEn": "ANM / ASHA Worker",
+      "name": "जानकारी उपलब्ध नहीं",
+      "nameEn": "[Worker Name]",
+      "office": "उप स्वास्थ्य केंद्र, बड़ागांव",
+      "officeEn": "Sub Health Centre, Badagaon",
+      "phone": "",
+      "note": "टीकाकरण, मातृ स्वास्थ्य",
+      "noteEn": "Vaccination, Maternal Health",
+      "whatsapp": true
+    }
+  ]
+}

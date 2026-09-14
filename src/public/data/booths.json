@@ -1,0 +1,152 @@
+[
+  {
+    "ward": 1,
+    "boothNumber": 96,
+    "room": "कक्ष सं० 1 (प्राथमिक शाखा)",
+    "roomEn": "Room 1 (Primary Wing)",
+    "pollingStation": "41-संविलियन विद्यालय बड़ागांव",
+    "pollingStationEn": "41-Samvilian Vidyalaya Badagaon",
+    "associatedWards": "वार्ड 1 और 2",
+    "associatedWardsEn": "Wards 1 & 2"
+  },
+  {
+    "ward": 2,
+    "boothNumber": 96,
+    "room": "कक्ष सं० 1 (प्राथमिक शाखा)",
+    "roomEn": "Room 1 (Primary Wing)",
+    "pollingStation": "41-संविलियन विद्यालय बड़ागांव",
+    "pollingStationEn": "41-Samvilian Vidyalaya Badagaon",
+    "associatedWards": "वार्ड 1 और 2",
+    "associatedWardsEn": "Wards 1 & 2"
+  },
+  {
+    "ward": 3,
+    "boothNumber": 97,
+    "room": "कक्ष सं० 2 (प्राथमिक शाखा)",
+    "roomEn": "Room 2 (Primary Wing)",
+    "pollingStation": "41-संविलियन विद्यालय बड़ागांव",
+    "pollingStationEn": "41-Samvilian Vidyalaya Badagaon",
+    "associatedWards": "वार्ड 3 और 4",
+    "associatedWardsEn": "Wards 3 & 4"
+  },
+  {
+    "ward": 4,
+    "boothNumber": 97,
+    "room": "कक्ष सं० 2 (प्राथमिक शाखा)",
+    "roomEn": "Room 2 (Primary Wing)",
+    "pollingStation": "41-संविलियन विद्यालय बड़ागांव",
+    "pollingStationEn": "41-Samvilian Vidyalaya Badagaon",
+    "associatedWards": "वार्ड 3 और 4",
+    "associatedWardsEn": "Wards 3 & 4"
+  },
+  {
+    "ward": 5,
+    "boothNumber": 98,
+    "room": "कक्ष सं० 3 (प्राथमिक शाखा)",
+    "roomEn": "Room 3 (Primary Wing)",
+    "pollingStation": "41-संविलियन विद्यालय बड़ागांव",
+    "pollingStationEn": "41-Samvilian Vidyalaya Badagaon",
+    "associatedWards": "वार्ड 5 और 6",
+    "associatedWardsEn": "Wards 5 & 6"
+  },
+  {
+    "ward": 6,
+    "boothNumber": 98,
+    "room": "कक्ष सं० 3 (प्राथमिक शाखा)",
+    "roomEn": "Room 3 (Primary Wing)",
+    "pollingStation": "41-संविलियन विद्यालय बड़ागांव",
+    "pollingStationEn": "41-Samvilian Vidyalaya Badagaon",
+    "associatedWards": "वार्ड 5 और 6",
+    "associatedWardsEn": "Wards 5 & 6"
+  },
+  {
+    "ward": 7,
+    "boothNumber": 99,
+    "room": "कक्ष सं० 4 (प्राथमिक शाखा)",
+    "roomEn": "Room 4 (Primary Wing)",
+    "pollingStation": "41-संविलियन विद्यालय बड़ागांव",
+    "pollingStationEn": "41-Samvilian Vidyalaya Badagaon",
+    "associatedWards": "वार्ड 7, 8 और 9",
+    "associatedWardsEn": "Wards 7, 8 & 9"
+  },
+  {
+    "ward": 8,
+    "boothNumber": 99,
+    "room": "कक्ष सं० 4 (प्राथमिक शाखा)",
+    "roomEn": "Room 4 (Primary Wing)",
+    "pollingStation": "41-संविलियन विद्यालय बड़ागांव",
+    "pollingStationEn": "41-Samvilian Vidyalaya Badagaon",
+    "associatedWards": "वार्ड 7, 8 और 9",
+    "associatedWardsEn": "Wards 7, 8 & 9"
+  },
+  {
+    "ward": 9,
+    "boothNumber": 99,
+    "room": "कक्ष सं० 4 (प्राथमिक शाखा)",
+    "roomEn": "Room 4 (Primary Wing)",
+    "pollingStation": "41-संविलियन विद्यालय बड़ागांव",
+    "pollingStationEn": "41-Samvilian Vidyalaya Badagaon",
+    "associatedWards": "वार्ड 7, 8 और 9",
+    "associatedWardsEn": "Wards 7, 8 & 9"
+  },
+  {
+    "ward": 10,
+    "boothNumber": 100,
+    "room": "कक्ष सं० 5 (जूनियर शाखा)",
+    "roomEn": "Room 5 (Junior Wing)",
+    "pollingStation": "41-संविलियन विद्यालय बड़ागांव",
+    "pollingStationEn": "41-Samvilian Vidyalaya Badagaon",
+    "associatedWards": "वार्ड 10, 11 और 12",
+    "associatedWardsEn": "Wards 10, 11 & 12"
+  },
+  {
+    "ward": 11,
+    "boothNumber": 100,
+    "room": "कक्ष सं० 5 (जूनियर शाखा)",
+    "roomEn": "Room 5 (Junior Wing)",
+    "pollingStation": "41-संविलियन विद्यालय बड़ागांव",
+    "pollingStationEn": "41-Samvilian Vidyalaya Badagaon",
+    "associatedWards": "वार्ड 10, 11 और 12",
+    "associatedWardsEn": "Wards 10, 11 & 12"
+  },
+  {
+    "ward": 12,
+    "boothNumber": 100,
+    "room": "कक्ष सं० 5 (जूनियर शाखा)",
+    "roomEn": "Room 5 (Junior Wing)",
+    "pollingStation": "41-संविलियन विद्यालय बड़ागांव",
+    "pollingStationEn": "41-Samvilian Vidyalaya Badagaon",
+    "associatedWards": "वार्ड 10, 11 और 12",
+    "associatedWardsEn": "Wards 10, 11 & 12"
+  },
+  {
+    "ward": 13,
+    "boothNumber": 101,
+    "room": "कक्ष सं० 6 (जूनियर शाखा)",
+    "roomEn": "Room 6 (Junior Wing)",
+    "pollingStation": "41-संविलियन विद्यालय बड़ागांव",
+    "pollingStationEn": "41-Samvilian Vidyalaya Badagaon",
+    "associatedWards": "वार्ड 13, 14 और 15",
+    "associatedWardsEn": "Wards 13, 14 & 15"
+  },
+  {
+    "ward": 14,
+    "boothNumber": 101,
+    "room": "कक्ष सं० 6 (जूनियर शाखा)",
+    "roomEn": "Room 6 (Junior Wing)",
+    "pollingStation": "41-संविलियन विद्यालय बड़ागांव",
+    "pollingStationEn": "41-Samvilian Vidyalaya Badagaon",
+    "associatedWards": "वार्ड 13, 14 और 15",
+    "associatedWardsEn": "Wards 13, 14 & 15"
+  },
+  {
+    "ward": 15,
+    "boothNumber": 101,
+    "room": "कक्ष सं० 6 (जूनियर शाखा)",
+    "roomEn": "Room 6 (Junior Wing)",
+    "pollingStation": "41-संविलियन विद्यालय बड़ागांव",
+    "pollingStationEn": "41-Samvilian Vidyalaya Badagaon",
+    "associatedWards": "वार्ड 13, 14 और 15",
+    "associatedWardsEn": "Wards 13, 14 & 15"
+  }
+]
