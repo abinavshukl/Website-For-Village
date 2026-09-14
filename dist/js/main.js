@@ -189,9 +189,9 @@
   };
   const NEWS_LOCATION_STORAGE_KEY = 'selectedNewsLocation';
   const NEWS_PROXIES = [
-    (url) => `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(url)}`,
-    (url) => `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`,
-    (url) => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
+    (url) => `https://api.allorigins.win/get?url=${encodeURIComponent(url)}&disableCache=true`,
+    (url) => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}&disableCache=true`,
+    (url) => `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(url)}`
   ];
 
   function parseFeedItems(feedItems, sourceName) {
